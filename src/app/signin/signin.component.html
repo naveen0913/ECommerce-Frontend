@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> eCommerce signin </title>
+   
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  
+
+  <div class="container">
+    <input type="checkbox" id="flip">
+    <div class="cover">
+      <div class="front">
+        <img src="https://img.freepik.com/premium-photo/product-package-boxes-shopping-bag-cart-with-laptop-online-shopping-delivery-concept_38716-138.jpg?size=626&ext=jpg&ga=GA1.1.1587978027.1694689858&semt=sph" alt="">
+        <div class="text">
+         
+        </div>
+      </div>
+      <div class="back">
+        <!--<img class="backImg" src="images/backImg.jpg" alt="">-->
+        <div class="text">
+          <span class="text-1">Complete miles of journey <br> with one step</span>
+          <span class="text-2">Let's get started</span>
+        </div>
+      </div>
+    </div>
+    <div class="forms">
+        <div class="form-content">
+          <div class="login-form">
+            <div class="title">Login</div>
+          <form (ngSubmit)="userLogin()"  method="post" #r=ngForm>
+            <div class="input-boxes">
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Enter your email" id="email" 
+                 name="email"
+                 [(ngModel)]="email"
+                required email />
+              </div>
+
+              <div *ngIf="r.controls['email']?.['touched'] && r.controls['email']?.['errors']" class="error" >
+             <div *ngIf="r.controls['email']?.['errors']?.['required']">
+                      Email is required*
+            </div> 
+              <div *ngIf="r.controls['email']?.['errors']?.['email']" class="error" >Invalid Email*</div>
+            </div>
+
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Enter your password" id="password"  
+                name="password"
+                [(ngModel)]="password"
+                 required minlength="6" />
+              </div>
+              <div *ngIf="r.controls['password']?.['touched'] && r.controls['password']?.['errors']" class="error" >
+                <div *ngIf="r.controls['password']?.['errors']?.['required']">
+                         Password is required*
+               </div> 
+                 <div *ngIf="r.controls['password']?.['errors']?.['minlength']" class="error" >Invalid password*</div>
+               </div>
+            <!--  <div class="text"><a>Forgot password?</a></div> --> 
+              <div class="button input-box">
+                <input type="submit" [disabled]="r.invalid" >
+              </div>
+              <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
+            </div>
+            <h3 class="text-center text-dark" routerLink="/home" style="cursor: pointer;" > Back to 
+              <span style="color: dodgerblue;" >Home</span>  
+            </h3>
+        </form>
+      </div>
+        <div class="signup-form">
+          <div class="title">Signup</div>
+        <form (ngSubmit)="signup()" method="post"  #k=ngForm >
+            <div class="input-boxes">
+              <div class="input-box">
+                <i class="fas fa-user"></i>
+                <input type="text" 
+                 placeholder="Enter your Name"
+                 name="name"
+                 [(ngModel)]="name"
+                  required minlength="3" /> 
+              </div>
+
+              <div *ngIf="k.controls['name']?.['touched'] && k.controls['name']?.['errors']" class="error" >
+                <div *ngIf="k.controls['name']?.['errors']?.['required']" >
+                         Name is required*
+               </div> 
+                 <div *ngIf="k.controls['name']?.['errors']?.['minlength']" class="error" >Required Minimum of 3 Characters*</div>
+               </div>
+
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Enter your email" 
+                name="email"
+                [(ngModel)]="email"
+                required email />
+              </div>
+
+              <div *ngIf="k.controls['email']?.['touched'] && k.controls['email']?.['errors']" class="error" >
+                <div *ngIf="k.controls['email']?.['errors']?.['required']">
+                         Email is required*
+               </div> 
+                 <div *ngIf="k.controls['email']?.['errors']?.['email']" class="error" >Invalid Email*</div>
+               </div>
+
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Enter your password" 
+                
+                name="password"
+                [(ngModel)]="password"
+                required>
+              </div>
+
+              <div *ngIf="k.controls['password']?.['touched'] && k.controls['password']?.['errors']" class="error" >
+                <div *ngIf="k.controls['password']?.['errors']?.['required']">
+                         Password is required*
+               </div> 
+                 <div *ngIf="k.controls['password']?.['errors']?.['minlength']" class="error" >Invalid password*</div>
+               </div>
+              <div class="button input-box">
+                <input type="submit" [disabled]="k.invalid" >
+              </div>
+              <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
+              <h3 class="text-center text-dark" routerLink="/home" style="cursor: pointer;" > Back to 
+                <span style="color: dodgerblue;" >Home</span>  
+              </h3>
+            </div>
+      </form>
+    </div>
+    </div>
+    </div>
+  </div>
+</body>
+</html>

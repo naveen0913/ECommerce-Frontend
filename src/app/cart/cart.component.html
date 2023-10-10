@@ -1,0 +1,137 @@
+<!-- navbar starts-->
+<head>
+<script src ="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+<link rel="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"  crossorigin="anonymous">
+</head>
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/home">
+        <img src="https://www.zilliondesigns.com/blog/wp-content/uploads/Ecommerce-Logo-17.jpg" alt="AVENIDA" class="proma-img" /> 
+        AVENIDA
+     <span style="color: #fff;">Store  </span> 
+       </a>
+      <input class="form-control me-2 w-75" type="search" placeholder="Search" aria-label="Search">
+     
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/home" >Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/check" >wishlist</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/orders" >Orders</a>
+          </li>
+        
+        </ul>
+       
+      </div>
+    </div>
+  </nav>
+
+<!-- navbar ends-->
+
+<!--cart page starts-->
+
+<div class="container-fluid">
+  <div class="row">
+      <aside class="col-lg-8">
+          <div class="card mt-3" style="border-radius: 10px;" >
+              <div class="table-responsive">
+                  <table class="table table-borderless table-shopping-cart" *ngFor="let item of cartItems" >
+                      <thead class="text-muted">
+                          <tr class="small text-uppercase">
+                              <th scope="col">Cart Item</th>
+                              <th scope="col" width="120">Price</th>
+                              <th scope="col" width="120">Remove</th>
+                              <th scope="col" width="120">Buy </th>
+                             
+                          </tr>
+                          
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td>
+                                  <figure class="display-flex d-flex flex-column " >
+
+                                      <div class="aside d-flex flex-column"><img [src]="item.product.image1" class="img-sm">
+                                        <button class="mt-1 view" mat-flat-button color="primary" routerLink="/cartdetail/{{item.id}}" >View Item</button>
+                                      </div>
+                                     
+                                      <figcaption class="info"> <a class="title text-dark" data-abc="true"> {{item.product.name}} </a>
+                                          <p class="text-muted small">Brand: <span class="text-dark" >{{item.product.brandName}}</span>  <br> Size:<span class="text-dark" style="text-decoration: underline;" >{{item.size}}</span> <br> Qty :<span class="text-dark"  style="text-decoration: underline;">  {{item.quantity}} </span> </p>
+                                         
+                                      </figcaption>
+                                  </figure>
+                              </td>
+  
+                              <td >
+                                  <div class="price-wrap"> <var class="price">{{item.product.offerprice}}</var>  </div>
+                              </td>
+                              <td class="text-left " > 
+                                <button mat-fab color="warn" aria-label="Example icon button with a home icon" (click)="deleteCartItem(item.id)" >
+                                  <mat-icon>delete</mat-icon>
+                                </button>
+                                 </td>
+                               <button class="btn btn-outline-warning">Buy</button>
+                          </tr>
+
+                      </tbody>
+                  </table>
+                  
+              </div>
+          </div>
+          
+      </aside>
+      
+     
+      <aside class="col-lg-4">
+          <div class="card mt-3" style="border-radius: 10px;"  *ngFor="let item of cartItems|search:searchtext">
+              <div class="card-body"  >
+               
+                  <dl class="dlist-align" >
+
+                      <dt class="text-muted" >Actual price :  </dt>
+                      <dd class="text-right ml-3" style="text-decoration: line-through; color: red;" > {{item.product.price}} </dd>
+                  </dl>
+                  <dl class="dlist-align text-muted" >
+                      <dt>Discount Price :  </dt>
+                      <dd class="text-right text-danger ml-3" style="color: dodgerblue;"> {{item.product.offerprice}} </dd>
+                  </dl>
+                    
+                  <hr/>
+                   <a > <button mat-raised-button color="accent" class="btn-main  btn-out mt-2" routerLink="/product/{{item.product.id}}" >Back</button>  </a> 
+              </div>
+          </div>
+      </aside>
+      
+
+
+      <div *ngIf="!cartItems">
+        <div class="d-flex flex-row justify-content-center">
+            <div class="d-flex flex-column justify-content-center" >
+                <h3 class="pt-2 pt-3 heading">
+                    It seems your Cart is empty...!
+                </h3>
+                <button class="btn btn-outline-warning mt-3" routerLink="/home" >
+                    Add Items to Cart
+                </button>
+            </div>
+            </div>
+            
+            <div class="d-flex flex-row justify-content-center">
+            <img src="https://img.freepik.com/premium-vector/shopping-cart-with-cross-mark-wireless-paymant-icon-shopping-bag-failure-paymant-sign-online-shopping-vector_662353-912.jpg?size=626&ext=jpg&ga=GA1.1.1587978027.1694689858&semt=ais"
+                  class="img"  
+            />
+            </div>
+        </div>
+        
+  </div>
+</div>
+
+

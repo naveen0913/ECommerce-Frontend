@@ -1,0 +1,153 @@
+
+<!-- navbar starts-->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/home">
+      <img src="https://www.zilliondesigns.com/blog/wp-content/uploads/Ecommerce-Logo-17.jpg" alt="proma" class="proma-img"/> 
+      AVENIDA <span style="color: #fff;"> Store
+      </span> </a>
+    <input class="form-control me-2 w-75" type="search" placeholder="Search" aria-label="Search">
+   
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/home" >Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/cart" >Cart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/check" >Wishlist</a>
+        </li>
+        <li class="nav-item dropdown dropstart">
+          <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Profile
+          </a>
+
+          <ul class="dropdown-menu ">
+             
+            <div *ngIf="!user">
+              <li><a class="dropdown-item" routerLink="/signin">Login/Signup
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+                  <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+                </svg>
+              </a></li>
+            </div>
+           
+            <div *ngIf="user">
+              <li><a class="dropdown-item" routerLink="/user/{{user}}" >My Account
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
+              </a></li>
+              <li><a class="dropdown-item" routerLink="/home" (click)="logout()" >
+                logout
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                  <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                </svg>
+              </a></li>
+            </div>
+        </ul>
+
+        </li>
+      </ul>
+     
+    </div>
+  </div>
+</nav>
+
+<!-- navbar ends-->
+
+<!-- order page starts -->
+<div *ngIf="orders">
+<section class="vh-100 gradient-custom-2">
+  
+    <div class="container py-5 h-100">
+      <h6 class="mb-0 text-muted text-center"> <a class="fw-bold text-muted" style="font-size: larger; margin-left: 15px;" >My Orders <span class="text-dark" > ({{orders.length}}) </span>  </a> </h6>
+      <div class="row d-flex justify-content-center align-items-center h-100" >
+        <div class="col-md-10 col-lg-8 col-xl-6"   >
+          <div class="card card-stepper" style="border-radius: 16px;">
+            <div class="card-header p-4"  *ngFor="let order of orders" >
+              <div class="d-flex justify-content-between align-items-center" >
+                  <p class="text-muted mb-2"> Order ID <span class="fw-bold text-dark"> {{order.id}} </span></p>
+                  <p class="text-muted mb-0"> Placed On <span class="fw-bold text-dark" >{{order.orderedDate}}</span> </p>
+               
+                <div>
+                </div>
+              </div>
+            </div>
+            <div class="card-body p-4" >
+              <div class="d-flex flex-row mb-4 pb-2"  *ngFor="let order of orders">
+                <div class="flex-fill">
+                  <h3 class="bold"> {{order.product.name}} </h3>
+                  <h3 class="text-muted" > category : <span class="text-dark"> {{order.product.categoryName}} </span>  </h3>
+                  <h3 class="text-muted" > Brand : <span class="text-dark"> {{order.product.brandName}}</span>   </h3>
+                  <p class="text-muted" > size : <span class="text-dark" > {{order.size}} </span> </p>
+                  <p class="text-muted"> Quantity: <span class="text-dark"> {{order.quantity}}</span>  </p>
+                  <h4 class="mb-3 text-muted">Amount : {{order.product.offerprice}} <span class="small text-dark"> via ({{order.payment}}) </span></h4>
+                  <h3 class="mb-3 text-muted"> status : <span class="text-dark" > {{order.status}} </span> </h3>
+                  
+                  <h2 style="font-family: 'Times New Roman', Times, serif; text-decoration: underline; " class="text-dark"> Delivering to Address  </h2>
+                  <p class="text-muted" > Name:<span class="text-dark" > {{order.name}}</span>  </p>
+                  <p class="text-muted"> Contact: <span class="text-body"> {{order.phone}} </span></p>
+                  <p class="text-muted"> Shipping Address : <span class="text-body"> {{order.address}} </span> </p>
+                  <hr/>
+                </div>
+               
+                <div class="d-flex flex-column" >
+                  <img class="align-self-center img-fluid"
+                    [src]="order.product.image1" width="250">
+                    <br>
+                    <div>
+                        <button class="btn btn-outline-danger button" (click)="deleteOrder(order.id)" > Delete order </button>
+                    </div>
+                   
+                </div>
+              </div>
+             
+            </div>
+            <div class="card-footer p-4" >
+              <div class="d-flex justify-content-between">
+                <button class="btn btn-outline-dark" routerLink="/home" >Go back</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</div>
+
+<!-- order page ends  -->
+
+<div *ngIf="!orders">
+  <div class="d-flex flex-row justify-content-center">
+      <div class="d-flex flex-column justify-content-center" >
+          <h3 class="pt-2 pt-3 heading">
+              Not, Yet ordered...!
+          </h3>
+          <button class="btn btn-outline-warning mt-3" routerLink="/home" >
+              place order
+          </button>
+      </div>
+      </div>
+      
+      <div class="d-flex flex-row justify-content-center">
+      <img src="https://img.freepik.com/premium-vector/boy-doing-online-shopping-mobile_118167-6942.jpg?size=626&ext=jpg&ga=GA1.1.1587978027.1694689858&semt=ais"
+            class="img"  
+      />
+    </div>
+</div>
+
+
+    

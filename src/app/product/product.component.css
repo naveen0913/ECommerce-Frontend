@@ -1,0 +1,43 @@
+.price{
+  color: red;
+  text-decoration: line-through;
+  font-family: 'Times New Roman', Times, serif;
+}
+.products{
+  color: maroon;
+  font-size: large;
+  font-family: 'Times New Roman', Times, serif;
+}
+.stock{
+  color: brown;
+  font-family: 'Times New Roman', Times, serif;
+}
+.offer{
+  color: darkcyan;
+  font-family: 'Times New Roman', Times, serif;
+}
+.button{
+  margin-left: .5rem;
+}
+.radio{
+  font-size: large;
+}
+.proma-img {
+  width: 60px;
+  height: 45px;
+  border-radius: 10px;
+}
+.img-c{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 730px)  {
+  .img-c{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

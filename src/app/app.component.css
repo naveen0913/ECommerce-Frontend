@@ -1,0 +1,45 @@
+.navbar-brand{
+    color: brown;
+    font-weight: 700;
+    font-family: "roboto";
+}
+.navbar{
+    background-color: dodgerblue;
+}
+.in{
+    color: black;
+}
+
+.img{
+    width: 60px;
+    height: 35px;
+    border-radius: 9px;
+}
+
+.nav-link{
+    font-size: 20px;
+    font-weight: 300;
+    font-family: 'Times New Roman', Times, serif;
+}
+.button{
+    margin-left: .5rem;
+}
+.icon-bag{
+    font-size: large;
+    margin-left:1rem;
+}
+.icon-heart{
+    font-size: large;
+    margin-left:1.7rem;
+}
+.icon{
+    font-size: 19px;
+    margin-left:1.4rem;
+}
+.icon-profile{
+    font-size: 20px;
+    margin-left:1.3rem;
+}
+.icon-search{
+    font-size: large;
+}
