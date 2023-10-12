@@ -35,6 +35,8 @@ import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog
 import { DialogComponent } from './dialog/dialog.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatChipsModule} from '@angular/material/chips';
+import { SizeDialogComponent } from './size-dialog/size-dialog.component';
+import { DialogQuantityComponent } from './dialog-quantity/dialog-quantity.component';
 const routes:Routes=[
   {
     path:"",redirectTo:'home',pathMatch:'full'
@@ -64,7 +66,9 @@ const routes:Routes=[
   {
     path:'cartdetail/:cartid',component:CartdetailComponent
   },
-
+  {
+    path:'cart/:cartid',component:SizeDialogComponent
+  }
 ]
 
 @NgModule({
@@ -80,6 +84,8 @@ const routes:Routes=[
     CartdetailComponent,
     SearchPipe,
     DialogComponent,
+    SizeDialogComponent,
+    DialogQuantityComponent,
     
   ],
   imports: [

@@ -1,0 +1,35 @@
+<script src="https://kit.fontawesome.com/d07a33751b.js" crossorigin="anonymous"></script>
+<div>
+    <div class="top-container" *ngIf="cartitem">
+   
+     <img [src]="cartitem.product.image1" alt="item" class="item-image"/>
+     <div class="details-container"> 
+        <p class="product" > <strong> {{cartitem.product.brandName}}</strong>  </p>
+        <p class="product" > {{cartitem.product.name}} </p> 
+        <p class="product" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+            <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z"/>
+          </svg>
+              {{cartitem.product.offerprice}}  <span style="text-decoration: line-through;" class="text-muted" > {{cartitem.product.price}} </span>
+        </p>
+    </div>
+    </div>
+    <div class="btm-container">
+        <div class="b-container">
+        <p class="product" > <strong> Select Size</strong> </p>
+        <div class="size-c">
+            <mat-chip-listbox >
+                <mat-chip-option>S</mat-chip-option>
+                <mat-chip-option>M</mat-chip-option>
+                <mat-chip-option>L</mat-chip-option>
+                <mat-chip-option>XL</mat-chip-option>
+                <mat-chip-option>XXL</mat-chip-option>
+            </mat-chip-listbox>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div >
+    <button mat-raised-button color="primary" mat-button mat-dialog-close cdkFocusInitial class="save-btn" >SAVE DETAILS</button>
+</div>

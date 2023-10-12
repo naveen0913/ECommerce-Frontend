@@ -1,0 +1,26 @@
+.item-image{
+    width: 60px;
+    height: 80px;
+}
+.product{
+    margin-left:.5rem;
+}
+.top-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 1rem;
+    margin-left: .5rem;
+    overflow: hidden;
+    
+}
+.hr{
+    width: 100%;
+}
+.btn-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}

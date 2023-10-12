@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { MatDialog } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
-
+import { SizeDialogComponent } from '../size-dialog/size-dialog.component';
+import { DialogQuantityComponent } from '../dialog-quantity/dialog-quantity.component';
+  
 
 @Component({
   selector: 'app-cart',
@@ -17,7 +19,7 @@ export class CartComponent implements OnInit{
   size:any=''
   searchtext:any;
   total:number=0
-
+  cartItem:any;
 
   constructor(private productservice:ProductService,private route:ActivatedRoute,private http:HttpClient,public dialog: MatDialog) {
     
@@ -32,8 +34,7 @@ export class CartComponent implements OnInit{
 
   }
  
-  deleteCartItem(id:string):void{
-
+  /*deleteCartItem(id:string):void{
     this.http.delete("http://localhost:8080/products/cart/del/"+id).subscribe((response)=>{
       response=this.cartItems     
       console.log("successfully deleted",this.cartItems);
@@ -42,9 +43,36 @@ export class CartComponent implements OnInit{
     })
 
   }
+*/
+  getCartItem(id:string):void{
+    this.http.get("http://localhost:8080/products/cart/item"+id).subscribe((item)=>{
+      console.log(item);
+      this.cartItem=item
+    })
+  }
 
-  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(DialogComponent, {
+  openDialog(item:any,enterAnimationDuration: string, exitAnimationDuration: string): void { 
+    console.log("item deleted",item);     
+      this.dialog.open(DialogComponent, {
+      width: '350px',
+      height:'180px',
+      data:item,
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  }
+  openDialogSize(item:any,enterAnimationDuration: string, exitAnimationDuration: string): void {
+    console.log("event  data",item.id)
+    this.dialog.open(SizeDialogComponent, {
+      width: '280px',
+      height:'250px',
+      data:item,
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  }
+  openDialogQuantity(item:any,enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(DialogQuantityComponent, {
       width: '250px',
       enterAnimationDuration,
       exitAnimationDuration,

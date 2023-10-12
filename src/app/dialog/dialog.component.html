@@ -1,11 +1,19 @@
 
-<div class="d-flex flex-column justify-content-center" >
-    <h2 class="text-center mt-1" > Delete Item </h2>
-    <p class="text-center text-muted" >Are you sure want to delete ?</p>
-    <div mat-dialog-actions  >
-        <button mat-button mat-dialog-close>NO</button>
-        <div >
-          <button mat-button mat-dialog-close cdkFocusInitial  *ngFor="let item of cartItems" (click)="deleteCartItem(item.id)" >Yes</button>
-        </div>
-      </div>
+
+
+<div>
+  <div class="top-container" *ngIf="cartitem">
+ 
+   <img [src]="cartitem.product.image1" alt="item" class="item-image"/>
+   <div class="details-container"> 
+      <p class="product" > <strong> {{cartitem.product.brandName}}</strong>  </p>
+      <p class="product text-muted"> Are you sure want to move this item <br>
+         from bag? </p>
+         <hr class="hr mt-4"/>
+  </div>
+  </div>
+  <div class="btn-container">
+    <button mat-button (click)="deleteCartItem(cartitem.id)" >Remove</button>
+    <button mat-button>Move to WishList</button>
+   </div>
 </div>

@@ -99,7 +99,7 @@ export class ProductService {
   }
 
   deleteCartItem(id:string):Observable<any>{
-    return this.http.delete("http://localhost:8080/products/cart/del/"+id)
+    return this.http.delete<any>(`http://localhost:8080/products/cart/del/${id}`)
   }
 
 /*
