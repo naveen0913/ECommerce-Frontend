@@ -1,0 +1,11 @@
+
+<div class="d-flex flex-column justify-content-center" >
+    <h2 class="text-center mt-1" > Delete Item </h2>
+    <p class="text-center text-muted" >Are you sure want to delete ?</p>
+    <div mat-dialog-actions  >
+        <button mat-button mat-dialog-close>NO</button>
+        <div >
+          <button mat-button mat-dialog-close cdkFocusInitial  *ngFor="let item of cartItems" (click)="deleteCartItem(item.id)" >Yes</button>
+        </div>
+      </div>
+</div>

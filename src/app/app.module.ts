@@ -27,8 +27,14 @@ import { CommonModule } from '@angular/common';
 import { UserComponent } from './user/user.component';
 import { CartdetailComponent } from './cartdetail/cartdetail.component';
 import { SearchPipe } from './search.pipe';
-
-
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { FlexLayoutModule } from "@angular/flex-layout";
+import {MatListModule} from '@angular/material/list';
+import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatChipsModule} from '@angular/material/chips';
 const routes:Routes=[
   {
     path:"",redirectTo:'home',pathMatch:'full'
@@ -73,6 +79,7 @@ const routes:Routes=[
     UserComponent,
     CartdetailComponent,
     SearchPipe,
+    DialogComponent,
     
   ],
   imports: [
@@ -88,7 +95,14 @@ const routes:Routes=[
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    MatToolbarModule,
+    MatListModule,
+    MatSidenavModule,
+    FlexLayoutModule,
+    MatMenuModule,
+    MatDialogModule,
+    MatChipsModule
   ], 
   
   providers: [SigninService,ProductService], 

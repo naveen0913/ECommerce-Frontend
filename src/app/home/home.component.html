@@ -12,8 +12,10 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <link rel="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"  crossorigin="anonymous">
   <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+ 
 </head>
 
+<!--
 <nav class="navbar navbar-expand-lg  navbar-dark bg-light sticky-top ">
     <div class="container-fluid">
       <a class="navbar-brand text-dark" routerLink="/home" >
@@ -90,48 +92,172 @@
     </div>
   </nav>
 
-<!--
-    navbar ends
 -->
-<!--home page starts-->
-<div class="explore-menu-section pt-3 pb-1" >
-    <div class="container">
-        <div class="row">
-              <div class="col-12 mt-2 text-left">
-                <h2 class="menu-section-heading"> Welcome back..! <span class="products" > Explore the products </span> </h2>
-            </div>
 
-            <div class="input-group">   
-<div class="col-12 col-md-6 col-lg-3 mt-2" *ngFor="let item of products|search:searchtext">
-    <div class="menu-item-card shadow p-3 mb-3" >
-        <div>
-            <p>
-                <img [src]="item.image2" class="menu-item-image w-100"  />
-            </p>
-            <p> {{item.name}} </p>
-            <p> offer Price : <span> {{item.offerprice}} </span> </p>
-        <!--
-             <a  class="menu-item-link" [routerLink]="['/product/',item.id]"> View Product </a
-        -->   
-            <div class="view-conatiner" >
-            <a  class="menu-item-link" routerLink="/product/{{item.id}}"> View Product </a>   
-            </div>
-            
+<div style="height: 100vh;">
+  <mat-toolbar color="primary"  class="nav" >
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <img src="https://www.zilliondesigns.com/blog/wp-content/uploads/Ecommerce-Logo-17.jpg" alt="AVENIDA" class="proma-img" routerLink="/home"/>
+      <span style="margin-left: 10px; cursor: pointer;" routerLink="/home" >AVENIDA </span>
+      <span style="margin-left: 30px; " > MEN </span>
+      <span style="margin-left: 20px;" >WOMEN</span>
+      <span style="margin-left: 20px;" >KIDS</span>
+    
+      <span class="menu-spacer"></span>
+      <div class="search-hero">
+        <input class="form-control" type="text" name="search"  autocomplete="off" placeholder="&#61442; Search " >
+      </div>
+      
+      <div fxShow="true" fxHide.lt-md>
+        <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+      <button mat-button [matMenuTriggerFor]="menu">PROFILE</button>
+      <mat-menu #menu="matMenu">
+        <div *ngIf="!user">
+          <button mat-menu-item routerLink="/signin" >Signup/Login
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+              <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+            </svg>
+          </button>
         </div>
-    </div>
-</div>
-</div>
-</div>
-<br>
-<hr/>
-   
-<div *ngIf="!products">
-    <h1>
-        Loading data....
-    </h1>
-</div>
+      <div *ngIf="user">
+        <button mat-menu-item routerLink="/user/{{user}}" >My Account
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+          </svg>
+        </button>
+        <button mat-menu-item routerLink="/logout" >Logout
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+            <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+          </svg>
+        </button>
+      </div>
+      </mat-menu>
+        <a routerLink="/cart" mat-button>BAG</a>
+        <a routerLink="/check" mat-button>WISHLIST</a>
+        <a routerLink="/orders" mat-button>ORDERS</a>
+        
+        </div>
+          </mat-toolbar-row>
+  </mat-toolbar>
 
-<!-- Footer section -->
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <button mat-button [matMenuTriggerFor]="menu">PROFILE</button>
+        <mat-menu #menu="matMenu">
+         <button mat-menu-item>My Account</button>
+         <button mat-menu-item>Logout</button>
+        </mat-menu>
+          <a routerLink="/cart" mat-button>BAG</a>
+          <a routerLink="/check" mat-button>WISHLIST</a>
+          <a routerLink="/orders" mat-button>ORDERS</a>
+        <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>
+
+    <!--sliding images-->
+      <section class="slider_container">
+        <section class="slider">
+            <div class="slide one">
+                <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-UHP-11102023-uhphim-z13-p5-spykar-mufti-min50.jpg" alt="image1"/>
+                <span > 
+                </span>
+            </div>
+            <div class="slide two">
+              <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-UHP-11102023-uhphim-z13-p1-USPA-spykar-min55.jpg" alt="image2"/>
+              <span>
+              </span>
+          </div>
+          <div class="slide three">
+              <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-UHP-11102023-JIT-3-Z13-Dillinger-Thebearhouse-Min60.jpg" alt="image3"/>
+              <span>
+              </span>
+          </div>
+          <div class="slide four">
+              <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-UHP-11102023-MainBannerDailyChanging-Z1-P4-CrocsAdidasOriginals-min35.jpg" alt="image4"/>
+              <span>   
+              </span>
+          </div>
+          <div class="slide five">
+              <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-UHP-11102023-uhphim-z13-p3-uspa-americaneagle-upto50.jpg" alt="image5"/>
+              <span>
+            </span>
+        </div>
+    </section>
+</section>
+<!--sliding men-c ends-->
+<!-- sliding bank-offers starts-->
+<section class="slider_container1">
+  <section class="slider1">
+      <div class="slide one">
+          <img src="https://assets.ajio.com/cms/AJIO/WEB/Paytm-1440x128%202.jpg" alt="image1"/>
+          <span >
+          </span>
+      </div>
+      <div class="slide two">
+        <img src="https://assets.ajio.com/cms/AJIO/WEB/federal%20des.png" alt="image2"/>
+        <span>
+        </span>
+    </div>
+    <div class="slide three">
+        <img src="https://assets.ajio.com/cms/AJIO/WEB/IDFC-1440x128-1.jpg" alt="image3"/>
+        <span>
+        </span>
+    </div>
+    <div class="slide four">
+        <img src="https://assets.ajio.com/cms/AJIO/WEB/Fi%20Credit%20Cards-1440x128.jpg" alt="image4"/>
+        <span>   
+        </span>
+    </div>
+    <div class="slide five">
+      <img src="https://assets.ajio.com/cms/AJIO/WEB/2192023-PLPStrip-RelianceOne-Points-1440x128.jpg" alt="image4"/>
+        <span>   
+        </span>
+  </div>
+    
+</section>
+</section>
+<!-- sliding bank-offers ends-->
+<!--slider women-c starts-->
+<section class="slider_container">
+  <section class="slider">
+      <div class="slide one">
+          <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-UHP-111023-UHPHER-Z14-3-STYLI-USPA-MIN60.jpg" alt="image1"/>
+          <span >
+          </span>
+      </div>
+      <div class="slide two">
+        <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-WHP-111023-TOPBANNER-BU-Z4-3-HARPA-ALSACE-FLAT55.jpg" alt="image2"/>
+        <span>
+        </span>
+    </div>
+    <div class="slide three">
+        <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-UHP-111023-UHPHER-Z14-5-PUMA-CAMPUS-FLAT50.jpg" alt="image3"/>
+        <span>
+        </span>
+    </div>
+    <div class="slide four">
+        <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-WHP-111023-TOPBANNER-BU-Z4-5-STEVEMADDEN-ALDO-UPTO60.jpg" alt="image4"/>
+        <span>   
+        </span>
+    </div>
+    <div class="slide five">
+        <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-UHP-11102023-uhphim-z13-p3-uspa-americaneagle-upto50.jpg" alt="image5"/>
+        <span>
+      </span>
+  </div>
+</section>
+</section>
+<!--slider women-c ends-->
+<!-- footer starts-->
+
 <br>    
 <div class="bg-container1 pb-5">
   <div class="container ">
@@ -213,7 +339,54 @@
   </div>
   </div>
 </div>
-<!--footer section ends-->
+<!--footer ends-->
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
+<!--
+    navbar ends
+-->
+<!--home page starts--
+<div class="explore-menu-section pt-3 pb-1" >
+    <div class="container">
+        <div class="row">
+              <div class="col-12 mt-2 text-left">
+                <h2 class="menu-section-heading"> Welcome back..! <span class="products" > Explore the products </span> </h2>
+            </div>
+
+            <div class="input-group">   
+<div class="col-12 col-md-6 col-lg-3 mt-2" *ngFor="let item of products|search:searchtext">
+    <div class="menu-item-card shadow p-3 mb-3" >
+        <div>
+            <p>
+                <img [src]="item.image2" class="menu-item-image w-100"  />
+            </p>
+            <p> {{item.name}} </p>
+            <p> offer Price : <span> {{item.offerprice}} </span> </p>
+        
+             <a  class="menu-item-link" [routerLink]="['/product/',item.id]"> View Product </a
+          
+            <div class="view-conatiner" >
+            <a  class="menu-item-link" routerLink="/product/{{item.id}}"> View Product </a>   
+            </div>
+            
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<br>
+<hr/>
+<!--->
+   
+<div *ngIf="!products">
+    <h1>
+        Loading data....
+    </h1>
+</div>
+
 <!-- home page ends -->
     
 

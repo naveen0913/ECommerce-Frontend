@@ -1,6 +1,177 @@
 @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
 
+.search-hero {
+    max-width: 500px;
+    padding-bottom: 50px;
+    margin:auto;
+  }
+  
+  .form-control {
+    margin-top: .8rem;
+    margin-left: .3rem;
+  }
+  .form-control::placeholder  {
+    font-family: FontAwesome;
+  }
 
+body {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(29, 29, 29);
+}
+  
+.slider_container {
+    position: relative;
+    width: 100%;
+    min-width: 50rem;
+    height: 30rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    margin-top: .2rem;
+    margin-bottom: .1rem;
+}
+  
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    animation: 20s cubic-bezier(1, 0.95, 0.565, 1) sliding infinite;
+}
+  
+.slide {
+    position: relative;
+    min-width: 100%;
+    height: 100%;
+}
+  
+  .slide img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .slide .caption {
+    position: absolute;
+    left: 0;
+    bottom: 5%;
+    font-size: 5rem;
+    font-weight: 600;
+    color: white;
+    text-transform: capitalize;
+    background: rgba(0, 0, 0, 0.348);
+    backdrop-filter: blur(10px);
+    padding: 1rem 5rem;
+    border-radius: 0 2rem 2rem 0;
+  }
+  
+  .slide.one {
+    background: rgb(182, 19, 109);
+  }
+  .slide.two {
+    background: rgb(255, 64, 64);
+  }
+  .slide.three {
+    background: rgb(11, 173, 188);
+  }
+  .slide.four {
+    background: rgb(11, 188, 14);
+  }
+  .slide.five {
+    background: rgb(173, 11, 188);
+  }
+  
+  @keyframes sliding {
+    0% {
+      transform: translateX(0%);
+    }
+    20% {
+      transform: translateX(0%);
+    }
+    25% {
+      transform: translateX(-100%);
+    }
+    45% {
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(-200%);
+    }
+    70% {
+      transform: translateX(-200%);
+    }
+    75% {
+      transform: translateX(-300%);
+    }
+    95% {
+      transform: translateX(-300%);
+    }
+    100% {
+      transform: translateX(-400%);
+    }
+  }
+/* offers-images sliding*/
+.slider_container1 {
+    position: relative;
+    width: 100%;
+    min-width: 50rem;
+    height: 14rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    margin-top: .2rem;
+    margin-bottom: .1rem;
+}
+.slider1 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    animation: 24s cubic-bezier(1, 0.95, 0.565, 1) sliding infinite;
+}
+.slide1 img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .slide1 .caption {
+    position: absolute;
+    left: 0;
+    bottom: 5%;
+    font-size: 5rem;
+    font-weight: 600;
+    color: white;
+    text-transform: capitalize;
+    background: rgba(0, 0, 0, 0.348);
+    backdrop-filter: blur(10px);
+    padding: 1rem 5rem;
+    border-radius: 0 2rem 2rem 0;
+  }
+
+
+
+.menu-spacer{
+    flex: 1 1 auto;
+}
+
+.nav{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  
+}
 
 .products{
     color:  #d0b200;
@@ -21,7 +192,7 @@
 }
 
 .proma-img {
-    width: 60px;
+    width: 70px;
     height: 45px;
     border-radius: 10px;
 }
@@ -31,20 +202,6 @@
     font-family: "Roboto";
 }
 
-#navItem2 {
-    color: #323f4b;
-    font-family: "Roboto";
-}
-
-#navItem3 {
-    color: #323f4b;
-    font-family: "Roboto";
-}
-
-#navItem4 {
-    color: #323f4b;
-    font-family: "Roboto";
-}
 
 .banner-section-bg-container {
     background-image: url("https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/foodmunch-banner-bg.png");
@@ -86,8 +243,6 @@
     border-color: #d0b200;
     border-radius: 8px;
 }
-
-
 
 .explore-menu-section {
     background-color: white;

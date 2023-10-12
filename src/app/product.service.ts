@@ -98,6 +98,10 @@ export class ProductService {
     return this.http.get<any>("http://localhost:8080/products/cart/item/"+id)
   }
 
+  deleteCartItem(id:string):Observable<any>{
+    return this.http.delete("http://localhost:8080/products/cart/del/"+id)
+  }
+
 /*
   removecartItem(product:any){
     const index=this.cartItems.indexOf(product);

@@ -1,4 +1,4 @@
-<!-- navbar starts-->
+<!-- navbar starts--
 <head>
 <script src ="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
 <link rel="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"  crossorigin="anonymous">
@@ -34,7 +34,141 @@
     </div>
   </nav>
 
-<!-- navbar ends-->
+ navbar ends-->
+<head>
+</head>
+       <!-- angular navbar starts-->
+
+<div style="height: 100vh;">  
+  <mat-toolbar color="primary" class="nav" >
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <img src="https://www.zilliondesigns.com/blog/wp-content/uploads/Ecommerce-Logo-17.jpg" alt="AVENIDA" class="proma-img" routerLink="/home"/>
+      <span style="margin-left: 10px; cursor: pointer;" routerLink="/home"  >AVENIDA </span>
+    
+      <span class="menu-spacer"></span>
+     
+      <div class="search-hero">
+        <input class="form-control" type="text" name="search"  autocomplete="off" placeholder="&#61442;  Search">
+      </div>
+      <div fxShow="true" fxHide.lt-md>
+        <a  mat-button routerLink="/home" >HOME</a>
+        <a  mat-button routerLink="/check" >WISHLIST</a>
+        <a  mat-button routerLink="/orders" >ORDERS</a>
+        </div>
+      </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <a  mat-list-item routerLink="/home" >HOME</a>
+        <a  mat-list-item routerLink="/check" >WISHLIST</a>
+        <a  mat-list-item routerLink="/orders" >ORDERS</a>
+        <a (click)="sidenav.toggle()"  mat-list-item>Close</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>
+
+      <div class="" >
+      <div class="container-fluid">
+        <div class="row">
+          <div class=" col-lg-8 col-md-4 mt-3 mb-1">
+
+            <div class="cart-container card" *ngFor="let item of cartItems|search:searchtext"> 
+              <img [src]="item.product.image1" class="img-sm" alt="image1" />
+              <div class="detail-conatiner">
+                <h2 class="text-dark" > {{item.product.brandName}} </h2>
+                
+                <p class="text-muted" style="font-family: roboto;" > {{item.product.name}} </p>
+                <p> Category : {{item.product.categoryName}} </p>
+                <div class="size-container">
+                  
+                    <mat-form-field class="select" >
+                      <mat-label class="size-label">Size: {{item.size}} </mat-label>
+                      <mat-select class="select-size" >
+                        <mat-option >none</mat-option>
+                        <mat-option value="option1">S</mat-option>
+                        <mat-option value="option1">M</mat-option>
+                        <mat-option value="option2">L</mat-option>
+                        <mat-option value="option3">XL</mat-option>
+                        <mat-option value="option2">XXL</mat-option>
+                        <mat-option value="option3">XXXL</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                   
+                  <p>
+                    <mat-form-field class="select-Qty" >
+                      <mat-label class="text-dark">Qty: {{item.quantity}} </mat-label>
+                      <mat-select  >
+                        <mat-option >none</mat-option>
+                        <mat-option value="option1">1</mat-option>
+                        <mat-option value="option1">2</mat-option>
+                        <mat-option value="option2">3</mat-option>
+                        <mat-option value="option3">4</mat-option>
+                        <mat-option value="option2">5</mat-option>
+                        <mat-option value="option3">6</mat-option>
+                        <mat-option value="option2">7</mat-option>
+                        <mat-option value="option3">8</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </p>
+
+                </div>
+              <p class="card-text" style="margin-left: 10px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                  <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z"/>
+                </svg> {{item.product.offerprice}}     <span class="text-muted icon" > {{item.product.price}} </span>
+              </p>
+              <p> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
+              </svg> <span class="text-dark"> 30 Days </span> <span class="return" > return available </span>
+             </p>
+              </div>
+
+              <div class="d-flex flex-row justify-content-end">
+                <button mat-raised-button (click)="openDialog('0ms', '0ms')" class="button" >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg into-icon" viewBox="0 0 16 16">
+                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                  </svg>
+                </button>
+              </div>
+              
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-1" >
+            <div class="card mt-3 mb-2" style="border-radius: 4px;">
+              <div class="card-body" >
+               <p> PRICE DETAILS(0) </p>
+               <div class="price-container">
+                Total MRP  : 
+                <br>
+                Offer Price : 
+                <br>
+                Delivery Fee : 20 Rs
+               </div>
+               <hr/>
+               <button class="btn btn-outline-warning form-control">PLACE ORDER</button>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      </div>
+
+      
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div> 
+
+      <!-- angular navbar ends -->
+
+
 
 <!--cart page starts-
 
@@ -109,25 +243,9 @@
           </div>
       </aside> -->
 
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-8">
-            <div class="cart-container" *ngFor="let item of cartItems">
-              <img [src]="item.image1" class="img-sm" alt="image1" />
-              <div class="detail-conatiner">
-                <h2 class="text-dark" > {{item.product.brandName}} </h2>
-                <p class="text-muted" style="font-family: roboto;" > {{item.product.name}} </p>
-                <p> Size : {{item.size}}  </p>
-                <p> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
-                  <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z"/>
-                </svg> {{item.product.offerprice}}
-              </p>
-              </div>
-             
-            </div>
-          </div>
-        </div>
-      </div>
+
+
+
       
 
 
@@ -151,7 +269,5 @@
             </div>
         </div>
         
-  </div>
-</div>
-
+  
 

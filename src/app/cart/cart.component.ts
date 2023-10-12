@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
+
 
 @Component({
   selector: 'app-cart',
@@ -13,14 +16,18 @@ export class CartComponent implements OnInit{
   cartItems:any[]=[]
   size:any=''
   searchtext:any;
+  total:number=0
 
-  constructor(private productservice:ProductService,private route:ActivatedRoute,private http:HttpClient) {
+
+  constructor(private productservice:ProductService,private route:ActivatedRoute,private http:HttpClient,public dialog: MatDialog) {
     
   }
   ngOnInit(): void {
     this.productservice.getAllCartItems().subscribe((items)=>{
       this.cartItems=items
       console.log(this.cartItems);
+      
+      
     })
 
   }
@@ -36,6 +43,18 @@ export class CartComponent implements OnInit{
 
   }
 
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(DialogComponent, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  }
 
-
+  calculateTotal(){
+    
+    this.total=this.cartItems.reduce((acc,item)=>acc+item.offerprice,0)
+  }
+  
 }
+  
