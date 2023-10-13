@@ -31,12 +31,15 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import {MatListModule} from '@angular/material/list';
-import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatChipsModule} from '@angular/material/chips';
 import { SizeDialogComponent } from './size-dialog/size-dialog.component';
 import { DialogQuantityComponent } from './dialog-quantity/dialog-quantity.component';
+import {MatCardModule} from '@angular/material/card';
+import { BagDialogComponent } from './bag-dialog/bag-dialog.component';
+
 const routes:Routes=[
   {
     path:"",redirectTo:'home',pathMatch:'full'
@@ -86,6 +89,7 @@ const routes:Routes=[
     DialogComponent,
     SizeDialogComponent,
     DialogQuantityComponent,
+    BagDialogComponent,
     
   ],
   imports: [
@@ -108,7 +112,8 @@ const routes:Routes=[
     FlexLayoutModule,
     MatMenuModule,
     MatDialogModule,
-    MatChipsModule
+    MatChipsModule,
+    MatCardModule
   ], 
   
   providers: [SigninService,ProductService], 

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Product } from './product.model';
 
 
 @Injectable({
@@ -102,27 +103,9 @@ export class ProductService {
     return this.http.delete<any>(`http://localhost:8080/products/cart/del/${id}`)
   }
 
-/*
-  removecartItem(product:any){
-    const index=this.cartItems.indexOf(product);
-    if(index!==-1){
-      this.cartItems.splice(index,1)
-      this.updateCartCount;
-    }
+  getProductBycategory():Observable<Product[]>{
+    return this.http.get<Product[]>(this.apiUrl)
+    
   }
-  getCartItems(){
-    return this.cartItems
-  }
-  updateCartCount(id:string,quantity:any,size:string){
-    const body={quantity,size};
-    this.http.post<any>("http://localhost:8080/products/cart/add/"+id,body).subscribe(response=>{
-      this.cartCountSubject.next(response.cartCount)
-    })
-  }
-  getCartCount(){
-    return this.cartCountSubject.asObservable();
-  }
-  */
-
   
 }

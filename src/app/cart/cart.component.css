@@ -42,13 +42,14 @@
   align-items: flex-start;
 }
 .item-btn{
-  border: dodgerblue solid;
+  border: rgb(6, 100, 194) solid;
   background: transparent;
   border-radius: 3px;
-  color: dodgerblue;
+  color: rgb(6, 100, 194);
   height: 40px;
   width: 200px;
-  margin-left: 3.5rem;
+  margin-left: 3.7rem;
+  border-width: 1px;
 }
 .hey-text{
   text-align: center;
@@ -64,15 +65,8 @@
     border-radius: 10px;
 }
 
-.heading{
-    font-style: inherit;
-    font-family: monospace;
-    color: red;
-}
 
-.view{
-  width: 12vw;
-}
+
 .hr{
   width: 100%;
 }
@@ -184,8 +178,12 @@ input.form-control {
     }
     .img{
       height:20vh;
-      width: 60%;
-     
+      min-width: 60vw;
+      margin-left: 4rem;
+    }
+    .add{
+      text-align: center;
+      
     }
 
     .input-search{

@@ -102,9 +102,9 @@
       </button>
       <img src="https://www.zilliondesigns.com/blog/wp-content/uploads/Ecommerce-Logo-17.jpg" alt="AVENIDA" class="proma-img" routerLink="/home"/>
       <span style="margin-left: 10px; cursor: pointer;" routerLink="/home" >AVENIDA </span>
-      <span style="margin-left: 30px; " > MEN </span>
-      <span style="margin-left: 20px;" >WOMEN</span>
-      <span style="margin-left: 20px;" >KIDS</span>
+      <span style="margin-left: 30px; "  class="men" > MEN </span>
+      <span style="margin-left: 20px;"  class="men"  >WOMEN</span>
+      <span style="margin-left: 20px;"  class="men" >KIDS</span>
     
       <span class="menu-spacer"></span>
       <div class="search-hero">
@@ -112,9 +112,9 @@
       </div>
       
       <div fxShow="true" fxHide.lt-md>
-        <!-- The following menu items will be hidden on both SM and XS screen sizes -->
-      <button mat-button [matMenuTriggerFor]="menu" style="margin-left: 5px;">PROFILE</button>
-      <mat-menu #menu="matMenu">
+        
+      <button mat-button [matMenuTriggerFor]="menu" style="margin-left: 15px;" >PROFILE</button>
+      <mat-menu #menu="matMenu" >
         <div *ngIf="!user">
           <button mat-menu-item routerLink="/signin" >Signup/Login
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
@@ -147,17 +147,12 @@
   </mat-toolbar>
 
   <mat-sidenav-container fxFlexFill>
-    <mat-sidenav #sidenav>
-      <mat-nav-list>
-        <button mat-button [matMenuTriggerFor]="menu">PROFILE</button>
-        <mat-menu #menu="matMenu">
-         <button mat-menu-item>My Account</button>
-         <button mat-menu-item>Logout</button>
-        </mat-menu>
+    <mat-sidenav #sidenav >
+      <mat-nav-list >
           <a routerLink="/cart" mat-button>BAG</a>
           <a routerLink="/check" mat-button>WISHLIST</a>
           <a routerLink="/orders" mat-button>ORDERS</a>
-        <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+        <a (click)="sidenav.toggle()" mat-list-item>Close</a>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content fxFlexFill>
@@ -256,9 +251,41 @@
 </section>
 </section>
 <!--slider women-c ends-->
-<!-- footer starts-->
 
-<br>    
+ <!--sliding kids categories-->
+ <section class="slider_container">
+  <section class="slider">
+      <div class="slide one">
+          <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-KHP-141023-dailybanner-Z4-5-spunkies%20lofn%20more-upto75.jpg" alt="image1"/>
+          <span > 
+          </span>
+      </div>
+      <div class="slide two">
+        <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-KHP-141023-topbannermonitised-Z4-1-miniklub-min60.jpg" alt="image2"/>
+        <span>
+        </span>
+    </div>
+    <div class="slide three">
+        <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-KHP-141023-dailybanner-Z4-4-indinaterrainboy%20gini%20jony%20more-under399.jpg" alt="image3"/>
+        <span>
+        </span>
+    </div>
+    <div class="slide four">
+        <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-KHP-141023-dailybanner-Z4-1-globaldesi%20and%20more-min50.jpg" alt="image4"/>
+        <span>   
+        </span>
+    </div>
+    <div class="slide five">
+        <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-KHP-141023-dailybanner-Z4-2-JBNcreation%20muhuratam%20more-min55.jpg" alt="image5"/>
+        <span>
+      </span>
+  </div>
+</section>
+</section>
+<!--sliding men-c ends-->
+
+<!-- footer starts-->
+  
 <div class="bg-container1 pb-5">
   <div class="container ">
     <div class="row">
@@ -352,10 +379,6 @@
 <div class="explore-menu-section pt-3 pb-1" >
     <div class="container">
         <div class="row">
-              <div class="col-12 mt-2 text-left">
-                <h2 class="menu-section-heading"> Welcome back..! <span class="products" > Explore the products </span> </h2>
-            </div>
-
             <div class="input-group">   
 <div class="col-12 col-md-6 col-lg-3 mt-2" *ngFor="let item of products|search:searchtext">
     <div class="menu-item-card shadow p-3 mb-3" >

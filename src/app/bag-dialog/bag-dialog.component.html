@@ -1,0 +1,36 @@
+
+
+<div  *ngIf="cartItem" >
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg del-icon" viewBox="0 0 16 16">
+        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+      </svg>
+    <div class="top-container" >
+       
+     <img [src]="cartItem.product.image1" alt="cartItem" class="item-image"/>
+     <div class="details-container"> 
+        <p class="product text-muted" >  {{cartItem.product.brandName}} {{cartItem.product.categoryName}}  Regular </p>
+        <p> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee product" viewBox="0 0 16 16">
+                <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z"/>
+              </svg> <strong> {{cartItem.product.offerprice}} <span class="text-muted" style="font-size: small;text-decoration: line-through;">  {{cartItem.product.price}}  </span></strong>
+        </p>
+    </div>
+    </div>
+    <hr class="w-75" style="margin-left: 3rem;" />
+    <p style="margin-left: 2.8rem;" > <strong> Select Size </strong> </p>
+    <div class="btm-container">
+        <mat-chip-listbox aria-label="Fish selection">
+            <mat-chip-option>S</mat-chip-option>
+            <mat-chip-option>M</mat-chip-option>
+            <mat-chip-option >L</mat-chip-option>
+            <mat-chip-option >XL</mat-chip-option>
+            <mat-chip-option >XXL</mat-chip-option>
+            <mat-chip-option >XXXL</mat-chip-option>
+        </mat-chip-listbox>
+    </div>
+     
+    <div class="btm-container">
+        <button mat-raised-button color="primary" class="mt-3 w-75" >DONE</button>
+    </div>
+    
+  </div>

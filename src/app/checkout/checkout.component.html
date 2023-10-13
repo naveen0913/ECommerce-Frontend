@@ -1,4 +1,4 @@
-<!-- navbar starts-->
+<!-- navbar starts-
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary sticky-top">
     <div class="container-fluid">
@@ -62,78 +62,239 @@
     </div>
   </nav>
 
-<!-- navbar ends-->
+ navbar ends-->
+ <!-- angular navbar starts -->
+
+ <div style="height: 90vh;background-size: cover;">  
+  <mat-toolbar color="primary" class="nav" >
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <img src="https://www.zilliondesigns.com/blog/wp-content/uploads/Ecommerce-Logo-17.jpg" alt="AVENIDA" class="proma-img" routerLink="/home"/>
+      <span style="margin-left: 10px; cursor: pointer;" routerLink="/home"  >AVENIDA </span>
+    
+      <span class="menu-spacer"></span>
+     
+      <div class="search-hero">
+        <input class="form-control" type="text" name="search"  autocomplete="off" placeholder="Search">
+      </div>  
+      <div fxShow="true" fxHide.lt-md>
+        <button mat-button [matMenuTriggerFor]="menu" style="margin-left: 5px;">PROFILE</button>
+        <mat-menu #menu="matMenu">
+          <div *ngIf="!user">
+            <button mat-menu-item routerLink="/signin" >Signup/Login
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+                <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+              </svg>
+            </button>
+          </div>
+        <div *ngIf="user">
+          <button mat-menu-item routerLink="/user/{{user}}" >My Account
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+            </svg>
+          </button>
+          <button mat-menu-item routerLink="/logout" >Logout
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+              <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+            </svg>
+          </button>
+        </div>
+        </mat-menu>
+        <a  mat-button routerLink="/cart" >CART</a>
+        <a  mat-button routerLink="/orders" >ORDERS</a>
+        </div>
+      </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+       
+        <a  mat-list-item routerLink="/cart" >CART</a>
+        <a  mat-list-item routerLink="/orders" >ORDERS</a>
+        <a (click)="sidenav.toggle()"  mat-list-item>Close</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>
+
+    <!--
+      <div>
+        <div class="col-12">
+          <h3 class="wishlist-heading" ><strong> My Wishlist</strong> <span>  {{wishListItems.length}} items</span></h3>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3 mt-2">
+      <mat-card class="card"  *ngFor="let item of wishListItems">
+        <mat-card-content>
+          <img [src]="item.product.image1" alt="img" class="wishlist-image"/>
+          <p class="text-center mt-2" > {{item.product.brandName}} {{item.product.categoryName}} Regular  </p>
+          <p class="text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+              <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z"/>
+            </svg>
+            {{item.product.offerprice}} </p>
+          <hr class="hr" />
+          <div class="d-flex flex-row justify-content-center">
+         
+            <button class="bag-btn" color="primary" mat-button>MOVE TO BAG</button>
+          </div>
+          
+        </mat-card-content>
+      </mat-card>
+        </div>
+      </div>
+    -->  
+
+  
+    <div class="col-12">
+      <h3 class="wishlist-heading" ><strong> My Wishlist</strong> <span>  {{wishListItems.length}} items</span></h3>
+  </div>
+  <div class="product-container">
+    <div class="product-card" *ngFor="let item of wishListItems|search:searchtext">
+      <img [src]="item.product.image2" alt="product" width="100%" class="product-img">
+      <p class="text-center mt-2" > {{item.product.brandName}} {{item.product.categoryName}} Regular  </p>
+      <p class="text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+          <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z"/>
+        </svg>
+        {{item.product.offerprice}} <span class="text-muted" style="text-decoration: line-through; font-size: small;" > {{item.product.price}} </span> </p>
+      <hr class="w-100" />
+      <div class="d-flex flex-row justify-content-center">
+        <button class="bag-btn" color="primary" mat-button (click)="openBagDialog(item,'0ms', '0ms')" >
+          MOVE TO BAG
+        </button>
+      </div>
+  </div>
+  </div>
+    
+  
+   
+      <!--No Wishlist items -->
+      <div *ngIf="wishListItems.length==0">
+        <div class="bg-container">
+          <div class="items-container">
+            <p class="login"  >
+              <strong >PLEASE LOGIN IN</strong> 
+            </p>
+            <p class="text-muted login-text" > Login to view items in your wishlist</p>
+            <img src="https://img.freepik.com/premium-vector/boy-doing-online-shopping-mobile_118167-6942.jpg?size=626&ext=jpg&ga=GA1.1.1587978027.1694689858&semt=ais" alt="wishlist" class="wishlist-image"/>
+            <button class="login-btn" routerLink="/signin" >LOGIN </button>
+          </div>
+        </div>
+      </div>
+      
+      <!--footer starts-->
+
+      <br>    
+<div class="bg-container1 pb-5">
+  <div class="container ">
+    <div class="row">
+          <div class="col-12 col-md-4 mt-2 mb-2">
+              <div class="text-center">
+                  <div class="mb-3">
+                     <p class="mt-5"> <strong>KEEP IN TOUCH</strong></p>
+                  </div>
+                  <div class="d-flex flex-row justify-content-center mb-3">
+                      <div class="icons-background">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin icon" viewBox="0 0 16 16">
+                          <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                        </svg>
+                         
+                      </div>
+                      <div class="icons-background">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x icon" viewBox="0 0 16 16">
+                          <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
+                        </svg>
+                      </div>
+                      <div class="icons-background">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram icon" viewBox="0 0 16 16">
+                          <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                        </svg>
+                      </div>
+                      <div class="icons-background">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google icon" viewBox="0 0 16 16">
+                          <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
+                        </svg>
+                      </div>
+                  </div>
+                  <p class="address">3frames Software Labs,Hyderbad,India.</p>
+              </div>
+          </div>
+          <div class="col-6 col-md-4 mt-5">
+            <img src="https://www.zilliondesigns.com/images/portfolio/ecommerce/ecommerce-04.png" class="image" alt="AVENIDA" />
+              <ul class="unordered-list">
+                  <li class="mb-3">
+                      
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-at icon" viewBox="0 0 16 16">
+                        <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2H2Zm3.708 6.208L1 11.105V5.383l4.708 2.825ZM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2-7-4.2Z"/>
+                        <path d="M14.247 14.269c1.01 0 1.587-.857 1.587-2.025v-.21C15.834 10.43 14.64 9 12.52 9h-.035C10.42 9 9 10.36 9 12.432v.214C9 14.82 10.438 16 12.358 16h.044c.594 0 1.018-.074 1.237-.175v-.73c-.245.11-.673.18-1.18.18h-.044c-1.334 0-2.571-.788-2.571-2.655v-.157c0-1.657 1.058-2.724 2.64-2.724h.04c1.535 0 2.484 1.05 2.484 2.326v.118c0 .975-.324 1.39-.639 1.39-.232 0-.41-.148-.41-.42v-2.19h-.906v.569h-.03c-.084-.298-.368-.63-.954-.63-.778 0-1.259.555-1.259 1.4v.528c0 .892.49 1.434 1.26 1.434.471 0 .896-.227 1.014-.643h.043c.118.42.617.648 1.12.648Zm-2.453-1.588v-.227c0-.546.227-.791.573-.791.297 0 .572.192.572.708v.367c0 .573-.253.744-.564.744-.354 0-.581-.215-.581-.8Z"/>
+                      </svg>
+                      <span class="mail"> naveen@gmail.com </span>
+                  </li>
+                  <li class="mb-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone icon" viewBox="0 0 16 16">
+                        <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                      </svg>
+                      <span class="mail"> 8935869084</span>
+                  </li>
+                  <li class="mb-3">
+                      
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-skype icon" viewBox="0 0 16 16">
+                        <path d="M4.671 0c.88 0 1.733.247 2.468.702a7.423 7.423 0 0 1 6.02 2.118 7.372 7.372 0 0 1 2.167 5.215c0 .344-.024.687-.072 1.026a4.662 4.662 0 0 1 .6 2.281 4.645 4.645 0 0 1-1.37 3.294A4.673 4.673 0 0 1 11.18 16c-.84 0-1.658-.226-2.37-.644a7.423 7.423 0 0 1-6.114-2.107A7.374 7.374 0 0 1 .529 8.035c0-.363.026-.724.08-1.081a4.644 4.644 0 0 1 .76-5.59A4.68 4.68 0 0 1 4.67 0zm.447 7.01c.18.309.43.572.729.769a7.07 7.07 0 0 0 1.257.653c.492.205.873.38 1.145.523.229.112.437.264.615.448.135.142.21.331.21.528a.872.872 0 0 1-.335.723c-.291.196-.64.289-.99.264a2.618 2.618 0 0 1-1.048-.206 11.44 11.44 0 0 1-.532-.253 1.284 1.284 0 0 0-.587-.15.717.717 0 0 0-.501.176.63.63 0 0 0-.195.491.796.796 0 0 0 .148.482 1.2 1.2 0 0 0 .456.354 5.113 5.113 0 0 0 2.212.419 4.554 4.554 0 0 0 1.624-.265 2.296 2.296 0 0 0 1.08-.801c.267-.39.402-.855.386-1.327a2.09 2.09 0 0 0-.279-1.101 2.53 2.53 0 0 0-.772-.792A7.198 7.198 0 0 0 8.486 7.3a1.05 1.05 0 0 0-.145-.058 18.182 18.182 0 0 1-1.013-.447 1.827 1.827 0 0 1-.54-.387.727.727 0 0 1-.2-.508.805.805 0 0 1 .385-.723 1.76 1.76 0 0 1 .968-.247c.26-.003.52.03.772.096.274.079.542.177.802.293.105.049.22.075.336.076a.6.6 0 0 0 .453-.19.69.69 0 0 0 .18-.496.717.717 0 0 0-.17-.476 1.374 1.374 0 0 0-.556-.354 3.69 3.69 0 0 0-.708-.183 5.963 5.963 0 0 0-1.022-.078 4.53 4.53 0 0 0-1.536.258 2.71 2.71 0 0 0-1.174.784 1.91 1.91 0 0 0-.45 1.287c-.01.37.076.736.25 1.063z"/>
+                      </svg>
+                      <span class="mail"> naveen@123</span>
+                  </li>
+              </ul>
+          </div>
+          <div class="col-6 col-md-4 mt-5">
+            <ul class="d-flex flex-row">  
+            <img src="data:image/png;base64,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" 
+              alt="logo"
+              class="logo-image mt-1"/>
+            <p style="margin-left: 10px;" ><strong>100% ORIGINAL</strong> <span class="text-muted"> guarantee for all products at AVENIDA </span> </p>  
+          </ul>
+            <ul class="d-flex flex-row">
+               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr2RR0ZdlocBi4_azlmPuShGb7v8QJPvuJjQ&usqp=CAU"
+              alt="logo"
+              class="logo-image mt-1"/>
+              <p style="margin-left: 10px;" ><strong> Return within 30 days </strong> <span class="text-muted"> of receiving of your order </span> </p>  
+             
+             </ul>
+            
+              <ul class="unordered-list">
+                  <li class="mail">100% Purchase Protection</li>
+                  <li class="mail">Return Center</li>
+                  <li class="mail">Help</li>
+              </ul>
+          </div>
+          <div class="col-12">
+              <hr class="line">
+              <div class="text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-c-circle icon" viewBox="0 0 16 16">
+                  <path d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8Zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM8.146 4.992c-1.212 0-1.927.92-1.927 2.502v1.06c0 1.571.703 2.462 1.927 2.462.979 0 1.641-.586 1.729-1.418h1.295v.093c-.1 1.448-1.354 2.467-3.03 2.467-2.091 0-3.269-1.336-3.269-3.603V7.482c0-2.261 1.201-3.638 3.27-3.638 1.681 0 2.935 1.054 3.029 2.572v.088H9.875c-.088-.879-.768-1.512-1.729-1.512Z"/>
+                </svg>
+                  <span class="bootstrap1"> 3frames Software Labs Pvt Ltd. All rights reserved.</span>
+              </div>
+          </div>
+  </div>
+  </div>
+</div>
+       <!--footer ends-->
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+ </div>
+<!--angular navbar ends-->
 
 <!--wishlist page starts-->
 
-<div *ngIf="" >
 
-	<div class="cart-wrap" *ngIf="(wishListItems)|search:searchtext">
-		<div class="container">
-	        <div class="row">
-			    <div class="col-md-12" >
-			        <div class="main-heading mb-10">My wishlist ({{wishListItems.length}}) </div>
-			        <div class="table-wishlist">
-				        <table cellpadding="0" cellspacing="0" border="0" width="100%">
-				        	<thead>
-					        	<tr>
-					        		<th width="45%">Product Name</th>
-					        		<th width="15%">Price</th>
-					        		<th width="15%">Stock </th>
-					        		<th width="15%" style="margin-left: 20px;">Action</th>
-					        		
-					        	</tr>
-					        </thead>
-					        <tbody>
-					        	
-					        	<tr *ngFor="let item of wishListItems">
-					        		<td width="45%">
-					        			<div class="display-flex  d-flex flex-column" >
-		                                    <div class="img-product">
-		                                        <img [src]="item.product.image1" alt="img" class="mCS_img_loaded" routerLink="/product/{{item.product.id}}" />
-		                                    </div>
-		                                    <div class="name-product ">
-		                                       {{item.product.name}}
-                                               <br>
-                                               {{item.product.brandName}}
-		                                    </div>
-	                                    </div>
-	                                </td>
-                                  
-                                        <td width="15%" class="price"> {{item.product.offerprice}} </td>
-                                        <td width="15%"><span class="in-stock-box">  {{item.product.stock}} </span></td>
-                                        <td width="15%"><button class="btn btn-outline-danger" (click)="deleteWishListItem(item.id)" >Remove</button></td>
-                                       	
-					        	</tr>         
-				        	</tbody>
-				        </table>
-				    </div>
-			    </div>
-			</div>
-		</div>
 
-    <div *ngIf="!wishListItems">
-      <div class="d-flex flex-row justify-content-center">
-          <div class="d-flex flex-column justify-content-center" >
-              <h3 class="pt-2 pt-3 heading">
-                  Oops!... No WishList Items
-              </h3>
-              <button class="btn btn-outline-warning mt-3" routerLink="/home" >
-                  Add item
-              </button>
-          </div>
-          </div>
-          
-          <div class="d-flex flex-row justify-content-center">
-          <img src="https://img.freepik.com/premium-vector/boy-doing-online-shopping-mobile_118167-6942.jpg?size=626&ext=jpg&ga=GA1.1.1587978027.1694689858&semt=ais"
-                class="img"  
-          />
-          </div>
-      </div>
-
-	</div>
-
- 
+<div *ngIf="(wishListItems)|search:searchtext" >
 </div>
 <!--wishlist page ends-->
 

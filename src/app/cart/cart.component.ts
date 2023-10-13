@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import {  MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 import { SizeDialogComponent } from '../size-dialog/size-dialog.component';
 import { DialogQuantityComponent } from '../dialog-quantity/dialog-quantity.component';
@@ -34,16 +34,6 @@ export class CartComponent implements OnInit{
 
   }
  
-  /*deleteCartItem(id:string):void{
-    this.http.delete("http://localhost:8080/products/cart/del/"+id).subscribe((response)=>{
-      response=this.cartItems     
-      console.log("successfully deleted",this.cartItems);
-      alert("Cart Item Deleted")
-      
-    })
-
-  }
-*/
   getCartItem(id:string):void{
     this.http.get("http://localhost:8080/products/cart/item"+id).subscribe((item)=>{
       console.log(item);

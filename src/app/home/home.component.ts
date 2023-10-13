@@ -3,6 +3,7 @@ import { ProductService } from '../product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SigninService } from '../signin.service';
 import { UserService } from '../user.service';
+import { Product } from '../product.model';
 
 
 
@@ -21,6 +22,9 @@ export class HomeComponent implements OnInit {
   user:any;
 
   searchtext:any;
+  menProducts:Product[]=[]
+  womenProducts:Product[]=[]
+  kidsProducts: Product[]=[];
  
   constructor(private productservice:ProductService,
               private userservice:UserService,private route:ActivatedRoute,
@@ -34,6 +38,9 @@ export class HomeComponent implements OnInit {
     this.productservice.getAllProducts().subscribe((products)=>{
       this.searchProducts=products
       this.products=products
+      this.getMenProducts()
+      this.getWomenProducts()
+      this.getKidsproducts()
     })
 
     this.user=localStorage.getItem("loggedInuserKey")
@@ -57,29 +64,29 @@ export class HomeComponent implements OnInit {
     this.searchTextChanged.emit(this.enteredValue);
   }
 
-  /*
-  public getAllProducts():void{
-    this.productservice.getAllProducts().subscribe(
-    (res:any)=>{
-      
-      if(Array.isArray(res)){
-        this.data=res.map((item:any)=>item);
-        console.log(this.data); 
-      } 
-    //this.data=res;
-    //console.log(res);  
-    }
-  )
-  }
-
-  public viewProduct(id:number,product:any):void{
-    this.router.navigate([`/product/:productId`,id])
-  }
-  */
-
   logout():void{
     this.signinservice.userLogout();
     console.log(`user with ${this.user} loggedout successfully`);
+  }
+  getMenProducts():void{
+    this.productservice.getProductBycategory().subscribe(products=>{
+      this.menProducts=products.filter(product=>product.categoryName==='Men') 
+      console.log("men data",this.menProducts);
+      
+    })
+  }
+  getWomenProducts():void{
+    this.productservice.getProductBycategory().subscribe(products=>{
+      this.womenProducts=products.filter(product=>product.categoryName==='Women')
+      console.log("women data",this.womenProducts);
+    })
+  }
+  getKidsproducts():void{
+    this.productservice.getProductBycategory().subscribe(products=>{
+      this.kidsProducts=products.filter(product=>product.categoryName==='kids')
+      console.log("kids data",this.kidsProducts);
+      
+    })
   }
 
 }

@@ -25,7 +25,7 @@ export class DialogComponent implements OnInit {
     console.log("deleted data",this.data);
     this.cartitem=this.data
     console.log(this.cartitem.id);
-    
+    this.deleteCartItem
     
   }
   
@@ -33,6 +33,7 @@ deleteCartItem(_id:string):void{
   this.productservice.deleteCartItem(_id).subscribe(()=>{
     this.cartItems=this.cartItems.filter((item)=>item.id!==_id)
     console.log("deleted item",this.cartitem);
+    window.location.reload()
 
   })
 }

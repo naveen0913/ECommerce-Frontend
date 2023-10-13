@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { ActivatedRoute } from '@angular/router';
 import { SigninService } from '../signin.service';
-
+import { BagDialogComponent } from '../bag-dialog/bag-dialog.component';
+import {  MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -15,7 +16,11 @@ export class CheckoutComponent implements OnInit{
   item:any=[]
   user:any;
   searchtext:any;
-  constructor(private http:HttpClient,private productservice:ProductService,private route:ActivatedRoute,private signinservice:SigninService) {
+  constructor(private http:HttpClient,private productservice:ProductService,
+    private route:ActivatedRoute,
+    private signinservice:SigninService,
+    private dialog:MatDialog
+    ) {
     this.signinservice.isUserLoggedIN
     this.signinservice.isLoggedIn
   }
@@ -35,7 +40,6 @@ export class CheckoutComponent implements OnInit{
     this.user=localStorage.getItem("loggedInuserKey")
     console.log(this.user);
     
-
   }
 
   get loggedInuser(){
@@ -53,6 +57,17 @@ export class CheckoutComponent implements OnInit{
   logout():void{
     this.signinservice.userLogout();
     console.log(`user with ${this.user} loggedout successfully`);
+  }
+
+  openBagDialog(item:any,enterAnimationDuration: string, exitAnimationDuration: string): void { 
+    console.log("Item data",item);     
+    this.dialog.open(BagDialogComponent,{
+      width:'400px',
+      height:'310px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+      data:item,
+    })
   }
 
 

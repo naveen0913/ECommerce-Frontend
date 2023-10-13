@@ -20,7 +20,12 @@
     padding: 9px 4px 5px 40px;
      background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
   }
-
+.side-nav{
+  
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
 body {
     position: relative;
     width: 100%;
@@ -32,6 +37,7 @@ body {
 }
 .slider:hover{
   animation-play-state: paused;
+  cursor: pointer;
 }
 
 .slider1:hover{
@@ -47,8 +53,8 @@ body {
     justify-content: flex-start;
     align-items: center;
     overflow: hidden;
-    margin-top: .2rem;
-    margin-bottom: .1rem;
+    margin-top: .1rem;
+    
 }
   
 .slider {
@@ -184,7 +190,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
-  
+  height: 70px;
 }
 
 .products{
@@ -197,12 +203,6 @@ body {
 }
 .search-btn{
     border-radius: 40px;
-}
-.view-conatiner{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .proma-img {
@@ -290,7 +290,7 @@ body {
 }
 
 .menu-item-card {
-    border-radius: 16px;
+    border-radius: 3px;
 }
 
 .icon {
@@ -366,4 +366,57 @@ body {
     font-size: 16px;
     font-weight: 600;
     color: #959ead;
+}
+@media  (max-width:730px) {
+
+.slider_container {
+  position: relative;
+  width: 100%;
+  min-width: 40rem;
+  height: 26rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  
+}
+
+.slider {
+  position: relative;
+  width: 100vw;
+  height: 60vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  animation: 20s cubic-bezier(1, 0.95, 0.565, 1) sliding infinite;
+}
+.slider1 {
+  position: relative;
+  width: 100vw;
+  height: 170px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  animation: 24s cubic-bezier(1, 0.95, 0.565, 1) sliding infinite;
+}
+.slider_container1 {
+  position: relative;
+  width: 100%;
+  min-width: 40rem;
+  height: 16rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+ 
+}
+.men{
+  display: none;
+}
+.proma-img{
+  margin-top: .6rem;
+}
+
 }
