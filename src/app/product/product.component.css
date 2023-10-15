@@ -1,38 +1,160 @@
-.price{
-  color: red;
-  text-decoration: line-through;
-  font-family: 'Times New Roman', Times, serif;
-}
-.products{
-  color: maroon;
-  font-size: large;
-  font-family: 'Times New Roman', Times, serif;
-}
-.stock{
-  color: brown;
-  font-family: 'Times New Roman', Times, serif;
-}
-.offer{
-  color: darkcyan;
-  font-family: 'Times New Roman', Times, serif;
-}
-.button{
-  margin-left: .5rem;
-}
-.radio{
-  font-size: large;
+.nav{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: 70px;
 }
 .proma-img {
   width: 60px;
   height: 45px;
   border-radius: 10px;
 }
-.img-c{
+.menu-spacer{
+  flex: 1 1 auto;
+}
+
+.profile{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.tool{
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-left: 15px;
+
 }
+
+input.form-control {
+  border: 1px solid #ffffff;
+  width: 100%;
+  padding: 9px 4px 5px 40px;
+   background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
+}
+.boxes-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 60%;
+  margin: 15px;
+  border: transparent;
+  margin-bottom: 10rem;
+}
+.details-container{
+  width: 35%;
+  margin: 10px;
+  margin-right: 10px;
+  display: flex;
+}
+.card{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+}
+
+.Image{
+  width: 100%;
+  height: auto;
+  width: 435px;
+  cursor: pointer;
+}
+
+.close {
+  position: absolute;
+  color: black;
+  right: 20px;
+  font-size: 80px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+  background: transparent;
+  border: transparent;
+}
+
+.close:hover,
+.close:focus {
+  color:black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  position: relative;
+}
+
+.modal-content img {
+  width: 100%;
+  height:85vh;
+  
+}
+
+.main-image-container {
+  display: flex;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.bg-container1 {
+  background-color: #f3f5fa;
+  background-size: cover;
+  width: 100%;
+  margin-top: 10rem;
+}
+
+.image {
+  height: 40px;
+  width: 60px;
+  margin-left: 5rem;
+  margin-bottom: .5rem;
+  border-radius:20px ;
+}
+.logo-image{
+  width: 30px;
+  height: 30px;
+}
+
+.icon {
+  color: #5a7184;
+  font-size: 18px;
+  cursor: pointer;
+}
+.icons-background {
+  height: 47px;
+  width: 47px;
+  background: transparent;
+  padding-top: 12px;
+  border-radius: 50%;
+  margin: 5px;
+}
+.mail {
+  font-family: "Roboto";
+  font-size: 17px;
+  font-weight: 500;
+  color: #5a7184;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
 @media (max-width: 730px)  {
   .img-c{
     display: flex;

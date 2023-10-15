@@ -128,10 +128,44 @@
   margin-left: -.4rem;
 }
 .button{
-  margin-left:30rem;
+  margin-left:10rem;
   margin-top: .1rem;
   background: #fff;
-  border: #ffffff solid;
+  border: #ffffff solid transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+.btn-c{
+  background: transparent;
+  background-color: #ffffff;
+  
+}
+.card{
+  margin-left: 1.9rem;
+  cursor: pointer;
+}
+.item-container{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+ margin-top: .9rem;
+}
+.item-container:hover{
+  .wishlist{
+    text-decoration: underline;
+  }
+}
+.wishlist{
+  margin-top: .3rem;
+}
+.wishlist:hover{
+  text-decoration: underline;
+}
+
+.icon-right{
+  cursor: pointer;
+  margin-right: 1rem;
 }
 
 .icon{

@@ -39,6 +39,11 @@ import { SizeDialogComponent } from './size-dialog/size-dialog.component';
 import { DialogQuantityComponent } from './dialog-quantity/dialog-quantity.component';
 import {MatCardModule} from '@angular/material/card';
 import { BagDialogComponent } from './bag-dialog/bag-dialog.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { PincodeDialogComponent } from './pincode-dialog/pincode-dialog.component';
+import { MenComponent } from './men/men.component';
+
+
 
 const routes:Routes=[
   {
@@ -71,6 +76,9 @@ const routes:Routes=[
   },
   {
     path:'cart/:cartid',component:SizeDialogComponent
+  },
+  {
+    path:'home/men',component:MenComponent
   }
 ]
 
@@ -90,6 +98,8 @@ const routes:Routes=[
     SizeDialogComponent,
     DialogQuantityComponent,
     BagDialogComponent,
+    PincodeDialogComponent,
+    MenComponent,
     
   ],
   imports: [
@@ -113,7 +123,8 @@ const routes:Routes=[
     MatMenuModule,
     MatDialogModule,
     MatChipsModule,
-    MatCardModule
+    MatCardModule,
+    ModalModule.forRoot()
   ], 
   
   providers: [SigninService,ProductService], 

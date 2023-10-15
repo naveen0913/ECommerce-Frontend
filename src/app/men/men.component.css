@@ -386,6 +386,27 @@ body {
     font-weight: 600;
     color: #959ead;
 }
+
+.product-card {
+    padding: 0;
+    margin: 0;
+    width: 260px;
+    height: 450px;
+     
+    box-shadow: 0px 0px 0px ;
+    .product-img {
+      width: 100%;
+      height: 44vh;
+    }
+    
+  }  
+  .product-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    
+  }
+
 @media  (max-width:730px) {
 
 .slider_container {

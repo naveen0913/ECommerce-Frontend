@@ -1,10 +1,11 @@
 
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ProductService } from '../product.service';
 import { ActivatedRoute } from '@angular/router';
 import { SigninService } from '../signin.service';
-
-
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { MatDialog } from '@angular/material/dialog';
+import { PincodeDialogComponent } from '../pincode-dialog/pincode-dialog.component';
 
 @Component({
   selector: 'app-product',
@@ -14,6 +15,17 @@ import { SigninService } from '../signin.service';
 
 
 export class ProductComponent implements OnInit {
+
+  @ViewChild('template') template: TemplateRef<any> | undefined;
+
+  images=[
+    "https://img.freepik.com/free-photo/red-deer-nature-habitat-during-deer-rut-european-wildlife_475641-943.jpg?size=626&ext=jpg&ga=GA1.1.1587978027.1694689858&semt=sph",
+    "https://img.freepik.com/premium-photo/decorated-indian-elephant-beautiful-elephant-tattoos-drawings_158863-6608.jpg?size=626&ext=jpg&ga=GA1.1.1587978027.1694689858&semt=sph",
+    "https://img.freepik.com/free-photo/closeup-scarlet-macaw-from-side-view-scarlet-macaw-closeup-head_488145-3540.jpg?size=626&ext=jpg&ga=GA1.1.1587978027.1694689858&semt=sph",
+    "https://img.freepik.com/free-photo/red-deer-nature-habitat-during-deer-rut-european-wildlife_475641-943.jpg?size=626&ext=jpg&ga=GA1.1.1587978027.1694689858&semt=sph"
+  ]
+  selectedImage: string=''
+  hoveredImage:string=''
   
   showadd:boolean=true;
   showRemove:boolean=false
@@ -40,7 +52,12 @@ export class ProductComponent implements OnInit {
 
   user1:any;
 
-  constructor(private productservice:ProductService,private route:ActivatedRoute,private signinservice:SigninService) { 
+  constructor(private productservice:ProductService,
+    private route:ActivatedRoute,private signinservice:SigninService,
+    private  modalService: BsModalService,
+    private modalRef:BsModalRef,
+    private dialog:MatDialog
+    ) { 
     this.signinservice.isUserLoggedIN
     this.signinservice.isLoggedIn
   }
@@ -148,6 +165,30 @@ export class ProductComponent implements OnInit {
   logout():void{
     this.signinservice.userLogout();
     console.log(`user with ${this.user1} loggedout successfully`);
+  }
+
+  openModal(template: TemplateRef<any>,image:string) {
+    this.selectedImage=image;
+    this.modalRef = this.modalService.show(template, { class: 'modal-lg' });
+  }
+
+  closeModal() {
+    this.modalRef.hide();
+  }
+
+  updateSelectedImage(image: string) {
+    this.selectedImage = image;
+  }
+
+  onHover(image: string) {
+    this.hoveredImage = image;
+  }
+  openPinCodeDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(PincodeDialogComponent, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
   }
 
 }
