@@ -71,7 +71,7 @@ input.form-control {
 .Image{
   width: 100%;
   height: auto;
-  width: 435px;
+  width: 425px;
   cursor: pointer;
 }
 
@@ -154,7 +154,22 @@ input.form-control {
   margin-left: 10px;
   cursor: pointer;
 }
-
+.add-bag{
+  width: 280px;
+  height: 49px;
+  background: rgb(228, 53, 123);
+  border: rgb(228, 53, 123);
+  border-radius: 5px;
+  color: #ffffff;
+}
+.add-wishlist{
+  width: 190px;
+  height: 49px;
+  border-radius: 4px;
+  background: gray;
+  border: gray;
+  color: #ffffff;
+}
 @media (max-width: 730px)  {
   .img-c{
     display: flex;

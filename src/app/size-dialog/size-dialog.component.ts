@@ -14,6 +14,7 @@ export class SizeDialogComponent implements OnInit {
 
   cartItems:any[]=[]
   cartitem:any;
+  size:any;
   constructor(private http:HttpClient,
     private productservice:ProductService,
     private route:ActivatedRoute,
@@ -27,17 +28,13 @@ export class SizeDialogComponent implements OnInit {
   this.cartitem = this.data;
   console.log("cart data",this.cartitem.id)
   
-   
-    
-    
-    //cartid && this.productservice.getCartItemDetails(i).subscribe((item)=>{
-      //this.cartItems=item
-      //this.cartitem=item
-      //console.log(this.cartItems);
-      //console.log(this.cartitem);
-      
-    //})
-
+  }
+  updateCartSize(_id:string):void{
+    this.productservice.updateCartItem(this.cartitem.id,this.size).subscribe((res)=>{
+      console.log("updated size",res);
+      alert("updated Size")
+      window.location.reload()
+    })
   }
   
 }

@@ -32,12 +32,11 @@ export class ProductService {
     return this.http.get<any>("http://localhost:8080/products/product/"+id)
   }
 
-  addItemTocart(id:string,quantity:any,size:string):Observable<any>{
+  addItemTocart(id:string,quantity:Number,size:string):Observable<any>{
     const body={quantity,size};
     this.cartItemlist.push(body)
     this.productList.next(this.cartItemlist)
-    
-    return this.http.post("http://localhost:8080/products/cart/add/"+id,body)
+    return this.http.post<any>("http://localhost:8080/products/cart/add/"+id,body)
   }
   addItemToWishList(userid:string,id:string):Observable<any>{
     return this.http.post("http://localhost:8080/products/wishlist/add/"+userid+`/${id}`,"")
@@ -83,11 +82,6 @@ export class ProductService {
   updateCartItem(id:string,size:string):Observable<any>{
     const body={size}
     return this.http.put<any>("http://localhost:8080/products/cart/update/size/"+id,body)
-  }
-
-  cartItemDecrement(id:string,quantity:any):Observable<any>{
-    const body={quantity}
-    return this.http.put<any>(`http://localhost:8080/products/cart/update/${id}/decrease`,body)
   }
 
   cartItemIncrement(id:string,quantity:any):Observable<any>{

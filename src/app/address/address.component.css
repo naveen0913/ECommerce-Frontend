@@ -1,0 +1,30 @@
+.bg-toolbar{
+    background: white;
+    height: 80px;
+}
+.proma-img {
+    width: 75px;
+    height: 60px;
+    border-radius: 10px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+.form-field{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-width:99%;
+}
+.bg-container{
+   display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.secure-container{
+    margin-top: 2.5rem;
+}
+.pincode{
+    text-align: center;
+}

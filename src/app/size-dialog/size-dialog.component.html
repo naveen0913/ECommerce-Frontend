@@ -18,18 +18,21 @@
         <div class="b-container">
         <p class="product" > <strong> Select Size</strong> </p>
         <div class="size-c">
-            <mat-chip-listbox >
-                <mat-chip-option>S</mat-chip-option>
-                <mat-chip-option>M</mat-chip-option>
-                <mat-chip-option>L</mat-chip-option>
-                <mat-chip-option>XL</mat-chip-option>
-                <mat-chip-option>XXL</mat-chip-option>
+            <mat-chip-listbox [(ngModel)]="size" name="size" >
+                <mat-chip-option value="S" >S</mat-chip-option>
+                <mat-chip-option  value="M" >M</mat-chip-option>
+                <mat-chip-option  value="L" >L</mat-chip-option>
+                <mat-chip-option  value="XL" >XL</mat-chip-option>
+                <mat-chip-option  value="XXL" >XXL</mat-chip-option>
+                <mat-chip-option  value="XXXL" >XXXL</mat-chip-option>
             </mat-chip-listbox>
+           
         </div>
         </div>
     </div>
 </div>
 
-<div >
-    <button mat-raised-button color="primary" mat-button mat-dialog-close cdkFocusInitial class="save-btn" >SAVE DETAILS</button>
+<div *ngIf="cartitem">
+    <button mat-raised-button color="primary" mat-button mat-dialog-close cdkFocusInitial class="save-btn" (click)="updateCartSize(cartitem.id)"
+    >SAVE DETAILS</button>
 </div>

@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
 
   get loggedInuser(){
     return this.signinservice.isLoggedIn
-   }
+  }
 
   enteredValue:string=''
   @Output()

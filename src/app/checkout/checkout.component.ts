@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { SigninService } from '../signin.service';
 import { BagDialogComponent } from '../bag-dialog/bag-dialog.component';
 import {  MatDialog } from '@angular/material/dialog';
+
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -19,7 +20,7 @@ export class CheckoutComponent implements OnInit{
   constructor(private http:HttpClient,private productservice:ProductService,
     private route:ActivatedRoute,
     private signinservice:SigninService,
-    private dialog:MatDialog
+    private dialog:MatDialog,
     ) {
     this.signinservice.isUserLoggedIN
     this.signinservice.isLoggedIn
@@ -63,7 +64,7 @@ export class CheckoutComponent implements OnInit{
     console.log("Item data",item);     
     this.dialog.open(BagDialogComponent,{
       width:'400px',
-      height:'310px',
+      height:'390px',
       enterAnimationDuration,
       exitAnimationDuration,
       data:item,

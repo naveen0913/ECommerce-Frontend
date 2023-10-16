@@ -52,18 +52,20 @@ export class CartComponent implements OnInit{
     });
   }
   openDialogSize(item:any,enterAnimationDuration: string, exitAnimationDuration: string): void {
-    console.log("event  data",item.id)
+    console.log("size update  data",item.id)
     this.dialog.open(SizeDialogComponent, {
-      width: '280px',
-      height:'250px',
+      width: '350px',
+      height:'260px',
       data:item,
       enterAnimationDuration,
       exitAnimationDuration,
     });
   }
   openDialogQuantity(item:any,enterAnimationDuration: string, exitAnimationDuration: string): void {
+    console.log("quantity update item",item.id);
     this.dialog.open(DialogQuantityComponent, {
       width: '250px',
+      data:item,
       enterAnimationDuration,
       exitAnimationDuration,
     });

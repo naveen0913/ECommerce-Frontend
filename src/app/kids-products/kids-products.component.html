@@ -1,5 +1,6 @@
 
 
+
 <div style="height: 90vh;background-size: cover;">
     <mat-toolbar color="primary"  class="nav" >
       <mat-toolbar-row>
@@ -8,9 +9,9 @@
         </button>
         <img src="https://www.zilliondesigns.com/blog/wp-content/uploads/Ecommerce-Logo-17.jpg" alt="AVENIDA" class="proma-img" routerLink="/home"/>
         <span style="margin-left: 10px; cursor: pointer;" routerLink="/home" >AVENIDA </span>
-        <span style="margin-left: 30px; "  class="men" > MEN </span>
-        <span style="margin-left: 20px;"  class="men"  >WOMEN</span>
-        <span style="margin-left: 20px;"  class="men" >KIDS</span>
+        <span style="margin-left: 30px; "  class="men" routerLink="/home/men" > MEN </span>
+        <span style="margin-left: 20px;"  class="men" routerLink="/home/women" >WOMEN</span>
+        <span style="margin-left: 20px;"  class="men" routerLink="/home/kids" >KIDS</span>
       
         <span class="menu-spacer"></span>
         <div class="search-hero">
@@ -80,107 +81,51 @@
       </mat-sidenav>
       <mat-sidenav-content fxFlexFill>
   
-      <!--sliding images-->
+    <!-- products starts-->
+   <div class="col-12">
+    <h2 class="m-4 text-muted" > Home / <span class="text-dark"> Online Fashion Store / Kids</span> </h2>
+    <p class="m-4 text-dark">  Online Fashion Store -<span class="text-muted">  {{kidsProducts.length}} item </span>  </p>
+   </div>
+    
+   <div class="card-container">
+    <div class="card m-4 mt-3 mb-5" *ngFor="let kids of kidsProducts" >
+        <figure>
         <section class="slider_container">
-          <section class="slider">
-              <div class="slide one">
-                  <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-UHP-11102023-uhphim-z13-p5-spykar-mufti-min50.jpg" alt="image1" routerLink="/home/men/products"/>
-                  <span > 
-                  </span>
-              </div>
-              <div class="slide two">
-                <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-MHP-15102023-dailybanner-z5-p2-campus-ucb-min50.jpg" alt="image2" routerLink="/home/men/products"/>
-                <span>
-                </span>
+            <section class="slider">
+                <div class="slide one">
+            <img [src]="kids.image1" alt="t-shirt">
+                </div>
+                <div class="slide two">
+                    <img [src]="kids.image2" alt="t-shirt">
+                </div>
+                <div class="slide three">
+                    <img [src]="kids.image3" alt="t-shirt">
+                </div>
+                <div class="slide four">
+                    <img [src]="kids.image4" alt="t-shirt">
+                </div>
+            </section>
+        </section>
+        </figure>
+        <section class="details">
+           <p class="price"> <strong>  {{kids.brandName}}</strong></p>
+            <p class="price text-muted"> {{kids.name}} </p>
+            <p class="price" > <strong>Rs. {{kids.offerprice}}  </strong> <span style="text-decoration: line-through;">Rs. {{kids.price}} </span> </p>
+            <div class="wishlist-container">
+               
+                <button  class="btn mb-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+              </svg>
+                WISHLIST</button>
             </div>
-            <div class="slide three">
-                <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-MHP-15102023-dailybannermonitised-z5-p2-aldo-min40.jpg" alt="image3" routerLink="/home/men/products"/>
-                <span>
-                </span>
-            </div>
-            <div class="slide four">
-                <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-MHP-15102023-topbanner-z3-p3-adidas-nike-min35.jpg" alt="image4" routerLink="/home/men/products"/>
-                <span>   
-                </span>
-            </div>
-            <div class="slide five">
-                <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-MHP-15102023-topbanner-z3-p5-lacoste-gant-upto50.jpg" alt="image5" routerLink="/home/men/products"/>
-                <span>
-              </span>
-          </div>
-      </section>
-  </section>
-  <!--sliding men-c ends-->
-  <!-- sliding bank-offers starts-->
-  <section class="slider_container1">
-    <section class="slider1">
-        <div class="slide one">
-            <img src="https://assets.ajio.com/cms/AJIO/WEB/federal%20des.png" alt="image1"/>
-            <span >
-            </span>
-        </div>
-        <div class="slide two">
-          <img src= "https://assets.ajio.com/cms/AJIO/WEB/Paytm-1440x128%202.jpg" alt="image2"/>
-          <span>
-          </span>
+          
+        
+        </section>
       </div>
-      <div class="slide three">
-          <img src= "https://assets.ajio.com/cms/AJIO/WEB/Fi%20Credit%20Cards-1440x128.jpg" alt="image3"/>
-          <span>
-          </span>
-      </div>
-      <div class="slide four">
-          <img src="https://assets.ajio.com/cms/AJIO/WEB/2192023-PLPStrip-RelianceOne-Points-1440x128.jpg" alt="image4"/>
-          <span>   
-          </span>
-      </div>
-      <div class="slide five">
-        <img src= "https://assets.ajio.com/cms/AJIO/WEB/IDFC-1440x128-1.jpg" alt="image5"/>
-          <span>   
-          </span>
-    </div>
-      
-  </section>
-  </section>
-  <!-- sliding bank-offers ends-->
-  
-   <!--sliding kids categories-->
-   <div>
-    <div style="background: rgb(45, 35, 232); max-height: 450px;">
-        <div class="text-center">
-            <br>
-            <br>
-            <h2 style="font-size: 50px; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;" >
-                 <strong> BlockBuster Brands  </strong> 
-            </h2>
-        </div>
-        <br>
-        <br>
-        <div class="product-container" >
-            <div class="product-card" >
-                <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-MHP-22092023-blockbusterbrands-z13-budajeans-upto50.jpg" alt="brands" class="product-img" routerLink="/home/men/products"/>
-            </div>
-            <div class="product-card" >
-                <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-MHP-22092023-blockbusterbrands-z13-thebearhouse-min50.jpg" alt="brands" class="product-img" routerLink="/home/men/products"/>
-            </div>
-            <div class="product-card" >
-                <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-MHP-22092023-blockbusterbrands-z13-linenclub-4055.jpg" alt="brands" class="product-img" routerLink="/home/men/products"/>
-            </div>
-            <div class="product-card" >
-                <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-MHP-22092023-blockbusterbrands-z13-louisphilippe-min40.jpg" alt="brands" class="product-img" routerLink="/home/men/products"/>
-            </div>
-            <div class="product-card" >
-                <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-MHP-22092023-blockbusterbrands-z13-spykar-flat60.jpg" alt="brands" class="product-img" routerLink="/home/men/products" />
-            </div>
-            <div class="product-card" >
-                <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-MHP-22092023-blockbusterbrands-z13-dennislingo-min65.jpg" alt="brands" class="product-img" routerLink="/home/men/products"/>
-            </div>
-           
-        </div>
-    </div>
-  </div>
-  <!--sliding men-c ends-->
-  
+   </div>
+
+    <!-- products ends-->
   <!-- footer starts-->
     
   <div class="bg-container1 pb-5">

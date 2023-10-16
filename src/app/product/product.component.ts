@@ -6,6 +6,9 @@ import { SigninService } from '../signin.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { MatDialog } from '@angular/material/dialog';
 import { PincodeDialogComponent } from '../pincode-dialog/pincode-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AddBagSnackbarComponent } from '../add-bag-snackbar/add-bag-snackbar.component';
+
 
 @Component({
   selector: 'app-product',
@@ -18,12 +21,7 @@ export class ProductComponent implements OnInit {
 
   @ViewChild('template') template: TemplateRef<any> | undefined;
 
-  images=[
-    "https://img.freepik.com/free-photo/red-deer-nature-habitat-during-deer-rut-european-wildlife_475641-943.jpg?size=626&ext=jpg&ga=GA1.1.1587978027.1694689858&semt=sph",
-    "https://img.freepik.com/premium-photo/decorated-indian-elephant-beautiful-elephant-tattoos-drawings_158863-6608.jpg?size=626&ext=jpg&ga=GA1.1.1587978027.1694689858&semt=sph",
-    "https://img.freepik.com/free-photo/closeup-scarlet-macaw-from-side-view-scarlet-macaw-closeup-head_488145-3540.jpg?size=626&ext=jpg&ga=GA1.1.1587978027.1694689858&semt=sph",
-    "https://img.freepik.com/free-photo/red-deer-nature-habitat-during-deer-rut-european-wildlife_475641-943.jpg?size=626&ext=jpg&ga=GA1.1.1587978027.1694689858&semt=sph"
-  ]
+ 
   selectedImage: string=''
   hoveredImage:string=''
   
@@ -51,12 +49,14 @@ export class ProductComponent implements OnInit {
   Size:any
 
   user1:any;
+  durationInSeconds = 5;
 
   constructor(private productservice:ProductService,
     private route:ActivatedRoute,private signinservice:SigninService,
     private  modalService: BsModalService,
     private modalRef:BsModalRef,
-    private dialog:MatDialog
+    private dialog:MatDialog,
+    private snackbar:MatSnackBar
     ) { 
     this.signinservice.isUserLoggedIN
     this.signinservice.isLoggedIn
@@ -85,7 +85,7 @@ export class ProductComponent implements OnInit {
    
   }
   
-  addtocart(item:any):void{
+  addtoCart(item:any):void{
     this.showadd=false
     this.showRemove=true
     console.log(item.id);
@@ -94,7 +94,15 @@ export class ProductComponent implements OnInit {
       this.updateCart();  
     })
   }
-  
+  openSnackbar(item:any):void{
+    console.log(this.item);
+    this.snackbar.openFromComponent(AddBagSnackbarComponent,{
+      duration:this. durationInSeconds*1000,
+      verticalPosition: 'top',
+      horizontalPosition: 'right',
+      data:item
+    })
+  }
   addtoWishList(_userid:any):void{
     this.productservice.addItemToWishList(this.user1,this.item.id).subscribe((res)=>{
 
@@ -124,7 +132,7 @@ export class ProductComponent implements OnInit {
     }
 
   }
-  removeItem(item:any){
+  removeItem(_item:any){
     this.showRemove=true
     this.showadd=false
   }
@@ -167,8 +175,8 @@ export class ProductComponent implements OnInit {
     console.log(`user with ${this.user1} loggedout successfully`);
   }
 
-  openModal(template: TemplateRef<any>,image:string) {
-    this.selectedImage=image;
+  openModal(template: TemplateRef<any>,_image:string) {
+    this.selectedImage=this.item._image;
     this.modalRef = this.modalService.show(template, { class: 'modal-lg' });
   }
 
@@ -176,8 +184,8 @@ export class ProductComponent implements OnInit {
     this.modalRef.hide();
   }
 
-  updateSelectedImage(image: string) {
-    this.selectedImage = image;
+  updateSelectedImage(_image: string) {
+    this.selectedImage = this.item._image;
   }
 
   onHover(image: string) {

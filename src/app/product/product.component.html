@@ -138,7 +138,7 @@
               <div class="d-flex flex-row" >
 
               
-              <input type="radio" [(ngModel)]="size" required class="radio" name="small"  value="small"  />
+              <input type="radio"                                                  [(ngModel)]="size" required class="radio" name="small"  value="small"  />
               <label style="margin-left: 3px;">S</label>
 
               <input type="radio" style="margin-left: 10px;" class="radio" required [(ngModel)]="size"  name="medium"  value="medium" class="ml-2"/>
@@ -343,17 +343,18 @@
     </mat-sidenav>
     <mat-sidenav-content fxFlexFill>
 
-      <div class="container-fluid">
+      <div class="container-fluid" *ngIf="item" >
         <div class="row">
           <div class="col-12">
-            <h3 class="text-muted mt-3 m-auto mb-3 " > home / clothing / Men / brandName </h3>
+            <h3 class="text-muted mt-3 m-auto mb-3 " > home / clothing / {{item.categoryName}} / {{item.brandName}} </h3>
           </div>
 
           <div class="boxes-container"   >
-            <div class="img-container" (click)="openModal(template,image)" *ngFor="let image of images" >
+            
+            <!--<div class="img-container" (click)="openModal(template,image)" *ngFor="let image of images" >
               <img [src]="image"
               alt="Image 1" class="Image "  style="height: 70vh ; margin: 2px;" />
-              <!--
+              
                     <img src=""
               alt="Image 2" class="Image " style="height: 70vh;  width:430px; margin: 2px;" />
              
@@ -361,8 +362,24 @@
               alt="Image 3" class="Image "  style="height: 70vh; width:430px;margin: 2px; " />
               <img src=""
               alt="Image 4" class="Image " style="height: 70vh;  width:430px; margin: 2px;" />
-              -->
+              -
+            </div>-->
+
+            <div class="img-container"  (click)="openModal(template,item.image)">
+              <img [src]="item.image1" 
+              alt="Image 1" class="Image "  style="height: 70vh ; margin: 2px;" />
+              
+              <img [src]="item.image2"
+              alt="Image 2" class="Image " style="height: 70vh;   margin: 2px;" />
+             
+              <img [src]="item.image3" 
+              alt="Image 3" class="Image "  style="height: 70vh;margin: 2px; " />
+              <img [src]="item.image4" 
+              alt="Image 4" class="Image " style="height: 70vh;  margin: 2px;" />
+             
             </div>
+
+
 
             <ng-template #template>
               <div class="modal-content">
@@ -379,13 +396,22 @@
                   <div style="display: flex; justify-content:flex-start; flex-direction: row;">
 
                     <div>
-                      <div *ngFor="let image of images" (click)="updateSelectedImage(image)" (mouseover)="onHover(image)">
-                        <img [src]="image" alt="Image" style="width:50px; height:50px; cursor: pointer;">
+                      <div  (click)="updateSelectedImage(item.image1)" (mouseover)="onHover(item.image)">
+                        <img [src]="item.image1" alt="Image" style="width:50px; height:50px; cursor: pointer;">
+                      </div>
+                      <div  (click)="updateSelectedImage(item.image2)" (mouseover)="onHover(item.image)">
+                        <img [src]="item.image2" alt="Image" style="width:50px; height:50px; cursor: pointer;">
+                      </div>
+                      <div  (click)="updateSelectedImage(item.image3)" (mouseover)="onHover(item.image)">
+                        <img [src]="item.image3" alt="Image" style="width:50px; height:50px; cursor: pointer;">
+                      </div>
+                      <div  (click)="updateSelectedImage(item.image4)" (mouseover)="onHover(item.image)">
+                        <img [src]="item.image4" alt="Image" style="width:50px; height:50px; cursor: pointer;">
                       </div>
                     </div>
 
-                    <div class="main-image-container" (mouseover)="onHover(selectedImage)" >
-                      <img [src]="selectedImage" alt="Image" style="width:550px; margin: 5px;">
+                    <div class="main-image-container" (mouseover)="onHover(item.selectedImage)" >
+                      <img [src]="item.image" alt="Image" style="width:550px; margin: 5px;">
                     </div>
 
                 </div>
@@ -393,59 +419,82 @@
               </div>
             </ng-template>
 
-
           </div>
 
           <div class="details-container">
           <div class="brand">
-           <p><strong>Brand Name</strong></p> 
-           <p class="text-muted" > product Name </p>
-           <h3> offer price </h3>
-           <p> inclusive of all taxes </p>
-           <h2>
-            <strong> Select Size </strong> <span class="text-muted" > size chart  </span> 
+           <p style="font-size: 35px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-bottom: 30px;" ><strong> {{item.brandName}} </strong></p> 
+           <p class="text-muted mt-2" style="font-size: 25px;margin-top: 1rem;"> {{item.name}} </p>
+           <h3> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+            <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z"/>
+          </svg> {{item.offerprice}}  
+           <span> MRP </span>
+            <span style="text-decoration: line-through;"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16" >
+              <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z"/>
+            </svg> {{item.price}}
+             </span> </h3>
+           <p style="color: lightseagreen; font-size: large;" > inclusive of all taxes </p>
+           <h2 style="font-weight: 500;">
+           SELECT SIZE <span class="text-muted m-3" style="font-size: small ;color: rgb(88, 88, 228);" > SIZE CHART
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+              </svg>
+               </span> 
            </h2>
-           <mat-chip-listbox aria-label="Fish selection">
-            <mat-chip-option>S</mat-chip-option>
-            <mat-chip-option>M</mat-chip-option>
-            <mat-chip-option >L</mat-chip-option>
-            <mat-chip-option >XL</mat-chip-option>
-            <mat-chip-option >XXL</mat-chip-option>
-            <mat-chip-option >XXXL</mat-chip-option>
+           <mat-chip-listbox aria-label="Fish selection" [(ngModel)]="size" id="size" name="size" >
+            <mat-chip-option value="S"   >S</mat-chip-option>
+            <mat-chip-option value="M" >M</mat-chip-option>
+            <mat-chip-option  value="L"  >L</mat-chip-option>
+            <mat-chip-option  value="XL"  >XL</mat-chip-option>
+            <mat-chip-option  value="XXL"  >XXL</mat-chip-option>
+            <mat-chip-option  value="XXXL"   >XXXL</mat-chip-option>
           </mat-chip-listbox>
           
-          <h2>
-            <strong> Select Quantity </strong> 
+          <h2 style="font-weight: 500; margin-top: 1rem;">
+            SELECT QUANTITY 
           </h2>
-          <mat-chip-listbox aria-label="Fish selection">
-            <mat-chip-option selected >1</mat-chip-option>
-            <mat-chip-option>2</mat-chip-option>
-            <mat-chip-option >3</mat-chip-option>
-            <mat-chip-option >4</mat-chip-option>
-            <mat-chip-option >5</mat-chip-option>
-            <mat-chip-option >6</mat-chip-option>
-            <mat-chip-option >7</mat-chip-option>
-            <mat-chip-option >8</mat-chip-option>
+          <mat-chip-listbox aria-label="Fish selection" [(ngModel)]="quantity" id="quantity"  name="quantity">
+            <mat-chip-option value="1" >1</mat-chip-option>
+            <mat-chip-option value="2">2</mat-chip-option>
+            <mat-chip-option value="3" >3</mat-chip-option>
+            <mat-chip-option value="4" >4</mat-chip-option>
+            <mat-chip-option value="5" >5</mat-chip-option>
+            <mat-chip-option value="6" >6</mat-chip-option>
+            <mat-chip-option value="7" >7</mat-chip-option>
+            <mat-chip-option value="8" >8</mat-chip-option>
           </mat-chip-listbox>
           
-          <button mat-raised-button color="accent">
+          <button class="mt-3 m-1 add-bag" (click)="addtoCart(item.id)" (click)="openSnackbar(item)" *ngIf="showadd">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
               <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/>
             </svg>
-            Add to Bag</button>
-          <button mat-raised-button >
+            ADD TO BAG</button>
+            <button class="mt-3 m-1 add-bag" routerLink="/cart" (click)="openSnackbar(item)"  *ngIf="showRemove">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
+                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/>
+              </svg>
+              GO TO BAG
+            </button>
+          <button   class="mt-3 m-1 add-wishlist" >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
               <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
             </svg>
-             Wishlist </button>
+             WISHLIST </button>
 
           <hr/>
-          <h3> offerprice </h3>
+          <h3> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+            <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z"/>
+          </svg>
+             {{item.offerprice}} <span style="text-decoration: line-through;" class="text-muted"> 
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+              <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z"/>
+            </svg>  {{item.price}} </span> </h3>
           <h4> get it by monday on 2023  </h4>
-          <h4> Seller : brand Name seller  </h4>
+          <h4> Seller : <span style="color: rgb(88, 88, 228);">
+           {{item.brandName}}</span>   </h4>
           <hr/>
           
-          <p> <strong> Delivery Options </strong> 
+          <p class="text-dark" style="font-weight: 500;">  DELIVERY OPTIONS  
             <span>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16">
                 <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
@@ -453,30 +502,30 @@
             </span>
            </p>
 
-           <div class="card" style="height: 6vh;">
+           <div class="card" style="height: 6vh; width: 60%;">
             <p style="margin-top: 4px;margin: 9px;" > enter pincode  </p>
             <a (click)="openPinCodeDialog('0 ms','0 ms')" style="text-decoration: none; margin-right:15px; margin: 9px; cursor: pointer; color: blue;" >check</a>
            </div>
            <br>
-           <p>
+           <p class="mt-3 text-dark">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16">
               <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-            </svg> <span> Get it by Sun, Oct 22 </span>
+            </svg> <span style="font-weight: 500;"> Get it by Sun, Oct 22 </span>
            </p>
         
-          <p>
+          <p class="mt-3 text-dark">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cash-coin" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0z"/>
             <path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1h-.003zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195l.054.012z"/>
             <path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083c.058-.344.145-.678.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1H1z"/>
             <path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 5.982 5.982 0 0 1 3.13-1.567z"/>
-          </svg> <span> Pay on Cash Delivery </span>
+          </svg> <span style="font-weight: 500;"> Pay on Cash Delivery </span>
           </p>
 
-          <p>
+          <p class="mt-3 text-dark"> 
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
-            </svg> <span> Easy 7 days return & exchange available </span>
+            </svg> <span style="font-weight: 500;"> Easy 7 days return & exchange available </span>
           </p>
 
           <p class="text-muted" > 100% Original Products </p>
@@ -484,20 +533,23 @@
           <hr/>
 
           <br>
-          <h2>
-            Product Details Name
+          <h2 style="font-weight: 500;">
+            PRODUCT DETAILS <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
+              <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+              <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+            </svg>
           </h2>
 
-          <h3> <strong> Size & Fit  </strong> </h3>
+          <h3 style="font-weight: 500;"> Size & Fit  </h3>
           <p> The model (height 6') is wearing a size M </p>
 
-          <h2> <strong> Material & Wash </strong> </h2>
+          <h2 style="font-weight: 500;">  Material & Wash </h2>
           <p> 60% Cotton, 40% Polyester </p>
           <p> Machine Wash</p>
 
           <hr/>
-          <p> Product code <strong> product id </strong> </p>
-          <p> Seller : <strong> product brand </strong> </p>
+          <p> Product code : <strong> AVENIDA{{item.id}} </strong> </p>
+          <p> Seller : <strong> {{item.brandName}} </strong> </p>
           </div>
           </div>
   
@@ -509,7 +561,8 @@
       <br>
       <br>
       <br>
-      <div class="bg-container1 pb-5">
+      <br>
+      <div class="bg-container1 p-5 pb-5">
         <div class="container ">
           <div class="row">
                 <div class="col-12 col-md-4 mt-2 mb-2">

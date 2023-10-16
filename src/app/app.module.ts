@@ -42,12 +42,20 @@ import { BagDialogComponent } from './bag-dialog/bag-dialog.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { PincodeDialogComponent } from './pincode-dialog/pincode-dialog.component';
 import { MenComponent } from './men/men.component';
-
-
+import { WomenComponent } from './women/women.component';
+import { KidsComponent } from './kids/kids.component';
+import { MenProductsComponent } from './men-products/men-products.component';
+import { WomenProductsComponent } from './women-products/women-products.component';
+import { KidsProductsComponent } from './kids-products/kids-products.component';
+import { AddBagSnackbarComponent } from './add-bag-snackbar/add-bag-snackbar.component';
+import { MatSnackBarModule} from '@angular/material/snack-bar';
+import { AddressComponent } from './address/address.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 const routes:Routes=[
   {
-    path:"",redirectTo:'home',pathMatch:'full'
+    path:"",redirectTo:'home',pathMatch:'full' 
   },
  
   {
@@ -79,6 +87,23 @@ const routes:Routes=[
   },
   {
     path:'home/men',component:MenComponent
+  },
+  {
+    path:'home/men/products',component:MenProductsComponent
+  },
+  {
+    path:'home/women',component:WomenComponent
+  },
+  {
+    path:'home/women/products',component:WomenProductsComponent
+  },
+  {
+    path:'home/kids',component:KidsComponent
+  },
+  {
+    path:'home/kids/products',component:KidsProductsComponent
+  },{
+    path:'address',component:AddressComponent
   }
 ]
 
@@ -100,6 +125,13 @@ const routes:Routes=[
     BagDialogComponent,
     PincodeDialogComponent,
     MenComponent,
+    WomenComponent,
+    KidsComponent,
+    MenProductsComponent,
+    WomenProductsComponent,
+    KidsProductsComponent,
+    AddBagSnackbarComponent,
+    AddressComponent,
     
   ],
   imports: [
@@ -124,7 +156,10 @@ const routes:Routes=[
     MatDialogModule,
     MatChipsModule,
     MatCardModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    MatSnackBarModule,
+    MatStepperModule,
+    MatCheckboxModule
   ], 
   
   providers: [SigninService,ProductService], 
