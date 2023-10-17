@@ -12,8 +12,8 @@
          <hr class="hr mt-4"/>
   </div>
   </div>
-  <div class="btn-container">
+  <div class="btn-container" *ngIf="cartitem">
     <button mat-button (click)="deleteCartItem(cartitem.id)" >Remove</button>
-    <button mat-button>Move to WishList</button>
+    <button mat-button (click)="addItemtoWishlist(user1,cartitem.product.id)" >Move to WishList</button>
    </div>
 </div>

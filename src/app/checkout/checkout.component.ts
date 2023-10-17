@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
-import { ActivatedRoute } from '@angular/router';
 import { SigninService } from '../signin.service';
 import { BagDialogComponent } from '../bag-dialog/bag-dialog.component';
 import {  MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { RemovedItemSnackbarComponent } from '../removed-item-snackbar/removed-item-snackbar.component';
 
 @Component({
   selector: 'app-checkout',
@@ -17,10 +18,12 @@ export class CheckoutComponent implements OnInit{
   item:any=[]
   user:any;
   searchtext:any;
+  durationInSeconds = 10;
+
   constructor(private http:HttpClient,private productservice:ProductService,
-    private route:ActivatedRoute,
     private signinservice:SigninService,
     private dialog:MatDialog,
+    private snackbar:MatSnackBar
     ) {
     this.signinservice.isUserLoggedIN
     this.signinservice.isLoggedIn
@@ -47,11 +50,10 @@ export class CheckoutComponent implements OnInit{
     return this.signinservice.isLoggedIn
    }
   
-  deleteWishListItem(id:string):void{
-
+  deleteWishListItem(id:string):void{ 
     this.productservice.deleteWishlistitem(id).subscribe((res)=>{
       console.log("deleted successfully",res);
-      
+      window.location.reload()
     })
   }
 
@@ -70,7 +72,15 @@ export class CheckoutComponent implements OnInit{
       data:item,
     })
   }
-
+  openRemoveItemSnackbar(item:any):void{
+    console.log("removed item",item);
+    this.snackbar.openFromComponent(RemovedItemSnackbarComponent,{
+      duration:this. durationInSeconds*1000,
+      verticalPosition: 'top',
+      horizontalPosition: 'right',
+      data:item
+    })    
+  }
 
 }
 

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SigninService } from '../signin.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { LoginSnackbarComponent } from '../login-snackbar/login-snackbar.component';
+import { UserService } from '../user.service';
 
 
 
@@ -15,9 +18,9 @@ export class SigninComponent {
   email:string='';
   password:string='';
 
-
-  constructor(private signinservice:SigninService,private router:Router) {
-    //return this.signinservice.getloggedInuser();
+  durationInSeconds=9;
+  constructor(private signinservice:SigninService,private router:Router,private snackbar:MatSnackBar,private userservice:UserService) {
+    
   }
 
   signup(){
@@ -54,10 +57,16 @@ export class SigninComponent {
     )
   }
 
-
-
-
-
+  loginSnackBar(email:any){
+    console.log("user",email)
+    this.snackbar.openFromComponent(LoginSnackbarComponent,{
+      duration:this. durationInSeconds*1000,
+      verticalPosition: 'top',
+      horizontalPosition: 'right',
+      data:email
+    }) 
+  }
+ 
 
 }
 

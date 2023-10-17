@@ -26,5 +26,10 @@
     margin-top: 2.5rem;
 }
 .pincode{
-    text-align: center;
+    -moz-appearance: textfield;
+}
+.pincode::-webkit-outer-spin-button,
+.pincode::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
 }

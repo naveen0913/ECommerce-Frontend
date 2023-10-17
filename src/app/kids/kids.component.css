@@ -243,19 +243,7 @@ body {
     background-size: cover;
 }
 
-.banner-heading {
-    color: white;
-    font-family: "Roboto";
-    font-size: 45px;
-    font-weight: 300;
-}
 
-.banner-caption {
-    color: #f5f7fa;
-    font-family: "Roboto";
-    font-size: 24px;
-    font-weight: 300;
-}
 
 .custom-button {
     color: white;
@@ -302,16 +290,6 @@ body {
     margin-top: 24px;
 }
 
-.menu-item-link {
-    color: #d0b200;
-    font-family: "Roboto";
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.menu-item-card {
-    border-radius: 3px;
-}
 
 .icon {
     color: #d0b200;

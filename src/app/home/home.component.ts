@@ -6,8 +6,6 @@ import { UserService } from '../user.service';
 import { Product } from '../product.model';
 
 
-
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

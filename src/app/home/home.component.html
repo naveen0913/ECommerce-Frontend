@@ -102,9 +102,9 @@
       </button>
       <img src="https://www.zilliondesigns.com/blog/wp-content/uploads/Ecommerce-Logo-17.jpg" alt="AVENIDA" class="proma-img" routerLink="/home"/>
       <span style="margin-left: 10px; cursor: pointer;" routerLink="/home" >AVENIDA </span>
-      <span style="margin-left: 30px; cursor: pointer;" class="men" routerLink="/home/men" > MEN </span>
-      <span style="margin-left: 20px; cursor: pointer;"  class="men" routerLink="/home/women" >WOMEN</span>
-      <span style="margin-left: 20px; cursor: pointer;"  class="men" routerLink="/home/kids" >KIDS</span>
+      <span style="margin-left: 30px; cursor: pointer;"  routerLink="/home/men" > MEN </span>
+      <span style="margin-left: 20px; cursor: pointer;"   routerLink="/home/women" >WOMEN</span>
+      <span style="margin-left: 20px; cursor: pointer;"   routerLink="/home/kids" >KIDS</span>
     
       <span class="menu-spacer"></span>
       <div class="search-hero">
@@ -138,7 +138,7 @@
             <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
           </svg>
         </button>
-        <button mat-menu-item routerLink="/logout" >Logout
+        <button mat-menu-item routerLink="/signin" (click)="logout()" >Logout
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
             <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
@@ -389,47 +389,3 @@
   </mat-sidenav-container>
 </div>
 
-<!--
-    navbar ends
--->
-<!--home page starts--
-<div class="explore-menu-section pt-3 pb-1" >
-    <div class="container">
-        <div class="row">
-            <div class="input-group">   
-<div class="col-12 col-md-6 col-lg-3 mt-2" *ngFor="let item of products|search:searchtext">
-    <div class="menu-item-card shadow p-3 mb-3" >
-        <div>
-            <p>
-                <img [src]="item.image2" class="menu-item-image w-100"  />
-            </p>
-            <p> {{item.name}} </p>
-            <p> offer Price : <span> {{item.offerprice}} </span> </p>
-        
-             <a  class="menu-item-link" [routerLink]="['/product/',item.id]"> View Product </a
-          
-            <div class="view-conatiner" >
-            <a  class="menu-item-link" routerLink="/product/{{item.id}}"> View Product </a>   
-            </div>
-            
-        </div>
-    </div>
-</div>
-</div>
-</div>
-<br>
-<hr/>
-<!--->
-   
-<div *ngIf="!products">
-    <h1>
-        Loading data....
-    </h1>
-</div>
-
-<!-- home page ends -->
-    
-
-
-    
-    

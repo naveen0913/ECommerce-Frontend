@@ -72,7 +72,6 @@ export class CartComponent implements OnInit{
   }
 
   calculateTotal(){
-    
     this.total=this.cartItems.reduce((acc,item)=>acc+item.offerprice,0)
   }
   

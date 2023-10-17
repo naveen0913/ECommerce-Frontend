@@ -1,8 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { SizeDialogComponent } from '../size-dialog/size-dialog.component';
 import { ProductService } from '../product.service';
 import { CheckoutComponent } from '../checkout/checkout.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AddBagSnackbar1Component } from '../add-bag-snackbar1/add-bag-snackbar1.component';
 
 
 @Component({
@@ -11,14 +12,15 @@ import { CheckoutComponent } from '../checkout/checkout.component';
   styleUrls: ['./bag-dialog.component.css']
 })
 export class BagDialogComponent implements OnInit {
+ 
   WishListItem:any
   item:any;
   quantity:any=''
   size:string='';
-  durationInSeconds = 5;
+  durationInSeconds = 10;
   constructor(@Inject(MAT_DIALOG_DATA) public data:CheckoutComponent,
   private productservice:ProductService,
-  
+  private snackbar:MatSnackBar,
   private closeDialog:MatDialogRef<TemplateStringsArray,RTCAnswerOptions>){
   }
 
@@ -33,7 +35,6 @@ export class BagDialogComponent implements OnInit {
   addtoCart(_id:any):void{
     this.productservice.addItemTocart(this.WishListItem.product.id,this.quantity,this.size).subscribe((res)=>{
       console.log("product with Id added to cart",res);
-      alert('product added')
       window.location.reload()
     },
     (error)=>{
@@ -47,6 +48,15 @@ export class BagDialogComponent implements OnInit {
     )
   }
 
+  openSnackbar(WishListItem:any):void{
+    console.log("moving to cart item",WishListItem);
+    this.snackbar.openFromComponent(AddBagSnackbar1Component,{
+      duration:this. durationInSeconds*1000,
+      verticalPosition: 'top',
+      horizontalPosition: 'right',
+      data:WishListItem
+    })
+  }
   onSizeChange(_size: string): void {
     this.size=this.size
   }

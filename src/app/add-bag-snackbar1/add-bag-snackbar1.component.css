@@ -1,0 +1,8 @@
+.view-button{
+    width: 15px;
+    height: 6px;
+    border: lightgreen;
+    background: lightgreen;
+    border-radius: 1px;
+    color: #ffffff;
+}

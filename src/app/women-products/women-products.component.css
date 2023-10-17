@@ -386,6 +386,7 @@ body {
 }
 .men{
   display: none;
+  cursor: pointer;
 }
 .proma-img{
   margin-top: .6rem;

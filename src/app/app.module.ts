@@ -52,6 +52,9 @@ import { MatSnackBarModule} from '@angular/material/snack-bar';
 import { AddressComponent } from './address/address.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { AddBagSnackbar1Component } from './add-bag-snackbar1/add-bag-snackbar1.component';
+import { RemovedItemSnackbarComponent } from './removed-item-snackbar/removed-item-snackbar.component';
+import { LoginSnackbarComponent } from './login-snackbar/login-snackbar.component';
 
 const routes:Routes=[
   {
@@ -132,6 +135,9 @@ const routes:Routes=[
     KidsProductsComponent,
     AddBagSnackbarComponent,
     AddressComponent,
+    AddBagSnackbar1Component,
+    RemovedItemSnackbarComponent,
+    LoginSnackbarComponent,
     
   ],
   imports: [
