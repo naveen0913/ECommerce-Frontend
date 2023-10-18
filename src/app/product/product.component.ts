@@ -176,7 +176,7 @@ export class ProductComponent implements OnInit {
   }
 
   openModal(template: TemplateRef<any>,_image:string) {
-    this.selectedImage=this.item._image;
+    this.selectedImage=this.item.image;
     this.modalRef = this.modalService.show(template, { class: 'modal-lg' });
   }
 

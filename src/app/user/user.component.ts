@@ -45,15 +45,16 @@ export class UserComponent implements OnInit{
      }else{
        alert("User Details Updated Successfully")
        console.log("User Details Updated Successfully",res);
+       window.location.reload()
      }
-     },
+     /*},
      (error)=>{
        if (error.status === 401) {
          alert("Unauthorized:An occurred while updating the details.");
        } else {
          alert("An error occurred while updating the details.");
        }
-       console.error("Error updating details:", error);
+       console.error("Error updating details:", error);*/
     })
   }
 

@@ -365,16 +365,16 @@
               -
             </div>-->
 
-            <div class="img-container"  (click)="openModal(template,item.image)">
-              <img [src]="item.image1" 
+            <div class="img-container" *ngIf="item">
+              <img [src]="item.image1"  (click)="openModal(template,item.image1)"  
               alt="Image 1" class="Image "  style="height: 70vh ; margin: 2px;" />
               
-              <img [src]="item.image2"
+              <img [src]="item.image2" (click)="openModal(template,item.image2)" 
               alt="Image 2" class="Image " style="height: 70vh;   margin: 2px;" />
              
-              <img [src]="item.image3" 
+              <img [src]="item.image3" (click)="openModal(template,item.image3)" 
               alt="Image 3" class="Image "  style="height: 70vh;margin: 2px; " />
-              <img [src]="item.image4" 
+              <img [src]="item.image4" (click)="openModal(template,item.image4)"  
               alt="Image 4" class="Image " style="height: 70vh;  margin: 2px;" />
              
             </div>
@@ -395,7 +395,7 @@
                 <div class="modal-body">
                   <div style="display: flex; justify-content:flex-start; flex-direction: row;">
 
-                    <div>
+                    <div *ngIf="item">
                       <div  (click)="updateSelectedImage(item.image1)" (mouseover)="onHover(item.image)">
                         <img [src]="item.image1" alt="Image" style="width:50px; height:50px; cursor: pointer;">
                       </div>
@@ -409,9 +409,9 @@
                         <img [src]="item.image4" alt="Image" style="width:50px; height:50px; cursor: pointer;">
                       </div>
                     </div>
-
-                    <div class="main-image-container" (mouseover)="onHover(item.selectedImage)" >
-                      <img [src]="item.image" alt="Image" style="width:550px; margin: 5px;">
+                    
+                    <div class="main-image-container" (mouseover)="onHover(item.selectedImage)" *ngIf="item">
+                      <img [src]="item.image" alt="Image" style="width:500px; margin: 5px;">
                     </div>
 
                 </div>

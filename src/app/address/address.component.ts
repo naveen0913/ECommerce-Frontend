@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, Form } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { ProductService } from '../product.service';
 
 
 @Component({
@@ -13,9 +15,16 @@ export class AddressComponent implements OnInit {
   secondFormGroup:any;
   isLinear = false;
 
- constructor (private formbuilder:FormBuilder){}
+  cartItems:any=[]
+ constructor (private formbuilder:FormBuilder,private route:ActivatedRoute,private productservice:ProductService){}
 
- ngOnInit(){
+ ngOnInit():void{
+  this.productservice.getAllCartItems().subscribe((items)=>{
+    this.cartItems=items
+    console.log(this.cartItems);
+    //this.calculateTotal()
+    
+  })
 
   this.firstFormGroup = this.formbuilder.group({
     firstCtrl: ['', [Validators.required , Validators.minLength(4),Validators.maxLength(20),Validators.pattern('[a-zA-Z]+')]],
@@ -23,6 +32,10 @@ export class AddressComponent implements OnInit {
   });
   this.secondFormGroup = this.formbuilder.group({
     secondCtrl: ['', Validators.required],
+
+   
+    
+    
     
   });
 
