@@ -49,7 +49,7 @@ export class ProductComponent implements OnInit {
   Size:any
 
   user1:any;
-  durationInSeconds = 5;
+  durationInSeconds = 8;
 
   constructor(private productservice:ProductService,
     private route:ActivatedRoute,private signinservice:SigninService,
@@ -137,6 +137,7 @@ export class ProductComponent implements OnInit {
     this.showadd=false
   }
 
+  /*
   placeOrder(_userid:any):void{
     this.productservice.placeOrder(this.user1,this.item.id,this.name,this.quantity,this.address,this.phone,this.size).subscribe((response)=>{
 
@@ -156,7 +157,7 @@ export class ProductComponent implements OnInit {
       console.error("Error adding product to wishlist:", error);
     }
     )
-  }
+  }*/
 
   toggleForm(){
     this.showForm=!this.showForm

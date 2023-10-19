@@ -68,12 +68,16 @@
 .hr{
   width: 100%;
 }
+
 .cart-container{
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
-  margin-bottom: .5rem;
+  
+}
+.card{
+  border: transparent;
 }
 .detail-conatiner{
   display: flex;
@@ -111,10 +115,11 @@
   margin-left: 1rem;
 }
 .button1{
-  background-color:rgb(240, 243, 243);
+  background-color: rgb(240, 243, 243);
+
   max-width: 0px;
   height: 0px;
-  border: rgb(240, 243, 243);
+  border:  #ffffff;
   margin-right: 5px;
 }
 .size-text{
@@ -124,10 +129,11 @@
 }
 .drop-icon{
   height: 12px;
-  margin-left: -.4rem;
+  color: #212529;
+  margin-left: -.1rem;
 }
 .button{
-  margin-left:28rem;
+  margin-left:8rem;
   margin-top: .1rem;
   background: #fff;
   border: #ffffff solid transparent;
@@ -136,7 +142,7 @@
 }
 .btn-c{
   background: transparent;
-  background-color: #ffffff;
+  background-color:  #ffffff;
   
 }
 .card{
@@ -159,8 +165,7 @@
 }
 .placeOrder{
   width: 350px;
-  margin-left: 31px;
-  border-radius: 1px;
+  border-radius: 1.2px;
   height: 40px;
   margin-top: 1px;
 }

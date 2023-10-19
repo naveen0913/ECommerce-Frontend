@@ -54,12 +54,6 @@ export class ProductService {
     return this.http.delete<any>(`http://localhost:8080/products/wishlist/del/${id}`)
   }
 
-  placeOrder(userId:string,productId:string,name:string,quantity:string,address:string,phone:string,size:string):Observable<any>{
-    const body={name,quantity,address,phone,size}
-    return this.http.post("http://localhost:8080/order/place/"+userId+`/${productId}`,body)
-
-  }
-
   getAllorders(id:string):Observable<any>{
     return this.http.get<any>("http://localhost:8080/order/myorders/"+id)
   }
@@ -101,5 +95,22 @@ export class ProductService {
     return this.http.get<Product[]>(this.apiUrl)
     
   }
+
+  addAddress(userId:any,phone:Number,address:string,locality:string,state:string,city:string,pincode:number,savedAddress:string):Observable<any>{
+    const body={phone,address,locality,state,city,pincode,savedAddress}
+    return this.http.post<any>(`http://localhost:8080/address/add/${userId}`,body)
+  }
+  getUserAddress(userId:any):Observable<any>{
+    return this.http.get<any>(`http://localhost:8080/address/${userId}`)
+  }
+  orderPlacement(userId:any,id:any,addressId:any):Observable<any>{
+    return this.http.post<any>(`http://localhost:8080/order/place/${userId}/${id}/${addressId}`,'')
+  }
+
+    /*
+  placeOrder(userId:string,productId:string,name:string,quantity:string,address:string,phone:string,size:string):Observable<any>{
+    const body={name,quantity,address,phone,size}
+    return this.http.post("http://localhost:8080/order/place/"+userId+`/${productId}`,body)
+  }*/
   
 }

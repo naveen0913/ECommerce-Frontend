@@ -18,7 +18,7 @@ export class CheckoutComponent implements OnInit{
   item:any=[]
   user:any;
   searchtext:any;
-  durationInSeconds = 10;
+  durationInSeconds = 8;
 
   constructor(private http:HttpClient,private productservice:ProductService,
     private signinservice:SigninService,
