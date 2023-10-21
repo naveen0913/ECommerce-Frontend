@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
-import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import {  MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
@@ -20,16 +19,18 @@ export class CartComponent implements OnInit{
   searchtext:any;
   total:number=0
   cartItem:any;
-
-  constructor(private productservice:ProductService,private route:ActivatedRoute,private http:HttpClient,public dialog: MatDialog) {
+  user:any
+  constructor(private productservice:ProductService,private http:HttpClient,public dialog: MatDialog) {
     
   }
   ngOnInit(): void {
     this.productservice.getAllCartItems().subscribe((items)=>{
       this.cartItems=items
+      this.cartItems.forEach((a:any)=>{
+        Object.assign(a,{quantity:1,total:a.price})
+      })
       console.log(this.cartItems);
-      this.calculateTotal()
-      
+      this.calculateTotal()  
     })
 
   }

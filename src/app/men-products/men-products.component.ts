@@ -60,7 +60,6 @@ export class MenProductsComponent implements OnInit {
       if(res.ok===false && this.user===0){
         alert("login first")
      }else{
-       alert("Product added to Wishlist")
        console.log("product added",res);
      }
     },(error)=>{

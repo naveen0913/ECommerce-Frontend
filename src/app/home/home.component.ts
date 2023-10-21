@@ -83,8 +83,7 @@ export class HomeComponent implements OnInit {
   getKidsproducts():void{
     this.productservice.getProductBycategory().subscribe(products=>{
       this.kidsProducts=products.filter(product=>product.categoryName==='kids')
-      console.log("kids data",this.kidsProducts);
-      
+      console.log("kids data",this.kidsProducts);   
     })
   }
 

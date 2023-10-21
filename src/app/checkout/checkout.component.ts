@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { SigninService } from '../signin.service';
@@ -20,7 +19,7 @@ export class CheckoutComponent implements OnInit{
   searchtext:any;
   durationInSeconds = 8;
 
-  constructor(private http:HttpClient,private productservice:ProductService,
+  constructor(private productservice:ProductService,
     private signinservice:SigninService,
     private dialog:MatDialog,
     private snackbar:MatSnackBar
@@ -33,17 +32,13 @@ export class CheckoutComponent implements OnInit{
     var wishlistuserId=localStorage.getItem("loggedInuserKey")
     console.log(wishlistuserId);
     
-    //let userId=this.route.snapshot.paramMap.get('userid')
-    //console.log(userId);
-    
     wishlistuserId && this.productservice.getAllWishListItems(wishlistuserId).subscribe((items)=>{
       this.wishListItems=items
       console.log("WishList items",items);
     })
 
     this.user=localStorage.getItem("loggedInuserKey")
-    console.log(this.user);
-    
+    console.log(this.user); 
   }
 
   get loggedInuser(){

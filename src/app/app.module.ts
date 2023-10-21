@@ -25,7 +25,6 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { UserComponent } from './user/user.component';
-import { CartdetailComponent } from './cartdetail/cartdetail.component';
 import { SearchPipe } from './search.pipe';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -54,7 +53,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { AddBagSnackbar1Component } from './add-bag-snackbar1/add-bag-snackbar1.component';
 import { RemovedItemSnackbarComponent } from './removed-item-snackbar/removed-item-snackbar.component';
-import { LoginSnackbarComponent } from './login-snackbar/login-snackbar.component';
+
 
 const routes:Routes=[
   {
@@ -81,9 +80,6 @@ const routes:Routes=[
   },
   {
     path:'user/:userid',component:UserComponent
-  },
-  {
-    path:'cartdetail/:cartid',component:CartdetailComponent
   },
   {
     path:'cart/:cartid',component:SizeDialogComponent
@@ -120,7 +116,6 @@ const routes:Routes=[
     SigninComponent,
     OrdersComponent,
     UserComponent,
-    CartdetailComponent,
     SearchPipe,
     DialogComponent,
     SizeDialogComponent,
@@ -137,7 +132,6 @@ const routes:Routes=[
     AddressComponent,
     AddBagSnackbar1Component,
     RemovedItemSnackbarComponent,
-    LoginSnackbarComponent,
     
   ],
   imports: [

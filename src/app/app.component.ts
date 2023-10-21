@@ -1,10 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { SigninService } from './signin.service';
-import { ProductService } from './product.service';
-import { UserService } from './user.service';
-import { ActivatedRoute } from '@angular/router';
-
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -13,29 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   title="eCommerce"
-  
-  cartItem:number | undefined;
-  
-
-  constructor(private http:HttpClient,public signinservice:SigninService,
-              private productservice:ProductService,
-              
-              private route:ActivatedRoute
-              
-  )
-  {  
-    
-  }
-  
-
-
-
+  constructor(){}  
   ngOnInit(): void {   
-  }
-
-  searchText:string=''
-  onSearchvalueEntered(searchvalue:string){
-    this.searchText=searchvalue;
-    console.log(this.searchText);
   }
 }

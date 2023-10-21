@@ -3,15 +3,10 @@
 .men{
   cursor: pointer;
 }
-.search-hero {
-    max-width: 500px;
-    padding-bottom: 50px;
-    margin:auto;
-  }
-  
   .form-control {
-    margin-top: .8rem;
-    margin-left: .3rem;
+    margin-top: 1.8rem;
+    margin-left: 3rem;
+    
   }
   .form-control::placeholder  {
     font-family: FontAwesome;
@@ -21,10 +16,10 @@
     border: 1px solid #ffffff;
     width: 100%;
     padding: 9px 4px 5px 40px;
-     background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
+    border-radius: 1px;
+    background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
   }
 .side-nav{
-  
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -187,9 +182,9 @@ body {
 .profile{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  margin-top: 1rem;
+  margin-top: 2.4rem;
 }
 
 .tool{
@@ -200,9 +195,6 @@ body {
   margin-left: 15px;
 
 }
-.profile:hover{
-  
-}
 
 .menu-spacer{
     flex: 1 1 auto;
@@ -212,46 +204,19 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
-  height: 70px;
+  height: 90px;
 }
 
-.products{
-    color:  #d0b200;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-.search{
-    border-radius: 40px;
-    width: 70%;
-}
-.search-btn{
-    border-radius: 40px;
-}
 
 .proma-img {
     width: 70px;
     height: 45px;
     border-radius: 10px;
     cursor: pointer;
+    margin-top: 25px;
+    margin-left: 50px;
 }
 
-#navItem1 {
-    color: #323f4b;
-    font-family: "Roboto";
-}
-
-
-.banner-section-bg-container {
-    background-image: url("https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/foodmunch-banner-bg.png");
-    height: 100vh;
-    background-size: cover;
-}
-
-.banner-heading {
-    color: white;
-    font-family: "Roboto";
-    font-size: 45px;
-    font-weight: 300;
-}
 
 .banner-caption {
     color: #f5f7fa;
@@ -260,66 +225,6 @@ body {
     font-weight: 300;
 }
 
-.custom-button {
-    color: white;
-    background-color: #d0b200;
-    width: 130px;
-    height: 45px;
-    border-width: 0;
-    border-radius: 8px;
-    margin-right: 10px;
-}
-
-.custom-outline-button {
-    color: #d0b200;
-    background-color: transparent;
-    width: 130px;
-    height: 45px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #d0b200;
-    border-radius: 8px;
-}
-
-.explore-menu-section {
-    background-color: white;
-}
-
-.menu-section-heading {
-    color: #183b56;
-    font-family: "serif";
-    font-size: 28px;
-    font-weight: 700;
-}
-
-.menu-item-image {
-    border-radius: 16px;
-    height: 50vh;
-}
-
-.menu-card-title {
-    color: #323f4b;
-    font-family: "Roboto";
-    font-size: 18px;
-    font-weight: 500;
-    margin-top: 24px;
-}
-
-.menu-item-link {
-    color: #d0b200;
-    font-family: "Roboto";
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.menu-item-card {
-    border-radius: 3px;
-}
-
-.icon {
-    color: #d0b200;
-    font-size: 35px;
-}
 /* footer sectiom*/
 
 

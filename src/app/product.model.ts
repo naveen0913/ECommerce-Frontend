@@ -18,9 +18,12 @@ export interface Product {
     size2: string;
     size3: string;
     size4: string;
+    size5:string;
     stock: string;
     stockLevel: string;
     xl_quantity: string;
     xxl_quantity: string;
+    xxxl_quantity:string;
+    type:string
   }
   

@@ -1,44 +1,3 @@
-<!-- navbar starts--
-<head>
-<script src ="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
-<link rel="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"  crossorigin="anonymous">
-</head>
-<nav class="navbar navbar-expand-lg navbar-dark bg-secondary sticky-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" routerLink="/home">
-        <img src="https://www.zilliondesigns.com/blog/wp-content/uploads/Ecommerce-Logo-17.jpg" alt="AVENIDA" class="proma-img" /> 
-        AVENIDA
-     <span style="color: #fff;">Store  </span> 
-       </a>
-      <input class="form-control me-2 w-75" type="search" placeholder="Search" aria-label="Search">
-     
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/home" >Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" routerLink="/check" >wishlist</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" routerLink="/orders" >Orders</a>
-          </li>
-        
-        </ul>
-       
-      </div>
-    </div>
-  </nav>
-
- navbar ends-->
-<head>
-</head>
-       <!-- angular navbar starts-->
-
 <div style="height: 90vh;background-size: cover;">  
   <mat-toolbar color="primary" class="nav" >
     <mat-toolbar-row>
@@ -46,17 +5,64 @@
         <mat-icon>menu</mat-icon>
       </button>
       <img src="https://www.zilliondesigns.com/blog/wp-content/uploads/Ecommerce-Logo-17.jpg" alt="AVENIDA" class="proma-img" routerLink="/home"/>
-      <span style="margin-left: 10px; cursor: pointer;" routerLink="/home"  >AVENIDA </span>
-    
-      <span class="menu-spacer"></span>
+      <span style="margin-left: 15px; cursor: pointer; margin-top: 25px;font-family: Arial, Helvetica, sans-serif;" routerLink="/home" >AVENIDA </span>
+      <span style="margin-left: 100px; cursor: pointer; margin-top: 25px;font-family: Arial, Helvetica, sans-serif;"  routerLink="/home/men" > MEN </span>
+      <span style="margin-left: 30px; cursor: pointer; margin-top: 25px;font-family: Arial, Helvetica, sans-serif;"   routerLink="/home/women" >WOMEN</span>
+      <span style="margin-left: 30px; cursor: pointer; margin-top: 25px; font-family: Arial, Helvetica, sans-serif;"   routerLink="/home/kids" >KIDS</span>
+      <span class="menu-spacer">
+        <input class="form-control w-75" type="text" name="search"  autocomplete="off" placeholder="Search">
+      </span>
      
-      <div class="search-hero">
-        <input class="form-control" type="text" name="search"  autocomplete="off" placeholder="Search">
-      </div>
-      <div fxShow="true" fxHide.lt-md>
-        <a  mat-button routerLink="/home" style="margin-left: 5px;" >HOME</a>
-        <a  mat-button routerLink="/check" >WISHLIST</a>
-        <a  mat-button routerLink="/orders" >ORDERS</a>
+      <div fxShow="true" fxHide.lt-md class="tool" >
+
+        <div fxShow="true" fxHide.lt-md class="tool">
+
+          <div class="profile">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16" >
+              <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+            </svg>
+          <button mat-button [matMenuTriggerFor]="menu" > <strong> Profile</strong> </button>
+          </div>
+          <mat-menu #menu="matMenu">
+            <div *ngIf="!user">
+              <button mat-menu-item routerLink="/signin" >Signup/Login
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+                  <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                </svg>
+              </button>
+            </div>
+          <div *ngIf="user">
+            <button mat-menu-item routerLink="/user/{{user}}" >My Account
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+              </svg>
+            </button>
+            <button mat-menu-item routerLink="/logout" >Logout
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+              </svg>
+            </button>
+          </div>
+          </mat-menu>
+  
+         
+        <div class="profile">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+          </svg>
+          <a routerLink="/check" mat-button> <strong> Wishlist</strong> </a> 
+        </div>
+        <div class="profile">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+            <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+          </svg>
+            <a routerLink="/cart" mat-button> <strong> Bag</strong> </a>
+          </div>
+          </div>
+      
         </div>
       </mat-toolbar-row>
   </mat-toolbar>
@@ -131,7 +137,6 @@
                 </div>
               </div>  
              
-              
               <div class=" mt-1"  >
                 <div class="card mt-3" style="border-radius: 4px;" >
                   <p style="margin: 15px; font-weight: 500;"> PRICE DETAILS ({{cartItems.length}}) </p>
@@ -141,7 +146,7 @@
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
                         <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z"/>
                       </svg>
-                       ${{item.product.price}} </span>  
+                       {{item.product.price}} </span>  
                   </div>
                     <br>
                     <div class="card1"  >
@@ -150,7 +155,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
                           <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z"/>
                         </svg> 
-                        ${{item.product.offerprice}} </span>
+                        {{item.product.offerprice}} </span>
                     </div>
                     <br>
                     <div class="card1">
@@ -159,7 +164,7 @@
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
                         <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z"/>
                       </svg>
-                      $30rs </span>
+                      30rs </span>
                     </div>
                     <hr/>
                     <div class="card1 m-2 mb-4">
@@ -177,11 +182,10 @@
                 </div>
               </div>
             </div>
-             
         
           <div class="container-fluid">
             <div class="row">
-              <div class=" col-lg-8 m-auto mt-2 mb-3">
+              <div class=" col-lg-8 m-auto mt-4 mb-3">
                 <div class="card shadow" style="width: 59%;height: 8vh; border-radius: 2px;border-color: black;" routerLink="/check" >
                   <div class="item-container">
                     <p style="margin-left: 10px;"  class="wishlist" routerLink="/check" > <strong style="margin-left: 10px;" >
@@ -196,7 +200,6 @@
               </div>
             </div>
           </div>
-
 
         </div>
       </div>
@@ -221,91 +224,4 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div> 
-
       <!-- angular navbar ends -->
-
-
-
-<!--cart page starts-
-
-<div class="container-fluid">
-  <div class="row">
-      <aside class="col-lg-8">
-          <div class="card mt-3" style="border-radius: 10px;" >
-              <div class="table-responsive">
-                  <table class="table table-borderless table-shopping-cart" *ngFor="let item of cartItems" >
-                      <thead class="text-muted">
-                          <tr class="small text-uppercase">
-                              <th scope="col">Cart Item</th>
-                              <th scope="col" width="120">Price</th>
-                              <th scope="col" width="120">Remove</th>
-                              <th scope="col" width="120">Buy </th>
-                             
-                          </tr>
-                          
-                      </thead>
-                      <tbody>
-                          <tr>
-                              <td>
-                                  <figure class="display-flex d-flex flex-column " >
-
-                                      <div class="aside d-flex flex-column"><img [src]="item.product.image1" class="img-sm">
-                                        <button class="mt-1 view" mat-flat-button color="primary" routerLink="/cartdetail/{{item.id}}" >View Item</button>
-                                      </div>
-                                     
-                                      <figcaption class="info"> <a class="title text-dark" data-abc="true"> {{item.product.name}} </a>
-                                          <p class="text-muted small">Brand: <span class="text-dark" >{{item.product.brandName}}</span>  <br> Size:<span class="text-dark" style="text-decoration: underline;" >{{item.size}}</span> <br> Qty :<span class="text-dark"  style="text-decoration: underline;">  {{item.quantity}} </span> </p>
-                                         
-                                      </figcaption>
-                                  </figure>
-                              </td>
-  
-                              <td >
-                                  <div class="price-wrap"> <var class="price">{{item.product.offerprice}}</var>  </div>
-                              </td>
-                              <td class="text-left " > 
-                                <button mat-fab color="warn" aria-label="Example icon button with a home icon" (click)="deleteCartItem(item.id)" >
-                                  <mat-icon>delete</mat-icon>
-                                </button>
-                                 </td>
-                               <button class="btn btn-outline-warning">Order</button>
-                          </tr>
-
-                      </tbody>
-                  </table>
-                  
-              </div>
-          </div>
-          
-      </aside>
-    
-      <aside class="col-lg-4">
-          <div class="card mt-3" style="border-radius: 10px;"  *ngFor="let item of cartItems|search:searchtext">
-              <div class="card-body"  >
-               
-                  <dl class="dlist-align" >
-
-                      <dt class="text-muted" >Actual price :  </dt>
-                      <dd class="text-right ml-3" style="text-decoration: line-through; color: red;" > {{item.product.price}} </dd>
-                  </dl>
-                  <dl class="dlist-align text-muted" >
-                      <dt>Discount Price :  </dt>
-                      <dd class="text-right text-danger ml-3" style="color: dodgerblue;"> {{item.product.offerprice}} </dd>
-                  </dl>
-                    
-                  <hr/>
-                   <a > <button mat-raised-button color="accent" class="btn-main  btn-out mt-2" routerLink="/product/{{item.product.id}}" >Back</button>  </a> 
-              </div>
-          </div>
-      </aside> -->
-
-
-
-
-      
-
-
-
-        
-  
-

@@ -1,12 +1,4 @@
-<!--
-    <div class="d-flex flex-row justify-content-center  mt-3"  >
-    <input  type="text" placeholder="Search for products" [(ngModel)]="searchtext" (input)="onSearchProduct()" aria-label="Search" class="form-control me-2 mb-1 search" >
-    <button class=" btn btn-outline-success search-btn"  >search</button>
-</div>
--->
-<!--
-    navbar starts
--->
+
 <head>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"  crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -15,85 +7,6 @@
  
 </head>
 
-<!--
-<nav class="navbar navbar-expand-lg  navbar-dark bg-light sticky-top ">
-    <div class="container-fluid">
-      <a class="navbar-brand text-dark" routerLink="/home" >
-        <img src="https://www.zilliondesigns.com/blog/wp-content/uploads/Ecommerce-Logo-17.jpg" alt="AVENIDA" class="proma-img" />
-         AVENIDA
-         <span style="color:white" class="text-dark"> Store </span> </a>
-
-         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active text-dark">MEN</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active text-dark">WOMEN</a>
-          </li>
-         </ul>
-      
-        <input class="form-control me-2 w-75 " type="search" [(ngModel)]="searchtext" placeholder="Search for products" aria-label="Search">
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-          <li class="nav-item dropdown">
-            <a class="nav-link active dropdown-toggle text-dark" style="cursor: pointer;" data-bs-toggle="dropdown" aria-expanded="false">
-              Profile
-            </a>
-         
-          <ul class="dropdown-menu ">
-            <div *ngIf="!user">
-              <li><a class="dropdown-item" routerLink="/signin">Login/Signup
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
-                  <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
-                </svg>
-              </a></li>
-            </div>
-           
-            <div *ngIf="user">
-              <li><a class="dropdown-item" routerLink="/user/{{user}}" >My Account
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                </svg>
-              </a></li>
-              <li><a class="dropdown-item" routerLink="/home" (click)="logout()" >
-                logout
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
-                  <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
-                </svg>
-              </a></li>
-            </div>
-        </ul>
-        
-      </li>
-          <li class="nav-item">
-            <a class="nav-link active text-dark" routerLink="/cart" >Bag</a>
-          </li>
-          <li class="nav-item">
-          
-            <a class="nav-link active text-dark" routerLink="/check" >
-              Wishlist</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active text-dark" routerLink="/orders" >Orders</a>
-          </li>
-         
-        </ul>
-      
-      </div>
-    </div>
-  </nav>
-
--->
-
 <div style="height: 90vh;background-size: cover;">
   <mat-toolbar color="primary"  class="nav" >
     <mat-toolbar-row>
@@ -101,15 +14,14 @@
         <mat-icon>menu</mat-icon>
       </button>
       <img src="https://www.zilliondesigns.com/blog/wp-content/uploads/Ecommerce-Logo-17.jpg" alt="AVENIDA" class="proma-img" routerLink="/home"/>
-      <span style="margin-left: 10px; cursor: pointer;" routerLink="/home" >AVENIDA </span>
-      <span style="margin-left: 30px; cursor: pointer;"  routerLink="/home/men" > MEN </span>
-      <span style="margin-left: 20px; cursor: pointer;"   routerLink="/home/women" >WOMEN</span>
-      <span style="margin-left: 20px; cursor: pointer;"   routerLink="/home/kids" >KIDS</span>
+      <span style="margin-left: 15px; cursor: pointer; margin-top: 25px;font-family: Arial, Helvetica, sans-serif;" routerLink="/home" >AVENIDA </span>
+      <span style="margin-left: 100px; cursor: pointer; margin-top: 25px;font-family: Arial, Helvetica, sans-serif;"  routerLink="/home/men" > MEN </span>
+      <span style="margin-left: 30px; cursor: pointer; margin-top: 25px;font-family: Arial, Helvetica, sans-serif;"   routerLink="/home/women" >WOMEN</span>
+      <span style="margin-left: 30px; cursor: pointer; margin-top: 25px; font-family: Arial, Helvetica, sans-serif;"   routerLink="/home/kids" >KIDS</span>
     
-      <span class="menu-spacer"></span>
-      <div class="search-hero">
-        <input class="form-control" type="text" name="search"  autocomplete="off" placeholder="Search " >
-      </div>
+      <span class="menu-spacer">
+        <input class="form-control w-75" type="text" name="search"  autocomplete="off" placeholder="Search " >
+      </span>
       
       <div fxShow="true" fxHide.lt-md class="tool" >
   
@@ -118,10 +30,8 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16" >
             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
           </svg>
-        <button mat-button [matMenuTriggerFor]="menu" > <strong> Profile</strong> </button>
-
+        <button mat-button [matMenuTriggerFor]="menu"> <strong> Profile</strong> </button>
         </div>
-
       <mat-menu #menu="matMenu" >
         <div *ngIf="!user">
           <button mat-menu-item routerLink="/signin" >Signup/Login
@@ -138,6 +48,18 @@
             <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
           </svg>
         </button>
+        <button mat-menu-item routerLink="/check" >Wishlist
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+          </svg>
+        </button>
+        <button mat-menu-item routerLink="/check" >saved Address
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+          </svg>
+        </button>
         <button mat-menu-item routerLink="/signin" (click)="logout()" >Logout
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
@@ -145,6 +67,7 @@
           </svg>
         </button>
       </div>
+      
       </mat-menu>
 
       <div class="profile">
@@ -179,28 +102,23 @@
         <section class="slider">
             <div class="slide one">
               <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-MHP-15102023-dailybanner-z5-p6-assembly-delseyparis-upto70.jpg" alt="image1" routerLink="/home/men" />
-              <span > 
-            </span>
+             
             </div>
             <div class="slide two">
               <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-UHP-11102023-uhphim-z13-p1-USPA-spykar-min55.jpg" alt="image2" routerLink="/home/men"/>
-              <span>
-              </span>
+             
           </div>
           <div class="slide three">
               <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-UHP-11102023-JIT-3-Z13-Dillinger-Thebearhouse-Min60.jpg" alt="image3" routerLink="/home/men"/>
-              <span>
-              </span>
+              
           </div>
           <div class="slide four">
               <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-UHP-11102023-MainBannerDailyChanging-Z1-P4-CrocsAdidasOriginals-min35.jpg" alt="image4" routerLink="/home/men"/>
-              <span>   
-              </span>
+              
           </div>
           <div class="slide five">
               <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-UHP-11102023-uhphim-z13-p3-uspa-americaneagle-upto50.jpg" alt="image5" routerLink="/home/men"/>
-              <span>
-            </span>
+              
         </div>
     </section>
 </section>
@@ -210,13 +128,11 @@
   <section class="slider1">
       <div class="slide one">
           <img src="https://assets.ajio.com/cms/AJIO/WEB/Paytm-1440x128%202.jpg" alt="image1"/>
-          <span >
-          </span>
+        
       </div>
       <div class="slide two">
         <img src="https://assets.ajio.com/cms/AJIO/WEB/federal%20des.png" alt="image2"/>
-        <span>
-        </span>
+       
     </div>
     <div class="slide three">
         <img src="https://assets.ajio.com/cms/AJIO/WEB/IDFC-1440x128-1.jpg" alt="image3"/>
@@ -230,8 +146,6 @@
     </div>
     <div class="slide five">
       <img src="https://assets.ajio.com/cms/AJIO/WEB/2192023-PLPStrip-RelianceOne-Points-1440x128.jpg" alt="image4"/>
-        <span>   
-        </span>
   </div>
     
 </section>
@@ -242,28 +156,23 @@
   <section class="slider">
       <div class="slide one">
           <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-UHP-111023-UHPHER-Z14-3-STYLI-USPA-MIN60.jpg" alt="image1" routerLink="/home/women"/>
-          <span >
-          </span>
+         
       </div>
       <div class="slide two">
         <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-WHP-111023-TOPBANNER-BU-Z4-3-HARPA-ALSACE-FLAT55.jpg" alt="image2" routerLink="/home/women"/>
-        <span>
-        </span>
+       
     </div>
     <div class="slide three">
         <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-UHP-111023-UHPHER-Z14-5-PUMA-CAMPUS-FLAT50.jpg" alt="image3" routerLink="/home/women"/>
-        <span>
-        </span>
+       
     </div>
     <div class="slide four">
         <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-WHP-111023-TOPBANNER-BU-Z4-5-STEVEMADDEN-ALDO-UPTO60.jpg" alt="image4" routerLink="/home/women" />
-        <span>   
-        </span>
+       
     </div>
     <div class="slide five">
         <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-UHP-11102023-uhphim-z13-p3-uspa-americaneagle-upto50.jpg" alt="image5" routerLink="/home/women" />
-        <span>
-      </span>
+      
   </div>
 </section>
 </section>
@@ -274,28 +183,23 @@
   <section class="slider">
       <div class="slide one">
           <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-KHP-141023-dailybanner-Z4-5-spunkies%20lofn%20more-upto75.jpg" alt="image1"  routerLink="/home/kids" />
-          <span > 
-          </span>
+         
       </div>
       <div class="slide two">
         <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-KHP-141023-topbannermonitised-Z4-1-miniklub-min60.jpg" alt="image2"  routerLink="/home/kids" />
-        <span>
-        </span>
+       
     </div>
     <div class="slide three">
         <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-KHP-141023-dailybanner-Z4-4-indinaterrainboy%20gini%20jony%20more-under399.jpg" alt="image3"  routerLink="/home/kids" />
-        <span>
-        </span>
+       
     </div>
     <div class="slide four">
         <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-KHP-141023-dailybanner-Z4-1-globaldesi%20and%20more-min50.jpg" alt="image4"  routerLink="/home/kids" />
-        <span>   
-        </span>
+       
     </div>
     <div class="slide five">
         <img src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-KHP-141023-dailybanner-Z4-2-JBNcreation%20muhuratam%20more-min55.jpg" alt="image5"  routerLink="/home/kids" />
-        <span>
-      </span>
+       
   </div>
 </section>
 </section>

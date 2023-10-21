@@ -41,7 +41,6 @@ export class AddressComponent implements OnInit {
     this.cartItems=items
     console.log(this.cartItems);
     //this.calculateTotal()
-    
     var user=localStorage.getItem("loggedInuserKey")
     console.log("user data will appear",user);
     this.user1=Number(user);
@@ -60,8 +59,6 @@ export class AddressComponent implements OnInit {
     })
     
   })
-
-  
   this.firstFormGroup = this.formbuilder.group({
     firstCtrl: ['', [Validators.required , Validators.minLength(4),Validators.maxLength(20),Validators.pattern('[a-zA-Z]+')]],
     phone:['',[Validators.required,Validators.minLength(10)]]
