@@ -12,6 +12,7 @@ export class ProductService {
   private cartProductsUrl="http://localhost:8080/products/cart/items"
 
   public wishListItem:any=[];
+  
   public cartItemlist:any=[];
 
   public productList=new BehaviorSubject<any>([])
@@ -21,28 +22,6 @@ export class ProductService {
   getAllProducts():Observable<any>{
     return this.http.get<any>(this.apiUrl);
   }
-  setProduct(Product:any){
-    this.cartItemlist.push(...Product)
-    this.productList.next(Product)
-  }
-  addCart(Product:any){
-    this.cartItemlist.push(Product)
-    this.productList.next(this.cartItemlist)
-  }
-  getGrandTotal(){
-    let totalAmount=0;
-    this.cartItemlist.map((a:any)=>{
-      totalAmount+=a.total;
-    })
-  }
-  removeCartData(Product:any){
-    this.cartItemlist.map((a:any,index:any)=>{
-      if(Product.id===a.id){
-        this.cartItemlist.splice(index,1)
-      }
-    })
-  }
-  
   
   getProductById(id:string):Observable<any>{
     return this.http.get<any>("http://localhost:8080/products/product/"+id)

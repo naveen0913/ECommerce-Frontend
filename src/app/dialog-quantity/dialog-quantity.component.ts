@@ -24,7 +24,6 @@ export class DialogQuantityComponent implements OnInit{
   updateQuantity(_id:any):void{
     this.productservice.cartItemIncrement(this.cartItem.id,this.quantity).subscribe((res)=>{
       console.log("quantity updated",res);
-      alert("quantity updated")
       window.location.reload()
     })
   }

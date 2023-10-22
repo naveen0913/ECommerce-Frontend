@@ -15,9 +15,7 @@ export class SizeDialogComponent implements OnInit {
   cartItems:any[]=[]
   cartitem:any;
   size:any;
-  constructor(private http:HttpClient,
-    private productservice:ProductService,
-    private route:ActivatedRoute,
+  constructor(private productservice:ProductService,
     @Inject(MAT_DIALOG_DATA) public data:SizeDialogComponent
     ) {
    

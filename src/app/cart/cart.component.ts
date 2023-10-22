@@ -18,6 +18,7 @@ export class CartComponent implements OnInit{
   size:any=''
   searchtext:any;
   total:number=0
+  offer:number=0
   cartItem:any;
   user:any
   constructor(private productservice:ProductService,private http:HttpClient,public dialog: MatDialog) {
@@ -26,11 +27,6 @@ export class CartComponent implements OnInit{
   ngOnInit(): void {
     this.productservice.getAllCartItems().subscribe((items)=>{
       this.cartItems=items
-      this.cartItems.forEach((a:any)=>{
-        Object.assign(a,{quantity:1,total:a.price})
-      })
-      console.log(this.cartItems);
-      this.calculateTotal()  
     })
 
   }
@@ -72,8 +68,26 @@ export class CartComponent implements OnInit{
     });
   }
 
-  calculateTotal(){
-    this.total=this.cartItems.reduce((acc,item)=>acc+item.offerprice,0)
+public calculateTotal(){
+  let total=0;
+  this.cartItems.forEach(item=>{
+    total+=item.product.offerprice*item.quantity+30
+  })
+  return total
+}
+  calculateTotalByprice(){
+    let offer=0;
+    this.cartItems.forEach(item=>{
+      offer+=item.product.price*item.quantity
+    })
+    return offer
+  }
+  calculateTotalByOfferprice(){
+    let offer=0;
+    this.cartItems.forEach(item=>{
+      offer+=item.product.offerprice*item.quantity
+    })
+    return offer
   }
   
 }

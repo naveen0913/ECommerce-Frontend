@@ -80,9 +80,10 @@
      
       <div *ngIf="cartItems.length>0"  >
       <div class="container-fluid" >
-        <div class="row" >
-          <div class="p-auto  mt-3 mb-1 d-flex flex-row justify-content-center" *ngFor="let item of cartItems|search:searchtext" >
-            <div class="cart-container card"   > 
+        <div class="row " >
+          <div class="p-auto mt-3 mb-1  d-flex flex-row justify-content-center">
+            <div class="d-flex flex-column justify-content-center">
+            <div class="cart-container card mt-2"  *ngFor="let item of cartItems|search:searchtext" > 
               <img [src]="item.product.image1" class="img-sm" alt="image1" />
               <div class="detail-conatiner">
                 <h2 class="text-dark" > {{item.product.brandName}} </h2>
@@ -115,18 +116,14 @@
 
                 </div>
               <p class="card-text" style="margin-left: 10px;margin-top: 10px;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
-                  <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z"/>
-                </svg> {{item.product.offerprice}}     <span class="text-muted icon" > {{item.product.price}} </span>
+                {{item.product.offerprice|currency:"INR"}}     <span class="text-muted icon" > {{item.product.price|currency:'INR'}} </span>
               </p>
               <p> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
               </svg>  30 Days  <span class="return" > return available </span> 
              </p>
-              </div>
             </div>
-          
-
+        
               <div class="d-flex flex-row justify-content-end">
                 <div class="btn-c">
                 <button mat-raised-button (click)="openDialog(item,'0ms', '0ms')" class="button" >
@@ -136,43 +133,39 @@
                 </button>
                 </div>
               </div>  
-             
+          </div> 
+         </div>
+    
+       
               <div class=" mt-1"  >
                 <div class="card mt-3" style="border-radius: 4px;" >
                   <p style="margin: 15px; font-weight: 500;"> PRICE DETAILS ({{cartItems.length}}) </p>
                    <div class="card1">
                     <p style="margin: 15px;" class="text-dark" >Total MRP  </p>  
                      <span style="margin-right: 25px;"  class="text-dark">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
-                        <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z"/>
-                      </svg>
-                       {{item.product.price}} </span>  
+                     {{calculateTotalByprice()|currency:'INR'}}
+                       </span>  
                   </div>
                     <br>
                     <div class="card1"  >
                       <p  style="margin: 15px;" class="text-dark">Offer Price </p>
                       <span style="margin-right: 25px;" class="text-dark">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
-                          <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z"/>
-                        </svg> 
-                        {{item.product.offerprice}} </span>
+                         
+                        {{  calculateTotalByOfferprice()|currency:"INR" }} 
+                        </span>
                     </div>
                     <br>
                     <div class="card1">
                     <p  style="margin: 15px;" class="text-dark">Delivery Fee </p> 
                     <span style="margin-right: 25px;" class="text-dark"> 
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
-                        <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z"/>
-                      </svg>
-                      30rs </span>
+                      
+                      {{30|currency:'INR'}}</span>
                     </div>
                     <hr/>
                     <div class="card1 m-2 mb-4">
                       <p style="margin: 8px; font-weight: 500;"> Total Amount  </p> <span style="margin-right: 10px; font-weight: 500;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
-                          <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z"/>
-                        </svg>
-                         {{item.product.offerprice}} </span>
+                        
+                         {{calculateTotal()|currency:"INR"}} </span>
                       </div>
                       <div class="btn-container">
                         <button class="btn btn-warning placeOrder" mat-raised-button color="accent" routerLink="/address" 
@@ -183,9 +176,10 @@
               </div>
             </div>
         
+        
           <div class="container-fluid">
             <div class="row">
-              <div class=" col-lg-8 m-auto mt-4 mb-3">
+              <div class=" col-lg-8 m-auto mt-2 mb-3">
                 <div class="card shadow" style="width: 59%;height: 8vh; border-radius: 2px;border-color: black;" routerLink="/check" >
                   <div class="item-container">
                     <p style="margin-left: 10px;"  class="wishlist" routerLink="/check" > <strong style="margin-left: 10px;" >

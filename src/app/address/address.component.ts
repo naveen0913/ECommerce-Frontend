@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
 import { UserService } from '../user.service';
 import { SigninService } from '../signin.service';
-
+import {  MatDialog } from '@angular/material/dialog';
+import { EditAddressDialogComponent } from '../edit-address-dialog/edit-address-dialog.component';
 
 @Component({
   selector: 'app-address',
@@ -20,6 +20,7 @@ export class AddressComponent implements OnInit {
   user:any;
   cartItems:any=[]
   item:any
+
   Address:any
 
   phone:any;
@@ -30,7 +31,7 @@ export class AddressComponent implements OnInit {
   pincode:any;
   savedAddress:any;
 
- constructor (private formbuilder:FormBuilder,private signinservice:SigninService,
+ constructor (private formbuilder:FormBuilder,private signinservice:SigninService,public dialog:MatDialog,
               private productservice:ProductService,private userservice:UserService){
   this.signinservice.isUserLoggedIN
   this.signinservice.isLoggedIn
@@ -40,7 +41,6 @@ export class AddressComponent implements OnInit {
   this.productservice.getAllCartItems().subscribe((items)=>{
     this.cartItems=items
     console.log(this.cartItems);
-    //this.calculateTotal()
     var user=localStorage.getItem("loggedInuserKey")
     console.log("user data will appear",user);
     this.user1=Number(user);
@@ -49,15 +49,11 @@ export class AddressComponent implements OnInit {
     this.user1 && this.userservice.getUser(this.user1).subscribe((res)=>{
       this.user=res
       console.log("user details",this.user);
-      
     })
-
     this.user1 && this.productservice.getUserAddress(this.user1).subscribe((res)=>{
       this.Address=res
-      console.log("user address",this.Address);
-      
+      console.log("user address",this.Address);  
     })
-    
   })
   this.firstFormGroup = this.formbuilder.group({
     firstCtrl: ['', [Validators.required , Validators.minLength(4),Validators.maxLength(20),Validators.pattern('[a-zA-Z]+')]],
@@ -66,7 +62,6 @@ export class AddressComponent implements OnInit {
   this.secondFormGroup = this.formbuilder.group({
     secondCtrl: ['', Validators.required],
   });
-
  }
 
  addAddress(_user1:any):void{
@@ -74,9 +69,35 @@ export class AddressComponent implements OnInit {
     console.log("address data",data);
   })
  }
-
   orderPlacement(_user1:any,_id:any,_address:any){
     this.productservice.orderPlacement(this.user1,_id,this.Address.id).subscribe((res)=>{
     })
   }
+  calculateTotal(){
+    let total=0;
+    this.cartItems.forEach((item: { product: { offerprice: number; }; quantity: number; })=>{
+      total+=item.product.offerprice*item.quantity+30
+    })
+    return total
+  }
+  calculateTotalByprice(){
+    let offer=0;
+    this.cartItems.forEach((item: { product: { price: number; }; quantity: number; })=>{
+      offer+=item.product.price*item.quantity
+    })
+    return offer
+  }
+  calculateTotalByOfferprice(){
+    let offer=0;
+    this.cartItems.forEach((item: { product: { offerprice: number; }; quantity: number; })=>{
+      offer+=item.product.offerprice*item.quantity
+    })
+    return offer
+  }
+  openEditAddressDialog(){
+    this.dialog.open(EditAddressDialogComponent,{
+
+    })
+  }
+
 }

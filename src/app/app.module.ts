@@ -53,7 +53,8 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { AddBagSnackbar1Component } from './add-bag-snackbar1/add-bag-snackbar1.component';
 import { RemovedItemSnackbarComponent } from './removed-item-snackbar/removed-item-snackbar.component';
-
+import {MatRadioModule} from '@angular/material/radio';
+import { EditAddressDialogComponent } from './edit-address-dialog/edit-address-dialog.component';
 
 const routes:Routes=[
   {
@@ -132,6 +133,7 @@ const routes:Routes=[
     AddressComponent,
     AddBagSnackbar1Component,
     RemovedItemSnackbarComponent,
+    EditAddressDialogComponent,
     
   ],
   imports: [
@@ -159,7 +161,8 @@ const routes:Routes=[
     ModalModule.forRoot(),
     MatSnackBarModule,
     MatStepperModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatRadioModule
   ], 
   
   providers: [SigninService,ProductService], 

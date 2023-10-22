@@ -29,11 +29,8 @@
     display: flex;
      flex-direction: row;
      justify-content: center;
-     align-items: center;
-     
+     align-items: center;     
 }
-
-
 .btm-container{
     margin-left: 6.5rem;
     width: 440px;
@@ -58,11 +55,7 @@
 
 }
 /*cart page type*/
-
-
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,600);
-
-
 body {
   background-color: #fff;
   color: #f1ecec;
@@ -70,23 +63,17 @@ body {
   font-size: 62.5%;
   margin: 0 auto;
 }
-
-
-
 input,
 button {
   border: 0 none;
   outline: 0 none;
 }
-
-
 img,
 .basket-module,
 .basket-labels,
 .basket-product {
   width: 100%;
 }
-
 input,
 button,
 .basket,
@@ -99,7 +86,6 @@ button,
 .product-details {
   float: left;
 }
-
 .basket,
 aside {
   padding: 0 1rem;
@@ -107,56 +93,37 @@ aside {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
 .basket {
   width: 70%;
- 
 }
-
-
 .item {
   width: 85%;
 }
-
 .subtotal {
   text-align: center;
 }
-
-
 .basket-product {
   border-bottom: 1px solid #ffffff;
   padding: 1rem 0;
   position: relative;
 }
-
 .product-image {
   width: 35%;
 }
-
 .product-details {
   width: 65%;
 }
-
 .product-frame {
   border: 1px solid #ffffff;
-  height: 29vh;
+  height: 26vh;
   width:8.5vw;
 }
-
 .product-details {
   padding: 0 1rem;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box;
-   
+  box-sizing: border-box;  
 }
-
-aside {
-  float: right;
-  position: relative;
-  width: 30%;
-}
-
 .summary {
   border: 1px solid #fff9f9;
   padding: 1rem;
@@ -167,7 +134,6 @@ aside {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
 .summary-total-items {
   color: #666;
   font-size: 0.875rem;
@@ -179,7 +145,7 @@ aside {
   border-top: 1px solid #ffffff;
   border-bottom: 1px solid #fffdfd;
   clear: both;
-  overflow: hidden;
+  overflow:hidden;
   padding: 0rem;
 }
 
@@ -195,14 +161,6 @@ aside {
   width: 50%;
   margin-top: .3rem;
 }
-
-.summary-promo {
-  -webkit-transition: all .3s ease;
-  -moz-transition: all .3s ease;
-  -o-transition: all .3s ease;
-  transition: all .3s ease;
-}
-
 .promo-title {
   float: left;
   width: 70%;
@@ -232,6 +190,26 @@ aside {
   width: 100%;
   color: #fff;
   background: rgb(72, 72, 215);
+}
+.top-container{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+}
+.address-btn{
+  border-color: #171616 solid;
+  color:black ;
+  width: 180px;
+  height: 45px;
+  background: transparent;
+}
+.home{
+  width: 70px;
+  height: 30px;
+  border-radius: 15px;
+  border-color: rgb(86, 179, 86) solid;
+  background:transparent  rgb(86, 179, 86);
 }
 
 @media screen and (max-width: 640px) {
