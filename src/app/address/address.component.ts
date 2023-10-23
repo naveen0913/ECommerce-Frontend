@@ -94,9 +94,12 @@ export class AddressComponent implements OnInit {
     })
     return offer
   }
-  openEditAddressDialog(){
+  openEditAddressDialog(enterAnimationDuration: string, exitAnimationDuration: string){
     this.dialog.open(EditAddressDialogComponent,{
-
+      width:'480px',
+      height:'500px',
+      enterAnimationDuration,
+      exitAnimationDuration,
     })
   }
 

@@ -1,1 +1,55 @@
-<p>edit-address-dialog works!</p>
+<div class="top-container">
+    <p style="margin: 20px;">EDIT ADDRESS</p>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg wrong-icon" viewBox="0 0 16 16" >
+        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+      </svg>
+</div>
+<hr style="margin-top: -5px;"/>
+
+<div style="margin-left:20px;">
+     
+        <div class="form-container">
+            <h4 style="font-family: 'roboto';font-weight: 500;" > CONTACT DETAILS </h4>
+            <mat-form-field appearance="outline" style="width: 95%;">
+              <mat-label>Mobile No*</mat-label>
+              <input matInput  type="number" class="pincode" >
+            </mat-form-field>
+            <h4>ADDRESS</h4>
+            <mat-form-field appearance="outline" style="width: 95%;">
+                <mat-label>Pincode</mat-label>
+                    <input matInput  type="number" class="pincode" >
+              </mat-form-field> 
+              <mat-form-field appearance="outline" style="width: 95%;">
+                <mat-label>Address (House No,Building,Street,Area) </mat-label>
+                    <input matInput  formControlName="shopAddress" class="text" >
+              </mat-form-field> 
+              <mat-form-field appearance="outline" style="width: 95%;">
+                <mat-label>Locality/Town</mat-label>
+                    <input matInput  formControlName="shopAddress" class="text" >
+              </mat-form-field>
+
+              <div class="d-flex flex-row justify-content-start">
+                <mat-form-field appearance="outline" style="width: 47.5%;">
+                    <mat-label>City</mat-label>
+                        <input matInput  formControlName="shopAddress" class="text" >
+                  </mat-form-field> 
+                  <mat-form-field appearance="outline"  style="width: 47.5%; margin-left: .5rem;">
+                    <mat-label>State</mat-label>
+                        <input matInput  formControlName="shopAddress" class="text" >
+                  </mat-form-field> 
+              </div>
+              <h4>SAVE ADDRESS AS</h4>
+              <div class="d-flex flex-row justify-content-start">
+                <mat-chip-listbox aria-label="Fish selection">
+                    <mat-chip-option>One fish</mat-chip-option>
+                    <mat-chip-option>Two fish</mat-chip-option>
+                </mat-chip-listbox>
+              </div>
+                <button mat-raised-button color="accent" class="save-btn mt-2 mb-2" (click)="onSubmit()">SAVE ADDRESS</button>
+            </div>
+        
+      
+      
+</div>
+      
+    

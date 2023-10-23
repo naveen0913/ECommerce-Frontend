@@ -204,12 +204,14 @@ aside {
   height: 45px;
   background: transparent;
 }
-.home{
-  width: 70px;
-  height: 30px;
-  border-radius: 15px;
-  border-color: rgb(86, 179, 86) solid;
-  background:transparent  rgb(86, 179, 86);
+.home-bg{
+  background: rgb(86, 179, 86);
+  width: 55px;
+  height: 20px;
+  border: rgb(86, 179, 86);
+  border-radius: 20px;
+  margin-left: .5rem;
+  margin-top: .7rem;
 }
 
 @media screen and (max-width: 640px) {

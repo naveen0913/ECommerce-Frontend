@@ -158,10 +158,11 @@
 
               <div class="card mb-3">
                 <div class="card-body">
+
                   <div class="d-flex flex-row justify-content-start">
-                      <mat-radio-button selected>Naveen</mat-radio-button>
-                      <div style="background: rgb(86, 179, 86) ;width: 56px;height: 18px;border: rgb(86, 179, 86);border-radius: 20px;margin-top: .8rem;margin-left: .4rem;">
-                        <span  style="color: rgb(86, 179, 86);font-size: 10px;color: white;border-color: black;margin-left: 11px;">
+                      <mat-radio-button checked>Naveen</mat-radio-button>
+                      <div class="home-bg">
+                        <span  style="margin-left: 9px;color: white;font-size: smaller;">
                           HOME</span>
                       </div>  
                     </div>
@@ -174,11 +175,19 @@
                     </li>
                   </p>
                   <button mat-raised-button >REMOVE</button>
-                  <button mat-raised-button style="margin-left: .5rem;" (click)="openEditAddressDialog()" >EDIT</button>
+                  <button mat-raised-button style="margin-left: .5rem;" (click)="openEditAddressDialog('0ms', '0ms')" >EDIT</button>
                 </div>
               </div>
               
-               
+              <div class="card mb-3">
+                <div class="card-body">
+                  <p class="m-1"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="blue" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                  </svg> <span class="text-primary"> ADD NEW ADDRESS </span> 
+                </p>
+                 </div>
+            </div>
+
              </div>
           </div>
 
@@ -191,10 +200,15 @@
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>PAYMENT</ng-template>
-      <p>You are now done.</p>
+       <p> Enter Email for Updates</p>
+      <mat-form-field appearance="outline" style="width: 65%;">
+        <mat-label>Email</mat-label>
+        <input matInput  type="email" placeholder="Enter your Email">
+      </mat-form-field>
+
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-raised-button color="warn" matStepperPrevious>Back</button>
+        <button mat-raised-button class="p-2" color="accent" >Place order</button>
       </div>
     </mat-step>
   </mat-stepper>
