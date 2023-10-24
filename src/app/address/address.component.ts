@@ -5,6 +5,7 @@ import { UserService } from '../user.service';
 import { SigninService } from '../signin.service';
 import {  MatDialog } from '@angular/material/dialog';
 import { EditAddressDialogComponent } from '../edit-address-dialog/edit-address-dialog.component';
+import { AddNewAddressDialogComponent } from '../add-new-address-dialog/add-new-address-dialog.component';
 
 @Component({
   selector: 'app-address',
@@ -21,7 +22,7 @@ export class AddressComponent implements OnInit {
   cartItems:any=[]
   item:any
 
-  Address:any
+  userAddress:any=[]
 
   phone:any;
   address:any;
@@ -40,19 +41,19 @@ export class AddressComponent implements OnInit {
  ngOnInit():void{
   this.productservice.getAllCartItems().subscribe((items)=>{
     this.cartItems=items
-    console.log(this.cartItems);
+    console.log("cartItems",this.cartItems);
     var user=localStorage.getItem("loggedInuserKey")
     console.log("user data will appear",user);
     this.user1=Number(user);
-    console.log("user will appear",this.user1);
-
+    console.log("user id",this.user1);
+    
     this.user1 && this.userservice.getUser(this.user1).subscribe((res)=>{
       this.user=res
       console.log("user details",this.user);
     })
     this.user1 && this.productservice.getUserAddress(this.user1).subscribe((res)=>{
-      this.Address=res
-      console.log("user address",this.Address);  
+      this.userAddress=res
+      console.log("address",this.userAddress);  
     })
   })
   this.firstFormGroup = this.formbuilder.group({
@@ -70,7 +71,7 @@ export class AddressComponent implements OnInit {
   })
  }
   orderPlacement(_user1:any,_id:any,_address:any){
-    this.productservice.orderPlacement(this.user1,_id,this.Address.id).subscribe((res)=>{
+    this.productservice.orderPlacement(this.user1,_id,this.userAddress.id).subscribe((res)=>{
     })
   }
   calculateTotal(){
@@ -100,6 +101,20 @@ export class AddressComponent implements OnInit {
       height:'500px',
       enterAnimationDuration,
       exitAnimationDuration,
+    })
+  }
+  openAddNewAddressDialog(enterAnimationDuration: string, exitAnimationDuration: string){
+    this.dialog.open(AddNewAddressDialogComponent,{
+      width:'480px',
+      height:'500px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    })
+  }
+  deleteAddress(_id:any){
+    this.productservice.deleteAddress(this.userAddress.id).subscribe((res)=>{
+      console.log("address deleted",res);
+      window.location.reload()
     })
   }
 

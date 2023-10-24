@@ -1,30 +1,25 @@
 
-
-<div style="height: 90vh;background-size: cover;">  
+<div style="height: 87vh;background-size: cover;">  
   <mat-toolbar color="primary" class="nav" >
     <mat-toolbar-row>
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
         <mat-icon>menu</mat-icon>
       </button>
       <img src="https://www.zilliondesigns.com/blog/wp-content/uploads/Ecommerce-Logo-17.jpg" alt="AVENIDA" class="proma-img" routerLink="/home"/>
-      <span style="margin-left: 10px; cursor: pointer;" routerLink="/home"  >AVENIDA </span>
-    
-      <span class="menu-spacer"></span>
-     
-      <div class="search-hero">
-        <input class="form-control" type="text" name="search"  autocomplete="off" placeholder="Search">
-      </div>
+      <span style="margin-left: 15px; cursor: pointer; margin-top: 25px;font-family: Arial, Helvetica, sans-serif;" routerLink="/home" >AVENIDA </span>
+        <span style="margin-left: 100px; cursor: pointer; margin-top: 25px;font-family: Arial, Helvetica, sans-serif;"  routerLink="/home/men" > MEN </span>
+        <span style="margin-left: 30px; cursor: pointer; margin-top: 25px;font-family: Arial, Helvetica, sans-serif;"   routerLink="/home/women" >WOMEN</span>
+        <span style="margin-left: 30px; cursor: pointer; margin-top: 25px; font-family: Arial, Helvetica, sans-serif;"   routerLink="/home/kids" >KIDS</span>
+      <span class="menu-spacer">
+        <input class="form-control w-75" type="text" name="search"  autocomplete="off" placeholder="Search">
+      </span>
       <div fxShow="true" fxHide.lt-md class="tool" >
-
         <div class="profile">
-
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16" >
             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
           </svg>
         <button mat-button [matMenuTriggerFor]="menu" > <strong> Profile</strong> </button>
-
         </div>
-
         <mat-menu #menu="matMenu" >
           <div *ngIf="!user1">
             <button mat-menu-item routerLink="/signin" >Signup/Login
@@ -111,12 +106,8 @@
               <img [src]="item.image3" (click)="openModal(template,item.image3)" 
               alt="Image 3" class="Image "  style="height: 70vh;margin: 2px; " />
               <img [src]="item.image4" (click)="openModal(template,item.image4)"  
-              alt="Image 4" class="Image " style="height: 70vh;  margin: 2px;" />
-             
+              alt="Image 4" class="Image " style="height: 70vh;  margin: 2px;" />     
             </div>
-
-
-
             <ng-template #template>
               <div class="modal-content">
                 <div class="modal-header">
@@ -166,26 +157,115 @@
               </h3>
            <p style="color: lightseagreen; font-size: large;" > inclusive of all taxes </p>
            <h2 style="font-weight: 500;">
-           SELECT SIZE <span class="text-muted m-3" style="font-size: small ;color: rgb(88, 88, 228);" > SIZE CHART
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-              </svg>
-         height: inherit;
+           SELECT SIZE <span class="text-muted m-3" style="font-size: small ;color: rgb(88, 88, 228);" > 
+            <!-- off canvas -->
+              <button class="btn btn-white" type="button" style="margin-top: -.5rem;color: fuchsia;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">SIZE CHART
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+              </button>
+
+              <div class="offcanvas offcanvas-end" style="margin-top: 5.8rem;" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas-header">
+                  <button type="button" class="btn-close" style="margin-right: 10px;" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <div class="d-flex flex-row justify-content-start">
+                    <img [src]="item.image1" alt="image" style="width: 80px;height: 100px;" />
+                     <div class="d-flex flex-column justify-content-start" style="margin-left: 10px; margin-top: -5px;">
+                       <p style="font-size: large;font-family: 'roboto';font-weight: 500;" > {{item.brandName}} </p>
+                       <p class="text-muted" style="font-size: 20px; margin-top: -15px;">{{item.name}}</p>
+                       <p> {{item.offerprice|currency:'INR'}} <span class="text-muted" style="text-decoration: line-through; margin-top: -15px;"> {{item.price|currency:'INR'}} </span> </p>
+                    </div>
+                  </div>
+                  <!--Measurement Table-->
+                       <p class="text-center" style="font-family: 'roboto';font-weight: 500;font-size: large;color: fuchsia;">SIZE CHART
+                      </p>  
+                      <hr style="margin-top: -8px;"/>
+                <div class="toggle-container">
+                    <button mat-raised-button class="inch-btn" >in</button>
+                    <button mat-raised-button class="inch-btn" (click)="measurementInCm()" >Cm</button>    
+                </div>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Size</th>
+                        <th scope="col">Chest (in)</th> 
+                        <th scope="col">Front Length (in)</th>
+                        <th scope="col">Across Shoulder (in)</th>
+                        <th scope="col">Sleeve-length (in)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><mat-radio-button ></mat-radio-button></th>
+                        <td>S</td>
+                        <td class="text-center">18.0</td>
+                        <td class="text-center">26.0</td>
+                        <td class="text-center">16.5</td>
+                        <td class="text-center">8.3</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><mat-radio-button ></mat-radio-button></th>
+                        <td>M</td>
+                        <td class="text-center">19.0</td>
+                        <td class="text-center">27.0</td>
+                        <td class="text-center">17.5</td>
+                        <td class="text-center">8.5</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><mat-radio-button ></mat-radio-button></th>
+                        <td>L</td>
+                        <td class="text-center">20.0</td>
+                        <td class="text-center">28.0</td>
+                        <td class="text-center">18.5</td>
+                        <td class="text-center">8.7</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"> <mat-radio-button ></mat-radio-button></th>
+                        <td>XL</td>
+                        <td class="text-center">21.0</td>
+                        <td class="text-center">29.0</td>
+                        <td class="text-center">19.5</td>
+                        <td class="text-center">8.9</td>
+                       
+                      </tr>
+                      <tr>
+                        <th scope="row"><mat-radio-button ></mat-radio-button></th>
+                        <td>XXL</td>
+                        <td class="text-center">22.0</td>
+                        <td class="text-center">30.0</td>
+                        <td class="text-center">20.5</td>
+                        <td class="text-center">9.1</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><mat-radio-button ></mat-radio-button></th>
+                        <td>XXXL</td>
+                        <td class="text-center">23.0</td>
+                        <td class="text-center">31.0</td>
+                        <td class="text-center">21.5</td>
+                        <td class="text-center">9.3</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                </div>
+              </div>
                </span> 
            </h2>
-           <mat-chip-listbox aria-label="Fish selection" [(ngModel)]="size" id="size" name="size" >
-            <mat-chip-option value="S"   >S</mat-chip-option>
+           <mat-chip-listbox aria-label="Fish selection" [(ngModel)]="size" id="size" name="size" required>
+            <mat-chip-option value="S" >S</mat-chip-option>
             <mat-chip-option value="M" >M</mat-chip-option>
             <mat-chip-option  value="L"  >L</mat-chip-option>
             <mat-chip-option  value="XL"  >XL</mat-chip-option>
             <mat-chip-option  value="XXL"  >XXL</mat-chip-option>
             <mat-chip-option  value="XXXL"   >XXXL</mat-chip-option>
-          </mat-chip-listbox>
-          
+          </mat-chip-listbox>        
           <h2 style="font-weight: 500; margin-top: 1rem;">
             SELECT QUANTITY 
           </h2>
-          <mat-chip-listbox aria-label="Fish selection" [(ngModel)]="quantity" id="quantity"  name="quantity">
+          <mat-chip-listbox aria-label="Fish selection" [(ngModel)]="quantity" id="quantity"  name="quantity" required>
             <mat-chip-option value=1 >1</mat-chip-option>
             <mat-chip-option value=2>2</mat-chip-option>
             <mat-chip-option value=3 >3</mat-chip-option>

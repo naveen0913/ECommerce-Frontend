@@ -4,9 +4,7 @@
   
 .form-control {
   margin-top: 2rem;
-  margin-left: .3rem;
-  margin-left: -1rem;
-    
+  margin-left: 3rem;
 }
 .form-control::placeholder  {
   font-family: FontAwesome;
@@ -215,8 +213,6 @@ body {
   margin-top: 25px;
   margin-left: 50px;
 }
-
-
 .banner-heading {
     color: white;
     font-family: "Roboto";

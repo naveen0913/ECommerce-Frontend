@@ -1,0 +1,29 @@
+.top-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.wrong-icon{
+    margin-right: 20px;
+}
+.pincode{
+    appearance: textfield;
+}
+
+.pincode::-webkit-outer-spin-button,
+.pincode::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+.form-container{
+    flex-direction: column;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.save-btn{
+    width:99%;
+    height: 45px;
+    border-radius: 1px;
+}

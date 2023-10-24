@@ -30,7 +30,7 @@ export class CheckoutComponent implements OnInit{
   ngOnInit(): void {
 
     var wishlistuserId=localStorage.getItem("loggedInuserKey")
-    console.log(wishlistuserId);
+    console.log("logged in user",wishlistuserId);
     
     wishlistuserId && this.productservice.getAllWishListItems(wishlistuserId).subscribe((items)=>{
       this.wishListItems=items
@@ -38,7 +38,7 @@ export class CheckoutComponent implements OnInit{
     })
 
     this.user=localStorage.getItem("loggedInuserKey")
-    console.log(this.user); 
+    console.log("logged in user",this.user); 
   }
 
   get loggedInuser(){

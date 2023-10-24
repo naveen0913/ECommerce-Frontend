@@ -81,17 +81,15 @@
       <form [formGroup]="secondFormGroup" >
         <div class="d-flex flex-column">
 
-          <div *ngIf="false">
-          <div class="form-container" *ngIf="user" >
+          <div *ngIf="!userAddress && user">
+          <div class="form-container"  >
         <mat-form-field class="mt-2" appearance="outline"  style="margin-right: 10px;">
           <mat-label>Name</mat-label>
-          <input matInput formControlName="secondCtrl" placeholder="Enter Your Name*" 
-                 required>
+          <input matInput formControlName="secondCtrl" placeholder="Enter Your Name*" >
         </mat-form-field>
         <mat-form-field appearance="outline" class="mt-2">
           <mat-label>Email</mat-label>
-          <input matInput formControlName="secondCtrl" placeholder="Enter your Email*" type="email" 
-                 required>
+          <input matInput formControlName="secondCtrl" placeholder="Enter your Email*" type="email" >
         </mat-form-field>
         </div>
 
@@ -136,7 +134,7 @@
         </div>
         </div>
 
-        <div class="btm-container" *ngIf="false" >
+        <div class="btm-container" *ngIf="!userAddress && user" >
           <p style="margin: 5px; font-weight: 500; " class="text-left"> SAVE ADDRESS AS </p>
           <div class="d-flex flex-row justify-content-start">
             <mat-chip-listbox aria-label="Fish selection" [(ngModel)]="savedAddress" name="savedAddress" >
@@ -147,43 +145,43 @@
           <button mat-raised-button color="accent"  class="mt-3 add-btn" (click)="addAddress(user)">ADD ADDRESS</button>
         </div>
 
-          <div *ngIf="true" >
-
+          <div *ngIf="userAddress && user">
+            
              <div class="mt-2">
               <div class="top-container mb-2">
                 <h3 class="mt-2" style="font-family:'roboto';font-weight: 500;font-size: 20px;"> Select Delivery Address </h3>
-                <button mat-raised-button class="address-btn" > ADD NEW ADDRESS </button>
+                <button mat-raised-button class="address-btn" (click)=" openAddNewAddressDialog('0ms','0ms')" > ADD NEW ADDRESS </button>
               </div>
               <p class="text-muted" style="font-size: smaller;font-weight: 500;font-family: 'roboto';" >DEFAULT ADDRESS</p>
 
               <div class="card mb-3">
                 <div class="card-body">
 
-                  <div class="d-flex flex-row justify-content-start">
-                      <mat-radio-button checked>Naveen</mat-radio-button>
-                      <div class="home-bg">
+                  <div class="d-flex flex-row justify-content-start" *ngIf="userAddress">
+                      <mat-radio-button checked> {{user.name}} </mat-radio-button>
+                      <div class="home-bg" >
                         <span  style="margin-left: 9px;color: white;font-size: smaller;">
-                          HOME</span>
+                         {{userAddress.savedAddress}} </span>
                       </div>  
                     </div>
                   
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <h5>Mobile : <span class="text-dark" >999898978</span> </h5>
+                  <p class="card-text">  </p>
+                  <h5>Mobile : <span class="text-dark" > {{userAddress.phone}} </span> </h5>
                   <p class="card-text">
                     <li>
                       Pay on Delivery available
                     </li>
                   </p>
-                  <button mat-raised-button >REMOVE</button>
+                  <button mat-raised-button  >REMOVE</button>
                   <button mat-raised-button style="margin-left: .5rem;" (click)="openEditAddressDialog('0ms', '0ms')" >EDIT</button>
                 </div>
               </div>
               
-              <div class="card mb-3">
+              <div class="card mb-3" >
                 <div class="card-body">
-                  <p class="m-1"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="blue" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                  <p class="m-1"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="blue" class="bi bi-plus-lg" viewBox="0 0 16 16" (click)=" openAddNewAddressDialog('0ms','0ms')">
                     <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-                  </svg> <span class="text-primary"> ADD NEW ADDRESS </span> 
+                  </svg> <span class="text-primary" > ADD NEW ADDRESS </span> 
                 </p>
                  </div>
             </div>

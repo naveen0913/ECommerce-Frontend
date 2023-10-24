@@ -1,4 +1,4 @@
-<div style="height: 90vh;background-size: cover;">  
+<div style="height: 87vh;background-size: cover;">  
   <mat-toolbar color="primary" class="nav" >
     <mat-toolbar-row>
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
@@ -10,9 +10,8 @@
       <span style="margin-left: 30px; cursor: pointer; margin-top: 25px;font-family: Arial, Helvetica, sans-serif;"   routerLink="/home/women" >WOMEN</span>
       <span style="margin-left: 30px; cursor: pointer; margin-top: 25px; font-family: Arial, Helvetica, sans-serif;"   routerLink="/home/kids" >KIDS</span>
       <span class="menu-spacer">
-        <input class="form-control w-75" type="text" name="search"  autocomplete="off" placeholder="Search">
-      </span>
-     
+        <input class="form-control w-75" type="search" name="search"  autocomplete="off" placeholder="Search">
+      </span>    
       <div fxShow="true" fxHide.lt-md class="tool" >
 
         <div fxShow="true" fxHide.lt-md class="tool">
@@ -47,7 +46,6 @@
             </button>
           </div>
           </mat-menu>
-  
          
         <div class="profile">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">

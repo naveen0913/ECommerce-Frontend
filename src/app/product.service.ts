@@ -91,11 +91,12 @@ export class ProductService {
   orderPlacement(userId:any,id:any,addressId:any):Observable<any>{
     return this.http.post<any>(`http://localhost:8080/order/place/${userId}/${id}/${addressId}`,'')
   }
+  deleteAddress(id:string):Observable<any>{
+    return this.http.delete<any>(`http://localhost:8080/address/del/${id}`)
+  }
+  updateAddress(id:any,phone:Number,address:string,locality:string,state:string,city:string,pincode:number,savedAddress:string):Observable<any>{
+    const body={phone,address,locality,state,city,pincode,savedAddress}
+    return this.http.put<any>(`http://localhost:8080/address/add/${id}`,body)
+  }
 
-    /*
-  placeOrder(userId:string,productId:string,name:string,quantity:string,address:string,phone:string,size:string):Observable<any>{
-    const body={name,quantity,address,phone,size}
-    return this.http.post("http://localhost:8080/order/place/"+userId+`/${productId}`,body)
-  }*/
-  
 }

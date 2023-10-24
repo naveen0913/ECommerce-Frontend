@@ -1,24 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    display: flex;
-    align-items: center;
-    min-height: 100vh;
-    justify-content: center;
-    font-family: 'Ubuntu', sans-serif;
-}
-
-h1 {
-    font-size: 1.2rem;
-    text-transform: capitalize;
-}
-
 .card {
     position: relative;
     border-radius: 1px;
@@ -166,8 +146,7 @@ h1 {
 
 .form-control {
   margin-top: 2rem;
-  margin-left: .3rem;
-  margin-left: -1rem;    
+  margin-left: 3rem;
 }  
 .form-control::placeholder  {
   font-family: FontAwesome;

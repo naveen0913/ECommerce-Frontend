@@ -55,6 +55,8 @@ import { AddBagSnackbar1Component } from './add-bag-snackbar1/add-bag-snackbar1.
 import { RemovedItemSnackbarComponent } from './removed-item-snackbar/removed-item-snackbar.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { EditAddressDialogComponent } from './edit-address-dialog/edit-address-dialog.component';
+import { AddNewAddressDialogComponent } from './add-new-address-dialog/add-new-address-dialog.component';
+
 
 const routes:Routes=[
   {
@@ -134,6 +136,7 @@ const routes:Routes=[
     AddBagSnackbar1Component,
     RemovedItemSnackbarComponent,
     EditAddressDialogComponent,
+    AddNewAddressDialogComponent,
     
   ],
   imports: [
@@ -162,7 +165,8 @@ const routes:Routes=[
     MatSnackBarModule,
     MatStepperModule,
     MatCheckboxModule,
-    MatRadioModule
+    MatRadioModule,
+    
   ], 
   
   providers: [SigninService,ProductService], 

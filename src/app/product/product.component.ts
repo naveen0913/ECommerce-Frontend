@@ -1,5 +1,4 @@
-
-import { Component,OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ProductService } from '../product.service';
 import { ActivatedRoute } from '@angular/router';
 import { SigninService } from '../signin.service';
@@ -10,12 +9,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AddBagSnackbarComponent } from '../add-bag-snackbar/add-bag-snackbar.component';
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css'],
+  selector:'app-product',
+  templateUrl:'./product.component.html',
+  styleUrls:['./product.component.css']
 })
 export class ProductComponent implements OnInit {
   @ViewChild('template') template: TemplateRef<any> | undefined;
+
  
   selectedImage: string=''
   hoveredImage:string=''
@@ -92,7 +92,6 @@ export class ProductComponent implements OnInit {
     if(res.ok===false && this.user1===0){
        alert("login first")
     }else{
-      alert("Product added to Wishlist")
       console.log("product added",res);
     }
     },
@@ -150,6 +149,7 @@ export class ProductComponent implements OnInit {
       exitAnimationDuration,
     });
   }
+  measurementInCm(){ }
 
 }
 

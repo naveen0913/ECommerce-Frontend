@@ -4,7 +4,7 @@
   cursor: pointer;
 }
   .form-control {
-    margin-top: 1.8rem;
+    margin-top: 2rem;
     margin-left: 3rem;
     
   }
@@ -52,10 +52,8 @@ body {
     justify-content: flex-start;
     align-items: center;
     overflow: hidden;
-    margin-top: .1rem;
-    
-}
-  
+    margin-top: .1rem;  
+} 
 .slider {
     position: relative;
     width: 100%;
