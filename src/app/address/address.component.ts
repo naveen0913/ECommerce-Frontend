@@ -13,7 +13,6 @@ import { AddNewAddressDialogComponent } from '../add-new-address-dialog/add-new-
   styleUrls: ['./address.component.css']
 })
 export class AddressComponent implements OnInit {
-  
   firstFormGroup:any;
   secondFormGroup:any;
   isLinear = false;
@@ -21,9 +20,7 @@ export class AddressComponent implements OnInit {
   user:any;
   cartItems:any=[]
   item:any
-
   userAddress:any=[]
-
   phone:any;
   address:any;
   locality:any;
@@ -31,13 +28,11 @@ export class AddressComponent implements OnInit {
   city:any;
   pincode:any;
   savedAddress:any;
-
  constructor (private formbuilder:FormBuilder,private signinservice:SigninService,public dialog:MatDialog,
               private productservice:ProductService,private userservice:UserService){
   this.signinservice.isUserLoggedIN
   this.signinservice.isLoggedIn
  }
-
  ngOnInit():void{
   this.productservice.getAllCartItems().subscribe((items)=>{
     this.cartItems=items
@@ -64,7 +59,6 @@ export class AddressComponent implements OnInit {
     secondCtrl: ['', Validators.required],
   });
  }
-
  addAddress(_user1:any):void{
   this.productservice.addAddress(this.user1,this.phone,this.address,this.city,this.locality,this.state,this.savedAddress,this.pincode).subscribe((data)=>{
     console.log("address data",data);

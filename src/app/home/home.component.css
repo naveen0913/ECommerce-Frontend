@@ -11,7 +11,6 @@
   .form-control::placeholder  {
     font-family: FontAwesome;
   }
-
   input.form-control {
     border: 1px solid #ffffff;
     width: 100%;
@@ -37,12 +36,10 @@ body {
   animation-play-state: paused;
   cursor: pointer;
 }
-
 .slider1:hover{
   animation-play-state: paused;
   cursor: pointer;
 }
-  
 .slider_container {
     position: relative;
     width: 100%;
@@ -63,33 +60,16 @@ body {
     align-items: center;
     justify-content: space-between;
     animation: 20s cubic-bezier(1, 0.95, 0.565, 1) sliding infinite;
-}
-  
+} 
 .slide {
     position: relative;
     min-width: 100%;
     height: 100%;
 }
-  
   .slide img {
     width: 100%;
     height: 100%;
-  }
-  
-  .slide .caption {
-    position: absolute;
-    left: 0;
-    bottom: 5%;
-    font-size: 5rem;
-    font-weight: 600;
-    color: white;
-    text-transform: capitalize;
-    background: rgba(0, 0, 0, 0.348);
-    backdrop-filter: blur(10px);
-    padding: 1rem 5rem;
-    border-radius: 0 2rem 2rem 0;
-  }
-  
+  }  
   .slide.one {
     background: rgb(182, 19, 109);
   }
@@ -105,7 +85,6 @@ body {
   .slide.five {
     background: rgb(173, 11, 188);
   }
-  
   @keyframes sliding {
     0% {
       transform: translateX(0%);
@@ -135,7 +114,6 @@ body {
       transform: translateX(-400%);
     }
   }
-/* offers-images sliding*/
 .slider_container1 {
     position: relative;
     width: 100%;
@@ -162,21 +140,6 @@ body {
     width: 100%;
     height: 100%;
   }
-  
-  .slide1 .caption {
-    position: absolute;
-    left: 0;
-    bottom: 5%;
-    font-size: 5rem;
-    font-weight: 600;
-    color: white;
-    text-transform: capitalize;
-    background: rgba(0, 0, 0, 0.348);
-    backdrop-filter: blur(10px);
-    padding: 1rem 5rem;
-    border-radius: 0 2rem 2rem 0;
-  }
-
 .profile{
   display: flex;
   flex-direction: column;
@@ -184,28 +147,22 @@ body {
   align-items: center;
   margin-top: 2.4rem;
 }
-
 .tool{
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   margin-left: 15px;
-
 }
-
 .menu-spacer{
     flex: 1 1 auto;
 }
-
 .nav{
   position: sticky;
   top: 0;
   z-index: 10;
   height: 90px;
 }
-
-
 .proma-img {
     width: 70px;
     height: 45px;
@@ -214,30 +171,22 @@ body {
     margin-top: 25px;
     margin-left: 50px;
 }
-
-
 .banner-caption {
     color: #f5f7fa;
     font-family: "Roboto";
     font-size: 24px;
     font-weight: 300;
 }
-
-/* footer sectiom*/
-
-
 .bg-container1 {
     background-color: #19232d;
     background-size: cover;
     width: 100%;
 }
-
 .image {
     height: 40px;
     width: 60px;
     border-radius:20px ;
 }
-
 .icons-background {
     height: 47px;
     width: 47px;
@@ -246,19 +195,16 @@ body {
     border-radius: 50%;
     margin: 5px;
 }
-
 .icon {
     color: #5a7184;
     font-size: 18px;
 }
-
 .address {
     font-family: "Roboto";
     font-size: 17px;
     font-weight: 500;
     color: #5a7184;
 }
-
 .heading {
     font-family: "Roboto";
     font-size: 20px;
@@ -266,12 +212,10 @@ body {
     color: #5a7184;
     margin-bottom: 15px;
 }
-
 .unordered-list {
     list-style-type: none;
     padding-left: 0px;
 }
-
 .mail {
     font-family: "Roboto";
     font-size: 17px;
@@ -279,14 +223,12 @@ body {
     color: #5a7184;
     margin-left: 10px;
 }
-
 .line {
     border-style: solid;
     border-width: 1px;
     border-color: #5a7184;
     margin-bottom: 15px;
 }
-
 .bootstrap1 {
     font-family: "Roboto";
     font-size: 16px;
@@ -294,7 +236,6 @@ body {
     color: #959ead;
 }
 @media  (max-width:730px) {
-
 .slider_container {
   position: relative;
   width: 100%;
@@ -303,10 +244,8 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  overflow: hidden;
-  
+  overflow: hidden; 
 }
-
 .slider {
   position: relative;
   width: 100vw;
@@ -336,7 +275,6 @@ body {
   justify-content: flex-start;
   align-items: center;
   overflow: hidden;
- 
 }
 .men{
   display: none;
@@ -345,5 +283,4 @@ body {
   margin-top: .6rem;
   cursor: pointer;
 }
-
 }

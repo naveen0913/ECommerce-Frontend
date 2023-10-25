@@ -5,8 +5,7 @@
     align-items: flex-start;
     margin-top: 1rem;
     margin-left: .5rem;
-    overflow: hidden;
-    
+    overflow: hidden;   
 }
 .details-container{
     display: flex;

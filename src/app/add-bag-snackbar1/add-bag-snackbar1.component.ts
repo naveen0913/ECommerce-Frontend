@@ -10,12 +10,7 @@ import { BagDialogComponent } from '../bag-dialog/bag-dialog.component';
 })
 export class AddBagSnackbar1Component implements OnInit{
   wishlistItem:any;
-  constructor(
-    private productservice:ProductService,
-    @Inject(MAT_SNACK_BAR_DATA) public data:BagDialogComponent
-  ) 
-  { 
-  }
+  constructor( private productservice:ProductService,@Inject(MAT_SNACK_BAR_DATA) public data:BagDialogComponent) {}
   ngOnInit(): void {
     console.log("imported wishlist data",this.data);
     this.wishlistItem=this.data

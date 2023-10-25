@@ -1,19 +1,15 @@
-
-
-
-<div>
-  <div class="top-container" *ngIf="cartitem">
- 
-   <img [src]="cartitem.product.image1" alt="item" class="item-image"/>
-   <div class="details-container"> 
-      <p class="product" > <strong> {{cartitem.product.brandName}}</strong>  </p>
-      <p class="product text-muted"> Are you sure want to move this item <br>
-         from bag? </p>
-         <hr class="hr mt-4"/>
+   <div [ngSwitch]="cartItem !== null">
+    <div *ngSwitchCase="true" class="top-container">
+      <img [src]="cartItem.product.image1" alt="item" class="item-image" />
+      <div class="details-container">
+        <p class="product"><strong>{{cartItem.product.brandName}}</strong></p>
+        <p class="product text-muted">Are you sure want to move this item <br> from bag?</p>
+        <hr class="hr mt-4" />
+      </div>
+    </div>
+    <div *ngSwitchCase="true" class="btn-container">
+      <button mat-button (click)="deleteCartItem(cartItem.id)">Remove</button>
+      <button mat-button (click)="addItemtoWishlist(user1, cartItem.product.id)">Move to WishList</button>
+    </div>
   </div>
-  </div>
-  <div class="btn-container" *ngIf="cartitem">
-    <button mat-button (click)="deleteCartItem(cartitem.id)" >Remove</button>
-    <button mat-button (click)="addItemtoWishlist(user1,cartitem.product.id)" >Move to WishList</button>
-   </div>
-</div>
+  

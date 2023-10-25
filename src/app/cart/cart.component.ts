@@ -6,14 +6,12 @@ import { DialogComponent } from '../dialog/dialog.component';
 import { SizeDialogComponent } from '../size-dialog/size-dialog.component';
 import { DialogQuantityComponent } from '../dialog-quantity/dialog-quantity.component';
   
-
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit{
-
   cartItems:any[]=[]
   size:any=''
   searchtext:any;
@@ -22,22 +20,18 @@ export class CartComponent implements OnInit{
   cartItem:any;
   user:any
   constructor(private productservice:ProductService,private http:HttpClient,public dialog: MatDialog) {
-    
   }
   ngOnInit(): void {
     this.productservice.getAllCartItems().subscribe((items)=>{
       this.cartItems=items
     })
-
   }
- 
   getCartItem(id:string):void{
     this.http.get("http://localhost:8080/products/cart/item"+id).subscribe((item)=>{
       console.log(item);
       this.cartItem=item
     })
   }
-
   openDialog(item:any,enterAnimationDuration: string, exitAnimationDuration: string): void { 
     console.log("item deleted",item);     
       this.dialog.open(DialogComponent, {
@@ -67,7 +61,6 @@ export class CartComponent implements OnInit{
       exitAnimationDuration,
     });
   }
-
 public calculateTotal(){
   let total=0;
   this.cartItems.forEach(item=>{
@@ -88,7 +81,6 @@ public calculateTotal(){
       offer+=item.product.offerprice*item.quantity
     })
     return offer
-  }
-  
+  } 
 }
   

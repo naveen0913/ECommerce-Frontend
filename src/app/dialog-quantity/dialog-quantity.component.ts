@@ -9,13 +9,9 @@ import { ProductService } from '../product.service';
   styleUrls: ['./dialog-quantity.component.css']
 })
 export class DialogQuantityComponent implements OnInit{
-
   cartItem:any;
   quantity:any;
-  constructor(private productservice:ProductService,
-              @Inject(MAT_DIALOG_DATA) public data:DialogQuantityComponent){
-
-  }
+  constructor(private productservice:ProductService,@Inject(MAT_DIALOG_DATA) public data:DialogQuantityComponent){}
   ngOnInit(): void {
     console.log("quantity update item",this.data);
     this.cartItem=this.data
@@ -27,5 +23,4 @@ export class DialogQuantityComponent implements OnInit{
       window.location.reload()
     })
   }
-  
 }

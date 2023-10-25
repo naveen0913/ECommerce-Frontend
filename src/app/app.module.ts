@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductComponent } from './product/product.component';
 import { CheckoutComponent } from './checkout/checkout.component';
@@ -15,15 +12,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OrdersComponent } from './orders/orders.component';
 import { SigninService } from './signin.service';
 import { ProductService } from './product.service';
-
-
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
-import { CommonModule } from '@angular/common';
 import { UserComponent } from './user/user.component';
 import { SearchPipe } from './search.pipe';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -56,63 +50,13 @@ import { RemovedItemSnackbarComponent } from './removed-item-snackbar/removed-it
 import {MatRadioModule} from '@angular/material/radio';
 import { EditAddressDialogComponent } from './edit-address-dialog/edit-address-dialog.component';
 import { AddNewAddressDialogComponent } from './add-new-address-dialog/add-new-address-dialog.component';
-
-
-const routes:Routes=[
-  {
-    path:"",redirectTo:'home',pathMatch:'full' 
-  },
- 
-  {
-    path:"home",component:HomeComponent
-  },
-  {
-    path:"product/:productid",component:ProductComponent
-  },
-  {
-    path:'cart',component:CartComponent
-  },
-  {
-    path:"check",component:CheckoutComponent
-  },
-  {
-    path:'signin',component:SigninComponent
-  },
-  {
-    path:'orders',component:OrdersComponent
-  },
-  {
-    path:'user/:userid',component:UserComponent
-  },
-  {
-    path:'cart/:cartid',component:SizeDialogComponent
-  },
-  {
-    path:'home/men',component:MenComponent
-  },
-  {
-    path:'home/men/products',component:MenProductsComponent
-  },
-  {
-    path:'home/women',component:WomenComponent
-  },
-  {
-    path:'home/women/products',component:WomenProductsComponent
-  },
-  {
-    path:'home/kids',component:KidsComponent
-  },
-  {
-    path:'home/kids/products',component:KidsProductsComponent
-  },{
-    path:'address',component:AddressComponent
-  }
-]
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    MenComponent,
     CartComponent,
     ProductComponent,
     CheckoutComponent, 
@@ -125,7 +69,6 @@ const routes:Routes=[
     DialogQuantityComponent,
     BagDialogComponent,
     PincodeDialogComponent,
-    MenComponent,
     WomenComponent,
     KidsComponent,
     MenProductsComponent,
@@ -137,12 +80,10 @@ const routes:Routes=[
     RemovedItemSnackbarComponent,
     EditAddressDialogComponent,
     AddNewAddressDialogComponent,
-    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
@@ -165,11 +106,9 @@ const routes:Routes=[
     MatSnackBarModule,
     MatStepperModule,
     MatCheckboxModule,
-    MatRadioModule,
-    
+    MatRadioModule, 
   ], 
-  
-  providers: [SigninService,ProductService], 
+  providers: [ProductService,SigninService], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

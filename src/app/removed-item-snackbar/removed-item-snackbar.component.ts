@@ -1,7 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { ProductService } from '../product.service';
 import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
-import { CheckoutComponent } from '../checkout/checkout.component';
 
 @Component({
   selector: 'app-removed-item-snackbar',
@@ -10,10 +8,7 @@ import { CheckoutComponent } from '../checkout/checkout.component';
 })
 export class RemovedItemSnackbarComponent implements OnInit {
   removedWishlistitem:any;
-  constructor(
-    private productservice:ProductService,
-    @Inject(MAT_SNACK_BAR_DATA) public data:RemovedItemSnackbarComponent 
-  ){}
+  constructor(@Inject(MAT_SNACK_BAR_DATA) public data:RemovedItemSnackbarComponent){}
    ngOnInit(): void {
      console.log("removed item data",this.data);
      this.removedWishlistitem=this.data

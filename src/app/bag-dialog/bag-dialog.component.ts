@@ -4,26 +4,20 @@ import { ProductService } from '../product.service';
 import { CheckoutComponent } from '../checkout/checkout.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AddBagSnackbar1Component } from '../add-bag-snackbar1/add-bag-snackbar1.component';
-
-
 @Component({
   selector: 'app-bag-dialog',
   templateUrl: './bag-dialog.component.html',
   styleUrls: ['./bag-dialog.component.css']
 })
 export class BagDialogComponent implements OnInit {
- 
   WishListItem:any
   item:any;
   quantity:any=''
   size:string='';
-  durationInSeconds = 10;
-  constructor(@Inject(MAT_DIALOG_DATA) public data:CheckoutComponent,
-  private productservice:ProductService,
-  private snackbar:MatSnackBar,
+  durationInSeconds = 9;
+  constructor(@Inject(MAT_DIALOG_DATA) public data:CheckoutComponent,private productservice:ProductService,private snackbar:MatSnackBar,
   private closeDialog:MatDialogRef<TemplateStringsArray,RTCAnswerOptions>){
   }
-
   ngOnInit(): void {
     console.log(" imported data",this.data);
     this.WishListItem = this.data;
@@ -47,11 +41,10 @@ export class BagDialogComponent implements OnInit {
     }
     )
   }
-
   openSnackbar(WishListItem:any):void{
     console.log("moving to cart item",WishListItem);
     this.snackbar.openFromComponent(AddBagSnackbar1Component,{
-      duration:this. durationInSeconds*1000,
+      duration:this. durationInSeconds*2000,
       verticalPosition: 'top',
       horizontalPosition: 'right',
       data:WishListItem

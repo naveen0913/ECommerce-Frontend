@@ -10,7 +10,6 @@ import { SigninService } from '../signin.service';
   styleUrls: ['./add-new-address-dialog.component.css']
 })
 export class AddNewAddressDialogComponent implements OnInit {
-
   phone:any;
   address:any;
   locality:any;
@@ -18,16 +17,13 @@ export class AddNewAddressDialogComponent implements OnInit {
   city:any;
   pincode:any;
   savedAddress:any;
-
   user1:any
-
   constructor( public dialogRef: MatDialogRef<AddNewAddressDialogComponent>,private userservice:UserService,
     private signinservice:SigninService,  private productservice:ProductService,
     ) {
       this.signinservice.isUserLoggedIN
       this.signinservice.isLoggedIn
     }
-  
     ngOnInit(): void {
       var user=localStorage.getItem("loggedInuserKey")
       console.log("user data will appear",user);
@@ -39,7 +35,6 @@ export class AddNewAddressDialogComponent implements OnInit {
         console.log("address data",data);
       })
     }
-
   closeDialog(){
     this.dialogRef.close()
   }

@@ -18,7 +18,6 @@ export class CheckoutComponent implements OnInit{
   user:any;
   searchtext:any;
   durationInSeconds = 8;
-
   constructor(private productservice:ProductService,
     private signinservice:SigninService,
     private dialog:MatDialog,
@@ -28,35 +27,28 @@ export class CheckoutComponent implements OnInit{
     this.signinservice.isLoggedIn
   }
   ngOnInit(): void {
-
     var wishlistuserId=localStorage.getItem("loggedInuserKey")
     console.log("logged in user",wishlistuserId);
-    
     wishlistuserId && this.productservice.getAllWishListItems(wishlistuserId).subscribe((items)=>{
       this.wishListItems=items
       console.log("WishList items",items);
     })
-
     this.user=localStorage.getItem("loggedInuserKey")
     console.log("logged in user",this.user); 
   }
-
   get loggedInuser(){
     return this.signinservice.isLoggedIn
    }
-  
   deleteWishListItem(id:string):void{ 
     this.productservice.deleteWishlistitem(id).subscribe((res)=>{
       console.log("deleted successfully",res);
       window.location.reload()
     })
   }
-
   logout():void{
     this.signinservice.userLogout();
     console.log(`user with ${this.user} loggedout successfully`);
   }
-
   openBagDialog(item:any,enterAnimationDuration: string, exitAnimationDuration: string): void { 
     console.log("Item data",item);     
     this.dialog.open(BagDialogComponent,{
@@ -76,6 +68,5 @@ export class CheckoutComponent implements OnInit{
       data:item
     })    
   }
-
 }
 

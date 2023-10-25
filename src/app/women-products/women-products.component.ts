@@ -1,37 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Product } from '../product.model';
 import { ProductService } from '../product.service';
 import { SigninService } from '../signin.service';
-
 @Component({
   selector: 'app-women-products',
   templateUrl: './women-products.component.html',
-  styleUrls: ['./women-products.component.css']
+  styleUrls: ['./women-products.component.css'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class WomenProductsComponent implements OnInit{
   user:any;
-  products:any[]=[]
-  searchProducts:any
   womenProducts:Product[]=[]
-
-  constructor(private productservice:ProductService,private signinservice:SigninService){
+  constructor(private productservice:ProductService,private signinservice:SigninService, private cdr: ChangeDetectorRef){
     this.signinservice.isUserLoggedIN
     this.signinservice.isLoggedIn
   }
   ngOnInit(): void {
-    this.productservice.getAllProducts().subscribe((products)=>{
-      this.searchProducts=products
-      this.products=products
-      this.getWomenProducts()
-     
-    })
+    this.getWomenProducts()
     this.user=localStorage.getItem("loggedInuserKey")
-    this.productservice.products().subscribe(res=>{
-      //this.cartItem=res
-      this.user=this.signinservice.loggedInUser()
-      this.user=localStorage.getItem("loggedInuserKey");
-      console.log("logged in user",this.user);
-    })
+    console.log("logged in user",this.user);
   }
   get loggedInuser(){
     return this.signinservice.isLoggedIn
@@ -42,8 +29,12 @@ export class WomenProductsComponent implements OnInit{
   }
   getWomenProducts():void{
     this.productservice.getProductBycategory().subscribe(products=>{
-      this.womenProducts=products.filter(product=>product.categoryName==='Women')
+      this.womenProducts=products.filter(product=>product.categoryName==='Women').slice()
+      this.cdr.detectChanges();
       console.log("women data",this.womenProducts);
     })
+  }
+  trackByFn(index:number,item:any):number{
+    return item.id
   }
 }

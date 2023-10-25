@@ -10,7 +10,6 @@
 .pincode{
     appearance: textfield;
 }
-
 .pincode::-webkit-outer-spin-button,
 .pincode::-webkit-inner-spin-button{
     -webkit-appearance: none;

@@ -16,7 +16,6 @@ export class EditAddressDialogComponent implements OnInit{
   city:any;
   pincode:any;
   savedAddress:any;
-
   user1:any
   userAddress: any;
   constructor( public dialogRef: MatDialogRef<EditAddressDialogComponent>, private signinservice:SigninService,  private productservice:ProductService,) {
@@ -34,9 +33,11 @@ export class EditAddressDialogComponent implements OnInit{
     })
   }
   updateAddress(_id:any):void{
-    this.productservice.updateAddress(this.userAddress.id,this.phone,this.address,this.city,this.locality,this.state,this.savedAddress,this.pincode)
+    this.productservice.updateAddress(this.userAddress.id,this.phone,this.address,this.city,this.locality,this.state,this.savedAddress,this.pincode).subscribe((res)=>{
+      console.log("updated address",res);
+      window.location.reload()
+    })
   }
-
   closeDialog(){
     this.dialogRef.close()
   }
