@@ -1,4 +1,9 @@
-<router-outlet>
-</router-outlet>
-    
+<div *ngIf="loading">
+  <ngx-spinner>
+    <p style="font-size: 20px; color: white">Loading...</p>
+  </ngx-spinner>
+</div>
 
+<app-header></app-header>
+<router-outlet> </router-outlet>
+<app-footer></app-footer>

@@ -1,0 +1,47 @@
+
+
+
+<div>
+  <mat-toolbar color="primary" class="main" >
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <a mat-button  routerLink="/home">
+        <div class="companyName">
+          <img
+          src="https://www.zilliondesigns.com/blog/wp-content/uploads/Ecommerce-Logo-17.jpg"
+          alt="AVENIDA"
+          class="proma-img"
+          routerLink="/home"
+        />
+        <a mat-button class="title">Avinedha</a>
+        </div>
+        
+      </a>
+      <span class="menu-spacer"></span>
+      <div fxShow="true" fxHide.lt-md>
+        <a mat-button routerLink="/home/men">MEN</a>
+        <a mat-button routerLink="/home/women">WOMEN</a>
+        <a mat-button routerLink="/home/kids">KIDS</a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav class="sidenav">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/home">HOME</a>
+        <a mat-list-item routerLink="/home">HOME</a>
+        <a mat-list-item routerLink="/home/men">MEN</a>
+        <a mat-list-item routerLink="/home/women">WOMEN</a>
+        <a mat-list-item routerLink="/home/kids">KIDS</a>
+        <a (click)="sidenav.toggle()"  mat-list-item>Close</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>
+      <router-outlet></router-outlet>
+      
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

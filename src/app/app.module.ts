@@ -51,6 +51,10 @@ import {MatRadioModule} from '@angular/material/radio';
 import { EditAddressDialogComponent } from './edit-address-dialog/edit-address-dialog.component';
 import { AddNewAddressDialogComponent } from './add-new-address-dialog/add-new-address-dialog.component';
 import { HomeComponent } from './home/home.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { FooterComponent } from './footer/footer.component';
+import { ToastrModule } from 'ngx-toastr';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +84,8 @@ import { HomeComponent } from './home/home.component';
     RemovedItemSnackbarComponent,
     EditAddressDialogComponent,
     AddNewAddressDialogComponent,
+    FooterComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -107,6 +113,8 @@ import { HomeComponent } from './home/home.component';
     MatStepperModule,
     MatCheckboxModule,
     MatRadioModule, 
+    NgxSpinnerModule.forRoot(),
+    ToastrModule.forRoot(),
   ], 
   providers: [ProductService,SigninService], 
   bootstrap: [AppComponent]

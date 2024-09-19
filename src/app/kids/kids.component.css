@@ -44,7 +44,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     overflow: hidden;
-    margin-top: .1rem;
+    margin-top: 50px;
     
 }  
 .slider {
@@ -233,8 +233,7 @@ body {
 .product-card {
     padding: 0;
     margin: 0;
-    width: 260px;
-    height: 450px; 
+    
     box-shadow: 0px 0px 0px ;
     .product-img {
       width: 100%;
@@ -244,7 +243,8 @@ body {
   .product-container{
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-around;
+    align-items: center;
     
   }
   .ad-img:hover{

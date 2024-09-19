@@ -44,6 +44,9 @@ const routes:Routes=[
   },{
     path:'address',loadChildren:()=>import('./address/address.module').then(m=>m.AddressModule)
   }
+  ,{
+    path:"**" , redirectTo:'home'
+  }
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
