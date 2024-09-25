@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit{
 
+  @ViewChild(MatMenuTrigger) menuTrigger!: MatMenuTrigger;
+    isHidden = false;
   constructor(){}
 
   ngOnInit(): void {
     
   }
+
+  openMenu() {
+    this.menuTrigger.openMenu();
+  }
+
+  closeMenu() {
+    this.menuTrigger.closeMenu();
+  }
+
+  
 
 }

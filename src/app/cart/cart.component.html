@@ -1,201 +1,240 @@
-<div style="height: 87vh;background-size: cover;">  
-  <mat-toolbar color="primary" class="nav" >
-    <mat-toolbar-row>
-      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
-        <mat-icon>menu</mat-icon>
-      </button>
-      <img src="https://www.zilliondesigns.com/blog/wp-content/uploads/Ecommerce-Logo-17.jpg" alt="AVENIDA" class="proma-img" routerLink="/home"/>
-      <span style="margin-left: 15px; cursor: pointer; margin-top: 25px;font-family: Arial, Helvetica, sans-serif;" routerLink="/home" >AVENIDA </span>
-      <span style="margin-left: 100px; cursor: pointer; margin-top: 25px;font-family: Arial, Helvetica, sans-serif;"  routerLink="/home/men" > MEN </span>
-      <span style="margin-left: 30px; cursor: pointer; margin-top: 25px;font-family: Arial, Helvetica, sans-serif;"   routerLink="/home/women" >WOMEN</span>
-      <span style="margin-left: 30px; cursor: pointer; margin-top: 25px; font-family: Arial, Helvetica, sans-serif;"   routerLink="/home/kids" >KIDS</span>
-      <span class="menu-spacer">
-        <input class="form-control w-75" type="search" name="search"  autocomplete="off" placeholder="Search">
-      </span>    
-      <div fxShow="true" fxHide.lt-md class="tool" >
-
-        <div fxShow="true" fxHide.lt-md class="tool">
-
-          <div class="profile">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16" >
-              <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
-            </svg>
-          <button mat-button [matMenuTriggerFor]="menu" > <strong> Profile</strong> </button>
-          </div>
-          <mat-menu #menu="matMenu">
-            <div *ngIf="!user">
-              <button mat-menu-item routerLink="/signin" >Signup/Login
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
-                  <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
-                </svg>
-              </button>
-            </div>
-          <div *ngIf="user">
-            <button mat-menu-item routerLink="/user/{{user}}" >My Account
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-              </svg>
-            </button>
-            <button mat-menu-item routerLink="/logout" >Logout
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
-                <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
-              </svg>
-            </button>
-          </div>
-          </mat-menu>
-         
-        <div class="profile">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-          </svg>
-          <a routerLink="/check" mat-button> <strong> Wishlist</strong> </a> 
-        </div>
-        <div class="profile">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
-            <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
-          </svg>
-            <a routerLink="/cart" mat-button> <strong> Bag</strong> </a>
-          </div>
-          </div>
-      
-        </div>
-      </mat-toolbar-row>
-  </mat-toolbar>
-
-  <mat-sidenav-container fxFlexFill>
-    <mat-sidenav #sidenav>
-      <mat-nav-list>
-        <a  mat-list-item routerLink="/home" >HOME</a>
-        <a  mat-list-item routerLink="/check" >WISHLIST</a>
-        <a  mat-list-item routerLink="/orders" >ORDERS</a>
-        <a (click)="sidenav.toggle()"  mat-list-item>Close</a>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content fxFlexFill>
-      <div [ngSwitch]="cartItems.length">
-        <div *ngSwitchCase="0">        
-        <div class="d-flex flex-row justify-content-center">
-            <div class="empty-container">
-              <img src="https://img.freepik.com/free-photo/3d-man-with-shopping-cart-blank-screen-tablet_1401-15.jpg?size=626&ext=jpg&ga=GA1.2.1587978027.1694689858&semt=ais"
-              class="img" 
-              alt="img" />
-             <p class="hey-text"><strong> Hey , it takes so light! </strong></p>
-             <p class="text-muted add " style="font-size: medium;"> It seems nothing in your bag.Let's add some items.  </p>
-             <button class="item-btn" routerLink="/check" >ADD ITEMS FROM WISHLIST</button>
-            </div>
-        </div>
+<div [ngSwitch]="cartItems.length">
+  <div *ngSwitchCase="0">
+    <div class="d-flex flex-row justify-content-center">
+      <div class="empty-container">
+        <img
+          src="https://img.freepik.com/free-photo/3d-man-with-shopping-cart-blank-screen-tablet_1401-15.jpg?size=626&ext=jpg&ga=GA1.2.1587978027.1694689858&semt=ais"
+          class="img"
+          alt="img"
+        />
+        <p class="hey-text"><strong> Hey , it takes so light! </strong></p>
+        <p class="text-muted add" style="font-size: medium">
+          It seems nothing in your bag.Let's add some items.
+        </p>
+        <button class="item-btn" routerLink="/check">
+          ADD ITEMS FROM WISHLIST
+        </button>
       </div>
-      <div *ngSwitchDefault>
-      <div class="container-fluid" >
-        <div class="row " >
-          <div class="p-auto mt-3 mb-1  d-flex flex-row justify-content-center">
-            <div class="d-flex flex-column justify-content-center">
-            <div class="cart-container card mt-2"  *ngFor="let item of cartItems|search:searchtext" > 
+    </div>
+  </div>
+  <div *ngSwitchDefault>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="p-auto mt-3 mb-1 d-flex flex-row justify-content-center">
+          <div class="d-flex flex-column justify-content-center">
+            <div
+              class="cart-container card mt-2"
+              *ngFor="let item of cartItems | search : searchtext"
+            >
               <img [src]="item.product.image1" class="img-sm" alt="image1" />
               <div class="detail-conatiner">
-                <h2 class="text-dark" > {{item.product.brandName}} </h2>
-                <p class="text-muted" style="font-family: roboto;" > {{item.product.name}} </p>
-                <p> Category : {{item.product.categoryName}} </p>
-                <div class="size-container">    
-                  <div class="size-bg" >
+                <h2 class="text-dark">{{ item.product.brandName }}</h2>
+                <p class="text-muted" style="font-family: roboto">
+                  {{ item.product.name }}
+                </p>
+                <p>Category : {{ item.product.categoryName }}</p>
+                <div class="size-container">
+                  <div class="size-bg">
                     <p class="size-text">
-                      Size : {{item.size}}
-                       <button (click)="openDialogSize(item,'0ms', '0ms')" class="button1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="black" class="bi bi-caret-down-fill drop-icon" viewBox="0 0 16 16">
-                          <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                      Size : {{ item.size }}
+                      <button
+                        (click)="openDialogSize(item, '0ms', '0ms')"
+                        class="button1"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          fill="black"
+                          class="bi bi-caret-down-fill drop-icon"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
+                          />
                         </svg>
-                       </button>
-                  </p>
-                  </div>  
+                      </button>
+                    </p>
+                  </div>
                   <div class="size-bg-qty">
-                  <p class="size-text" >
-                     Qty : {{item.quantity}}
-                     <button (click)="openDialogQuantity(item,'0ms', '0ms')" class="button1" >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill drop-icon" viewBox="0 0 16 16">
-                        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-                      </svg>
-                     </button>
-                  </p>
+                    <p class="size-text">
+                      Qty : {{ item.quantity }}
+                      <button
+                        (click)="openDialogQuantity(item, '0ms', '0ms')"
+                        class="button1"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-caret-down-fill drop-icon"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
+                          />
+                        </svg>
+                      </button>
+                    </p>
+                  </div>
                 </div>
-                </div>
-              <p class="card-text" style="margin-left: 10px;margin-top: 10px;">
-                {{item.product.offerprice|currency:"INR"}}     <span class="text-muted icon" > {{item.product.price|currency:'INR'}} </span>
-              </p>
-              <p> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
-              </svg>  30 Days  <span class="return" > return available </span> 
-             </p>
-            </div>
+                <p
+                  class="card-text"
+                  style="margin-left: 10px; margin-top: 10px"
+                >
+                  {{ item.product.offerprice | currency : "INR" }}
+                  <span class="text-muted icon">
+                    {{ item.product.price | currency : "INR" }}
+                  </span>
+                </p>
+                <p>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-arrow-return-left"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"
+                    />
+                  </svg>
+                  30 Days <span class="return"> return available </span>
+                </p>
+              </div>
               <div class="d-flex flex-row justify-content-end">
                 <div class="btn-c">
-                <button mat-raised-button (click)="openDialog(item,'0ms', '0ms')" class="button" >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg into-icon" viewBox="0 0 16 16">
-                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-                  </svg>
-                </button>
-                </div>
-              </div>  
-          </div> 
-         </div>
-              <div class=" mt-1"  >
-                <div class="card mt-3" style="border-radius: 4px;" >
-                  <p style="margin: 15px; font-weight: 500;"> PRICE DETAILS ({{cartItems.length}}) </p>
-                   <div class="card1">
-                    <p style="margin: 15px;" class="text-dark" >Total MRP  </p>  
-                     <span style="margin-right: 25px;"  class="text-dark">
-                     {{calculateTotalByprice()|currency:'INR'}}
-                       </span>  
-                  </div>
-                    <br>
-                    <div class="card1"  >
-                      <p  style="margin: 15px;" class="text-dark">Offer Price </p>
-                      <span style="margin-right: 25px;" class="text-dark"> 
-                        {{  calculateTotalByOfferprice()|currency:"INR" }} 
-                        </span>
-                    </div>
-                    <br>
-                    <div class="card1">
-                    <p  style="margin: 15px;" class="text-dark">Delivery Fee </p> 
-                    <span style="margin-right: 25px;" class="text-dark"> 
-                      {{30|currency:'INR'}}</span>
-                    </div>
-                    <hr/>
-                    <div class="card1 m-2 mb-4">
-                      <p style="margin: 8px; font-weight: 500;"> Total Amount  </p> <span style="margin-right: 10px; font-weight: 500;">
-                         {{calculateTotal()|currency:"INR"}} </span>
-                      </div>
-                      <div class="btn-container">
-                        <button class="btn btn-warning placeOrder" mat-raised-button color="accent" routerLink="/address" 
-                        style="color: white; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
-                          <strong> PLACE ORDER</strong></button>
-                      </div>
+                  <button
+                    mat-raised-button
+                    (click)="openDialog(item, '0ms', '0ms')"
+                    class="button"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-x-lg into-icon"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </div>
             </div>
-          <div class="container-fluid">
-            <div class="row">
-              <div class=" col-lg-8 m-auto mt-2 mb-3">
-                <div class="card shadow" style="width: 59%;height: 8vh; border-radius: 2px;border-color: black;" routerLink="/check" >
-                  <div class="item-container">
-                    <p style="margin-left: 10px;"  class="wishlist" routerLink="/check" > <strong style="margin-left: 10px;" >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
-                      <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
-                    </svg>   Add More from Wishlist </strong> </p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right icon-right" viewBox="0 0 16 16" routerLink="/check" >
-                      <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                    </svg>
+          </div>
+          <div class="mt-1">
+            <div class="card mt-3" style="border-radius: 4px">
+              <p style="margin: 15px; font-weight: 500">
+                PRICE DETAILS ({{ cartItems.length }})
+              </p>
+              <div class="card1">
+                <p style="margin: 15px" class="text-dark">Total MRP</p>
+                <span style="margin-right: 25px" class="text-dark">
+                  {{ calculateTotalByprice() | currency : "INR" }}
+                </span>
+              </div>
+              <br />
+              <div class="card1">
+                <p style="margin: 15px" class="text-dark">Offer Price</p>
+                <span style="margin-right: 25px" class="text-dark">
+                  {{ calculateTotalByOfferprice() | currency : "INR" }}
+                </span>
+              </div>
+              <br />
+              <div class="card1">
+                <p style="margin: 15px" class="text-dark">Delivery Fee</p>
+                <span style="margin-right: 25px" class="text-dark">
+                  {{ 30 | currency : "INR" }}</span
+                >
+              </div>
+              <hr />
+              <div class="card1 m-2 mb-4">
+                <p style="margin: 8px; font-weight: 500">Total Amount</p>
+                <span style="margin-right: 10px; font-weight: 500">
+                  {{ calculateTotal() | currency : "INR" }}
+                </span>
+              </div>
+              <div class="btn-container">
+                <button
+                  class="btn btn-warning placeOrder"
+                  mat-raised-button
+                  color="accent"
+                  routerLink="/address"
+                  style="
+                    color: white;
+                    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                      'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+                      'Helvetica Neue', sans-serif;
+                  "
+                >
+                  <strong> PLACE ORDER</strong>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-8 m-auto mt-2 mb-3">
+              <div
+                class="card shadow"
+                style="
+                  width: 59%;
+                  height: 8vh;
+                  border-radius: 2px;
+                  border-color: black;
+                "
+                routerLink="/check"
+              >
+                <div class="item-container">
+                  <p
+                    style="margin-left: 10px"
+                    class="wishlist"
+                    routerLink="/check"
+                  >
+                    <strong style="margin-left: 10px">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-suit-heart"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"
+                        />
+                      </svg>
+                      Add More from Wishlist
+                    </strong>
+                  </p>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-chevron-right icon-right"
+                    viewBox="0 0 16 16"
+                    routerLink="/check"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                    />
+                  </svg>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      </div>
-     </div>
     </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-</div> 
+  </div>
+</div>
