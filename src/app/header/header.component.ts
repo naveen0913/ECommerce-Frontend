@@ -12,6 +12,13 @@ export class HeaderComponent implements OnInit{
     isHidden = false;
   constructor(){}
 
+  showMenOptions = false;
+  showWomenOptions = false;
+  showKidsOptions = false;
+
+  showProfileMenu = false;
+  showCartMenu = false;
+
   ngOnInit(): void {
     
   }

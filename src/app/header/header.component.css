@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -35,44 +36,154 @@ mat-toolbar.main {
     height: 45px;
     border-radius: 10px;
     cursor: pointer;
-    
+
 }
-.companyName{
+
+.companyName {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 
 }
-.title{
+
+.title {
     font-size: 21px;
     font-family: sans-serif;
     font-weight: 500;
+    text-transform: uppercase;
 }
-.example-container{
+
+.example-container {
     width: 100px;
 }
 
 .menu-spacer {
     flex: 1 1 auto;
-  }
+}
 
-  .sidenav{
+.sidenav {
     width: 170px !important;
-    
-  }
-  
-  .search{
+
+}
+
+.search {
     border: none;
     width: 30%;
-  }
+}
 
- 
 
-  .profile{
+
+.profile {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     margin: 10px 0 0 10px;
-  }
+}
+
+.menu-container {
+    display: flex;
+    align-items: center;
+
+}
+
+.profile-menu-item {
+    position: relative;
+    margin: 0 0 0 0;
+}
+
+.menu-item {
+    position: relative;
+    margin: 0 10px;
+}
+
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    display: flex;
+    color: black;
+    flex-direction: column;
+    width: 200px;
+}
+
+.dropdown a {
+    padding: 10px;
+    text-align: center;
+}
+
+.dropdown a:hover {
+    background-color: #f0f0f0;
+}
+
+.profile-dropdown {
+    position: absolute;
+    transform: translateX(-50%);
+    background: rgb(240, 242, 238);
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    display: flex;
+    color: black;
+    flex-direction: column;
+    width: 300px;
+    margin-top: 2rem;
+}
+
+.profile-dropdown a {
+    text-decoration: none;
+}
+
+.profile-dropdown a:hover {
+    background-color: #f0f0f0;
+}
+
+.top-c {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 0 15px 10px 20px;
+}
+
+.welcome-text {
+    color: rgb(57, 52, 52);
+    font-size: 19px;
+    font-family: sans-serif;
+    font-weight: 700;
+    padding: 5px 0 0 0;
+}
+
+.access-text{
+    color: rgb(84, 79, 79);
+    font-size: 15px;
+    font-family: sans-serif;
+    font-weight: 500;
+    
+}
+
+.login-btn{
+    width: 110px;
+    margin: 10px 0 5px 0;
+}
+.login-btn:hover{
+    background: rgb(18, 79, 169);
+    color: #fff;
+}
+
+.options-container{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    padding: 10px 10px 10px 15px;
+}
+.line{
+    width: 85%;
+    margin: auto;
+}
