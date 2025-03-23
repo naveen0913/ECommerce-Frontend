@@ -1,42 +1,82 @@
-<section class="slider_container">
-  <section class="slider">
-    <div class="slide one">
+<div
+  id="carouselExampleAutoplaying"
+  class="carousel slide first-container"
+  data-bs-ride="carousel"
+>
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+
+  </div>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active">
       <img
         src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-MHP-15102023-dailybanner-z5-p6-assembly-delseyparis-upto70.jpg"
-        alt="image1"
+        class="d-block w-100"
+        alt="..."
         routerLink="/home/men"
       />
     </div>
-    <div class="slide two">
-      <img
-        src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-UHP-11102023-uhphim-z13-p1-USPA-spykar-min55.jpg"
-        alt="image2"
-        routerLink="/home/men"
-      />
-    </div>
-    <div class="slide three">
+    <div class="carousel-item">
       <img
         src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-UHP-11102023-JIT-3-Z13-Dillinger-Thebearhouse-Min60.jpg"
-        alt="image3"
+        class="d-block w-100"
+        alt="..."
         routerLink="/home/men"
       />
     </div>
-    <div class="slide four">
+    <div class="carousel-item">
       <img
-        src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-UHP-11102023-MainBannerDailyChanging-Z1-P4-CrocsAdidasOriginals-min35.jpg"
-        alt="image4"
+        src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-UHP-11102023-uhphim-z13-p1-USPA-spykar-min55.jpg"
+        class="d-block w-100"
+        alt="..."
         routerLink="/home/men"
       />
     </div>
-    <div class="slide five">
-      <img
-        src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-UHP-11102023-uhphim-z13-p3-uspa-americaneagle-upto50.jpg"
-        alt="image5"
-        routerLink="/home/men"
-      />
-    </div>
-  </section>
-</section>
+  </div>
+
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleAutoplaying"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleAutoplaying"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+<!-- bank offers section -->
 <section class="slider_container1">
   <section class="slider1">
     <div class="slide one">
@@ -71,7 +111,9 @@
     </div>
   </section>
 </section>
-<section class="slider_container">
+
+<!-- ladies section -->
+<!-- <section class="slider_container">
   <section class="slider">
     <div class="slide one">
       <img
@@ -109,7 +151,88 @@
       />
     </div>
   </section>
-</section>
+</section> -->
+
+<!-- cariusel ladies section -->
+<div
+  id="carouselExampleAutoplayingWomen"
+  class="carousel slide"
+  data-bs-ride="carousel"
+>
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-bs-target="#carouselExampleAutoplayingWomen"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleAutoplayingWomen"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleAutoplayingWomen"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img
+        class="d-block w-100"
+        routerLink="/home/women"
+        src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-UHP-111023-UHPHER-Z14-3-STYLI-USPA-MIN60.jpg"
+        alt="image1"
+        
+      />
+    </div>
+    <div class="carousel-item">
+      <img
+        src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-WHP-111023-TOPBANNER-BU-Z4-3-HARPA-ALSACE-FLAT55.jpg"
+        class="d-block w-100"
+        alt="..."
+        routerLink="/home/women"
+      />
+    </div>
+    <div class="carousel-item">
+      <img
+        src="https://assets.ajio.com/cms/AJIO/WEB/D-1.0-UHP-111023-UHPHER-Z14-5-PUMA-CAMPUS-FLAT50.jpg"
+        class="d-block w-100"
+        alt="..."
+        routerLink="/home/women"
+      />
+    </div>
+  </div>
+
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleAutoplayingWomen"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleAutoplayingWomen"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+
+<!-- kids section -->
 <section class="slider_container">
   <section class="slider">
     <div class="slide one">
@@ -149,3 +272,4 @@
     </div>
   </section>
 </section>
+
