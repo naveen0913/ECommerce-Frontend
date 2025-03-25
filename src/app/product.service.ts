@@ -8,7 +8,7 @@ import { Product } from './product.model';
 })
 export class ProductService {
 
-  private apiUrl="http://localhost:8080/products"
+  private apiUrl="http://localhost:8080/api/product/all"
   private cartProductsUrl="http://localhost:8080/products/cart/items"
 
   public wishListItem:any=[];
@@ -24,7 +24,7 @@ export class ProductService {
   }
   
   getProductById(id:string):Observable<any>{
-    return this.http.get<any>("http://localhost:8080/products/product/"+id)
+    return this.http.get<any>("http://localhost:8080/api/product/"+id)
   }
 
   addItemTocart(id:string,quantity:Number,size:string):Observable<any>{

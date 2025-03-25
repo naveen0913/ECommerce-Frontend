@@ -55,6 +55,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { FooterComponent } from './footer/footer.component';
 import { ToastrModule } from 'ngx-toastr';
 import { HeaderComponent } from './header/header.component';
+import { GalleriaModule } from 'primeng/galleria';
 
 @NgModule({
   declarations: [
@@ -115,6 +116,7 @@ import { HeaderComponent } from './header/header.component';
     MatRadioModule, 
     NgxSpinnerModule.forRoot(),
     ToastrModule.forRoot(),
+    GalleriaModule
   ], 
   providers: [ProductService,SigninService], 
   bootstrap: [AppComponent]
