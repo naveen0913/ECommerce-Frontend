@@ -27,6 +27,7 @@ export class ProductComponent implements OnInit {
   user1: any;
   durationInSeconds = 8;
   images:any[] = [];
+  currentImage:String = '';
   constructor(private productservice: ProductService,
     private route: ActivatedRoute, private signinservice: SigninService, private modalService: BsModalService, private modalRef: BsModalRef, private dialog: MatDialog,
     private snackbar: MatSnackBar) {
@@ -51,10 +52,15 @@ export class ProductComponent implements OnInit {
   addtoCart(_item: any): void {
     this.showadd = false
     this.showRemove = true
-    this.productservice.addItemTocart(this.item.id, this.quantity, this.size).subscribe((res) => {
-      console.log("product with Id added to cart", res);
+    this.productservice.addItemTocart(this.item.data.id, this.quantity, this.size).subscribe((res) => {
+      if (res.code==200) {
+        alert("item added")
+      }else{
+        alert("Something went wrong!")
+      }
     })
   }
+
   openSnackbar(item: any): void {
     console.log(this.item);
     this.snackbar.openFromComponent(AddBagSnackbarComponent, {

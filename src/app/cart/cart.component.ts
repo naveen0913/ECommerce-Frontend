@@ -23,7 +23,7 @@ export class CartComponent implements OnInit{
   }
   ngOnInit(): void {
     this.productservice.getAllCartItems().subscribe((items)=>{
-      this.cartItems=items
+      this.cartItems=items.data;
     })
   }
   getCartItem(id:string):void{

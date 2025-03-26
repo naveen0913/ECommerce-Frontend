@@ -9,7 +9,7 @@ import { Product } from './product.model';
 export class ProductService {
 
   private apiUrl="http://localhost:8080/api/product/all"
-  private cartProductsUrl="http://localhost:8080/products/cart/items"
+  private cartProductsUrl="http://localhost:8080/api/cart/all"
 
   public wishListItem:any=[];
   
@@ -29,7 +29,7 @@ export class ProductService {
 
   addItemTocart(id:string,quantity:Number,size:string):Observable<any>{
     const body={quantity,size};
-    return this.http.post<any>("http://localhost:8080/products/cart/add/"+id,body)
+    return this.http.post<any>(`http://localhost:8080/api/cart/add/${id}`,body)
   }
   addItemToWishList(userid:string,id:string):Observable<any>{
     return this.http.post("http://localhost:8080/products/wishlist/add/"+userid+`/${id}`,"")
