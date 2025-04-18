@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { ProductService } from '../product.service';
+import { ProductService } from '../services/product.service';
 import { CheckoutComponent } from '../checkout/checkout.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AddBagSnackbar1Component } from '../add-bag-snackbar1/add-bag-snackbar1.component';

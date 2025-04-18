@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Product } from '../product.model';
-import { ProductService } from '../product.service';
-import { SigninService } from '../signin.service';
+import { ProductService } from '../services/product.service';
+import { SigninService } from '../services/signin.service';
 @Component({
   selector: 'app-women-products',
   templateUrl: './women-products.component.html',

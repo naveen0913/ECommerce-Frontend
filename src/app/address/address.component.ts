@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
-import { ProductService } from '../product.service';
-import { UserService } from '../user.service';
-import { SigninService } from '../signin.service';
+import { ProductService } from '../services/product.service';
+import { UserService } from '../services/user.service';
+import { SigninService } from '../services/signin.service';
 import {  MatDialog } from '@angular/material/dialog';
 import { EditAddressDialogComponent } from '../edit-address-dialog/edit-address-dialog.component';
 import { AddNewAddressDialogComponent } from '../add-new-address-dialog/add-new-address-dialog.component';

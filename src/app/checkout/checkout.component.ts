@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../product.service';
-import { SigninService } from '../signin.service';
+import { ProductService } from '../services/product.service';
+import { SigninService } from '../services/signin.service';
 import { BagDialogComponent } from '../bag-dialog/bag-dialog.component';
 import {  MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';

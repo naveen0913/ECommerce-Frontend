@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { ProductService } from '../product.service';
-import { SigninService } from '../signin.service';
+import { ProductService } from '../services/product.service';
+import { SigninService } from '../services/signin.service';
 MatDialogRef
 @Component({
   selector: 'app-edit-address-dialog',

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { ProductService } from '../product.service';
-import { SigninService } from '../signin.service';
+import { ProductService } from '../services/product.service';
+import { SigninService } from '../services/signin.service';
 import { Product } from '../product.model';
 @Component({
   selector: 'app-kids-products',

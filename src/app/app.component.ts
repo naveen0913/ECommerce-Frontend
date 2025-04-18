@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
-import { CommonService } from './common.service';
+import { CommonService } from './services/common.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

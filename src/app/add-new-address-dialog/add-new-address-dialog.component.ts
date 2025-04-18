@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { UserService } from '../user.service';
-import { ProductService } from '../product.service';
-import { SigninService } from '../signin.service';
+import { UserService } from '../services/user.service';
+import { ProductService } from '../services/product.service';
+import { SigninService } from '../services/signin.service';
 
 @Component({
   selector: 'app-add-new-address-dialog',

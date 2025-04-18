@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../product.service';
+import { ProductService } from '../services/product.service';
 import { JsonPipe } from '@angular/common';
-import { SigninService } from '../signin.service';
+import { SigninService } from '../services/signin.service';
 
 @Component({
   selector: 'app-orders',

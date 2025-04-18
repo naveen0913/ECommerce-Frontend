@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../product.service';
+import { ProductService } from '../services/product.service';
 import { HttpClient } from '@angular/common/http';
 import {  MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';

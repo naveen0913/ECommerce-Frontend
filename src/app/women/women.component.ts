@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SigninService } from '../signin.service';
+import { SigninService } from '../services/signin.service';
 @Component({
   selector: 'app-women',
   templateUrl: './women.component.html',

@@ -1,9 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { ProductService } from '../product.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { SigninService } from '../signin.service';
+import { SigninService } from '../services/signin.service';
 import { Product } from '../product.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ProductService } from '../services/product.service';
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
@@ -38,7 +38,7 @@ deleteCartItem(_id:string):void{
   })
 }
 addItemtoWishlist(_userid:any,_id:any):void{
-  this.productservice.addItemToWishList(this.user1,_id).subscribe((res)=>{
+  this.productservice.addItemToWishList(this.user1,_id).subscribe((res:any)=>{
     if(res.ok===false && this.user1===0){
       this.snackbar.open("Login to add Item to WishList",'close',{
         duration:this.durationInSeconds*1000,
@@ -55,7 +55,7 @@ addItemtoWishlist(_userid:any,_id:any):void{
      window.location.reload()
    }
    },
-   (error)=>{
+   (error:any)=>{
     this.snackbar.open("Error occured",'close',{
       duration:this.durationInSeconds*1000,
       verticalPosition: 'top',

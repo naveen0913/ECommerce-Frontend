@@ -1,5 +1,5 @@
 import { Component, OnInit,Inject } from '@angular/core';
-import { ProductService } from '../product.service';
+import { ProductService } from '../services/product.service';
 import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
 import { BagDialogComponent } from '../bag-dialog/bag-dialog.component';
 
