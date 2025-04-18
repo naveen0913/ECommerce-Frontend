@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SigninService } from '../services/signin.service';
-import { Product } from '../product.model';
+import { Product } from '../model/product.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ProductService } from '../services/product.service';
 @Component({
